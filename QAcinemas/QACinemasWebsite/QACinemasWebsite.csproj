@@ -104,6 +104,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Content.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GettingThere.aspx" />
     <Content Include="Logan1.jpg" />
     <Content Include="Logan2.jpg" />
     <Content Include="Logan3.jpg" />
@@ -176,6 +177,13 @@
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="GettingThere.aspx.cs">
+      <DependentUpon>GettingThere.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GettingThere.aspx.designer.cs">
+      <DependentUpon>GettingThere.aspx</DependentUpon>
     </Compile>
     <Compile Include="Members.Master.cs">
       <DependentUpon>Members.Master</DependentUpon>
