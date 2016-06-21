@@ -11,7 +11,7 @@ namespace QACinemasWebsite
     {
         bool   LoginEnabled = false;                    //DEBUG ONLY, DISABLES LOGIN REQUIREMENT. USE WITH CAUTION
         string LoggedInKey = "LoggedIn";                //TODO: Change to session key when implemented
-        string BaseLoginRequiredPath = "/login.aspx?";  //Login page base path
+        string BaseLoginRequiredPath = "/login.aspx?alert=2";  //Login page base path
 
         protected void OnInit(object sender, EventArgs e)
         {

@@ -10,6 +10,6 @@
 namespace QACinemasWebsite {
     
     
-    public partial class GettingThere {
+    public partial class Classification {
     }
 }

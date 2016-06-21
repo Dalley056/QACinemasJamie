@@ -120,6 +120,7 @@ CREATE TABLE [dbo].[Screens]
     [Name] NVARCHAR(50) NOT NULL,
     [ImgSeating] NVARCHAR(MAX) NOT NULL,
     [ImgSeatingBackdrop] NVARCHAR(MAX) NOT NULL,
+	[Deluxe] BIT NOT NULL DEFAULT 0,
     [Active] BIT NOT NULL DEFAULT 1,
     [DateAdded] DATETIME NOT NULL DEFAULT getdate(),
     CONSTRAINT [FK_Screens_Cinemas] FOREIGN KEY ([CinemaId]) REFERENCES [Cinemas]([Id])
