@@ -53,7 +53,8 @@ namespace QACinemasWebsite
                 dlstScreen.Items.Add(new ListItem(row.Name.ToString(), row.Id.ToString()));
             }
 
-            screenData = screenTableadApter.GetScreenByScreenId(Convert.ToInt64(dlstScreen.SelectedValue), true);
+            screenData = screenTableadApter.GetScreensById(Convert.ToInt64(dlstScreen.SelectedValue), true);
+
             //imgScreenView.ImageUrl = screenData[0].ImgSeatingBackdrop;
             //imgSeatLayout.ImageUrl = screenData[0].ImgSeating;
         }

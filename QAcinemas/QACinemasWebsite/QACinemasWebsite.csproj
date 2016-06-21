@@ -151,6 +151,7 @@
     <Content Include="Content\Content.css" />
     <Content Include="Error\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ForgotPass.aspx" />
     <Content Include="Logan1.jpg" />
     <Content Include="Logan2.jpg" />
     <Content Include="Logan3.jpg" />
@@ -192,6 +193,7 @@
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="RestPass.aspx" />
     <Content Include="Screens.aspx" />
     <Content Include="PlacesToGo.aspx" />
     <Content Include="register.aspx" />
@@ -241,6 +243,13 @@
     <Compile Include="Error\404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ForgotPass.aspx.cs">
+      <DependentUpon>ForgotPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPass.aspx.designer.cs">
+      <DependentUpon>ForgotPass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -269,6 +278,13 @@
     </Compile>
     <Compile Include="MovieDetails.aspx.designer.cs">
       <DependentUpon>MovieDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RestPass.aspx.cs">
+      <DependentUpon>RestPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestPass.aspx.designer.cs">
+      <DependentUpon>RestPass.aspx</DependentUpon>
     </Compile>
     <Compile Include="Screens.aspx.cs">
       <DependentUpon>Screens.aspx</DependentUpon>
