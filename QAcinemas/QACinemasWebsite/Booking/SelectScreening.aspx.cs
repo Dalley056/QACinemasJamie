@@ -21,6 +21,8 @@ namespace QACinemasWebsite.Booking
                     dlstCinema.Items.Add(new ListItem(row.Name.ToString(), row.Id.ToString()));
                 }
 
+                Session["SelectedCinemaID"] = dlstCinema.SelectedValue;
+
                 dlstMovie.Items.Add(new ListItem("<Select>", "0"));
 
                 DataSetTableAdapters.FilmsTableAdapter taFilms = new DataSetTableAdapters.FilmsTableAdapter();

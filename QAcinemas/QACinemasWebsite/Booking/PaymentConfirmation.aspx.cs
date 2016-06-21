@@ -15,14 +15,14 @@ namespace QACinemasWebsite
             // get name? user id? adddress?
             Session["Cinema"] = "Salford";
             Session["Movie"] = "Logan";
-            Session["DateTime"] = "2007-05-08 12:35:29.123";
+            Session["ShowingDateTime"] = "2007-05-08 12:35:29.123";
             Session["BookingID"] = "3";
             //Session["PriceTotal"] = ;
             // costs?
 
-            int year = Int32.Parse(Session["DateTime"].ToString().Substring(2, 2));
-            int month = Int32.Parse(Session["DateTime"].ToString().Substring(5, 2));
-            int day = Int32.Parse(Session["DateTime"].ToString().Substring(8, 2));
+            int year = Int32.Parse(Session["ShowingDateTime"].ToString().Substring(2, 2));
+            int month = Int32.Parse(Session["ShowingDateTime"].ToString().Substring(5, 2));
+            int day = Int32.Parse(Session["ShowingDateTime"].ToString().Substring(8, 2));
             //Response.Write("Year is  " + year);
             //Response.Write("<br/>");
             //Response.Write("Month is  " + month);
@@ -41,20 +41,18 @@ namespace QACinemasWebsite
 
             // QUERIES
 
-            //DataSetTableAdapters.CinemasTableAdapter cinematableadapter = new DataSetTableAdapters.CinemasTableAdapter();
-            //DataSet.CinemasDataTable cinemaData = cinematableadapter.GetCinemaByCinemaId(Convert.ToInt64(Session["SelectedCinemaID"]), true);
+            DataSetTableAdapters.CinemasTableAdapter cinematableadapter = new DataSetTableAdapters.CinemasTableAdapter();
+            DataSet.CinemasDataTable cinemaData = cinematableadapter.GetCinemaByCinemaId(Convert.ToInt64(Session["SelectedCinemaID"]), true);
 
-            //DataSetTableAdapters.FilmsTableAdapter movietableadapter = new DataSetTableAdapters.FilmsTableAdapter();
-            //DataSet.FilmsDataTable movieData = movietableadapter.GetFilmByFilmId(Convert.ToInt64(Session["SelectedMovieID"]), true);
+            DataSetTableAdapters.FilmsTableAdapter movietableadapter = new DataSetTableAdapters.FilmsTableAdapter();
+            DataSet.FilmsDataTable movieData = movietableadapter.GetFilmById(Convert.ToInt64(Session["SelectedMovieID"]));
 
-
-            //TextArea1.Value = "\nShowing of: " + movieData[0].Title + " at " + cinemaData[0].Name +
-
-            TextArea1.Value = "\nShowing of: " + Session["Movie"] + " at " + Session["Cinema"] + 
-                " Cinema \n \n" + "on " + day + "/"+month + "/" + year + " at: " + Session["DateTime"].ToString().Substring(11, 5) + 
+            //TextArea1.Value = "\nShowing of: " + Session["Movie"] + " at " + Session["Cinema"] + 
+            TextArea1.Value = "\nShowing of: " + movieData[0].Title + " at " + cinemaData[0].Name +
+                " Cinema \n \n" + "on " + day + "/"+month + "/" + year + " at: " + Session["ShowingDateTime"].ToString().Substring(11, 5) + 
                 "\n \nYour seats are \nseat1 \nseat2 \nseat3" + 
-                "\n \nYour confirmation ID is :" + Session["Cinema"].ToString().Substring(0, 2).ToUpper() + 
-                Session["DateTime"].ToString().Substring(2, 2) + Session["Movie"].ToString().Substring(0, 2).ToUpper() +  
+                "\n \nYour confirmation ID is :" + cinemaData[0].Name.ToString().Substring(0, 2).ToUpper() + 
+                Session["ShowingDateTime"].ToString().Substring(2, 2) + movieData[0].Title.ToString().Substring(0, 2).ToUpper() +  
                 Session["BookingID"] + " \n \nYour total is:  ";
 
 

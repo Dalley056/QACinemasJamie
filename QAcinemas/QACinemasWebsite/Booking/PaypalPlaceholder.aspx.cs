@@ -16,7 +16,7 @@ namespace QACinemasWebsite
 
         protected void Confirm_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("PaymentConfirmation.aspx");
         }
     }
 }

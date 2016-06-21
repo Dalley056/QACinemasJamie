@@ -31,5 +31,11 @@ namespace QACinemasWebsite.Booking
         {
             Session["NoSeats"] = dlstNoSeats.SelectedValue;
         }
+
+        protected void btnToPay_Click(object sender, EventArgs e)
+        {
+            Session["NoSeats"] = dlstNoSeats.SelectedValue;
+            Response.Redirect("PaypalPlaceholder.aspx");
+        }
     }
 }
