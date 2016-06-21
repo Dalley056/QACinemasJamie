@@ -144,6 +144,8 @@
     <Content Include="Bin\roslyn\VBCSCompiler.exe" />
     <Content Include="Bin\System.Runtime.InteropServices.RuntimeInformation.dll" />
     <Content Include="Classification.aspx" />
+    <Content Include="Booking\SelectScreening.aspx" />
+    <Content Include="Booking\SelectSeats.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -194,6 +196,7 @@
     <Content Include="Bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="Bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="AboutUs.aspx" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="DataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -231,6 +234,20 @@
     </Compile>
     <Compile Include="Classification.aspx.designer.cs">
       <DependentUpon>Classification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\SelectScreening.aspx.cs">
+      <DependentUpon>SelectScreening.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking\SelectScreening.aspx.designer.cs">
+      <DependentUpon>SelectScreening.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\SelectSeats.aspx.cs">
+      <DependentUpon>SelectSeats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking\SelectSeats.aspx.designer.cs">
+      <DependentUpon>SelectSeats.aspx</DependentUpon>
     </Compile>
     <Compile Include="ContactUs.aspx.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
