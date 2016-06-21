@@ -143,6 +143,7 @@
     <Content Include="Bin\roslyn\vbc.exe" />
     <Content Include="Bin\roslyn\VBCSCompiler.exe" />
     <Content Include="Bin\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="Classification.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
