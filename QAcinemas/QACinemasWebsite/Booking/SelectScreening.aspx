@@ -8,11 +8,11 @@
         </asp:DropDownList>
         <br />
         <asp:Label ID="lblMovie" runat="server" Text="Movie:"></asp:Label>
-        <asp:DropDownList ID="dlstMovie" runat="server" OnSelectedIndexChanged="dlstMovie_SelectedIndexChanged" AutoPostBack="True">
+        <asp:DropDownList ID="dlstMovie" runat="server" OnSelectedIndexChanged="dlstMovie_SelectedIndexChanged">
         </asp:DropDownList>
         <br />
         <asp:Label ID="lblScreenType" runat="server" Text="Screen Type:"></asp:Label>
-        <asp:DropDownList ID="dlstScreenType" runat="server" OnSelectedIndexChanged="dlstScreenType_SelectedIndexChanged" AutoPostBack="True">
+        <asp:DropDownList ID="dlstScreenType" runat="server" OnSelectedIndexChanged="dlstScreenType_SelectedIndexChanged">
         </asp:DropDownList>
         <br />
         <asp:Label ID="lblTime" runat="server" Text="Date(?):"></asp:Label>
