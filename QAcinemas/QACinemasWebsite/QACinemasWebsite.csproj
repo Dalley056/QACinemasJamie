@@ -160,6 +160,10 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="MovieListingGallarey.aspx" />
+    <Content Include="NewReleaseGallery.aspx" />
+    <Content Include="OpeningTimes.aspx" />
+    <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -234,12 +238,40 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Classification.aspx.cs">
+      <DependentUpon>Classification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classification.aspx.designer.cs">
+      <DependentUpon>Classification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.Master.cs">
       <DependentUpon>Default.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MovieListingGallarey.aspx.cs">
+      <DependentUpon>MovieListingGallarey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MovieListingGallarey.aspx.designer.cs">
+      <DependentUpon>MovieListingGallarey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewReleaseGallery.aspx.cs">
+      <DependentUpon>NewReleaseGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewReleaseGallery.aspx.designer.cs">
+      <DependentUpon>NewReleaseGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OpeningTimes.aspx.cs">
+      <DependentUpon>OpeningTimes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpeningTimes.aspx.designer.cs">
+      <DependentUpon>OpeningTimes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>
