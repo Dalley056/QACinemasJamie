@@ -178,6 +178,8 @@
     </Content>
     <Content Include="Error\404.aspx" />
     <Content Include="GettingThere.aspx" />
+    <Content Include="PaymentConfirmation.aspx" />
+    <Content Include="PaypalPlaceholder.aspx" />
     <Content Include="SelectSeats.aspx" />
     <Content Include="PaymentSystem.aspx" />
     <Content Include="BookingTicket.aspx" />
@@ -259,6 +261,20 @@
     </Compile>
     <Compile Include="Members.Master.designer.cs">
       <DependentUpon>Members.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentConfirmation.aspx.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentConfirmation.aspx.designer.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaypalPlaceholder.aspx.cs">
+      <DependentUpon>PaypalPlaceholder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaypalPlaceholder.aspx.designer.cs">
+      <DependentUpon>PaypalPlaceholder.aspx</DependentUpon>
     </Compile>
     <Compile Include="PlacesToGo.aspx.cs">
       <DependentUpon>PlacesToGo.aspx</DependentUpon>
