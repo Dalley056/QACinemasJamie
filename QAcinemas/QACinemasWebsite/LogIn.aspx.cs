@@ -28,6 +28,7 @@ namespace QACinemasWebsite
                 DataSetTableAdapters.UsersTableAdapter usertableadapter = new DataSetTableAdapters.UsersTableAdapter();
                 Session["LoggedIn"] = true;
                 Session["UserInfo"] = usertableadapter.GetDataByUsernameIgnoreActive(username)[0];
+                                    //screenTableadApter.GetScreensByCinemaId(1, true);
                 System.Diagnostics.Debug.WriteLine("Login passed");
             }
             else
