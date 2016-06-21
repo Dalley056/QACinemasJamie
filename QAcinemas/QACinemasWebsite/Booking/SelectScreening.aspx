@@ -8,7 +8,7 @@
         </asp:DropDownList>
         <br />
         <asp:Label ID="lblMovie" runat="server" Text="Movie:"></asp:Label>
-        <asp:DropDownList ID="dlstMovie" runat="server" OnSelectedIndexChanged="dlstMovie_SelectedIndexChanged">
+        <asp:DropDownList ID="dlstMovie" runat="server" OnSelectedIndexChanged="dlstMovie_SelectedIndexChanged" AutoPostBack="True">
         </asp:DropDownList>
         <br />
         <asp:Label ID="lblScreenType" runat="server" Text="Screen Type:"></asp:Label>
@@ -43,9 +43,9 @@
                 <asp:Parameter Name="DateAdded" Type="DateTime" />
             </InsertParameters>
             <SelectParameters>
-                <asp:ControlParameter ControlID="dlstMovie" DefaultValue="0" Name="film_id" PropertyName="SelectedValue" Type="Int64" />
-                <asp:Parameter DefaultValue="True" Name="active" Type="Boolean" />
-                <asp:ControlParameter ControlID="dlstCinema" DefaultValue="0" Name="cinema_id" PropertyName="SelectedValue" Type="Int64" />
+                <asp:Parameter DefaultValue="1" Name="film_id" Type="Int64" />
+                <asp:Parameter DefaultValue="true" Name="active" Type="Boolean" />
+                <asp:Parameter DefaultValue="1" Name="cinema_id" Type="Int64" />
             </SelectParameters>
             <UpdateParameters>
                 <asp:Parameter Name="ScreenId" Type="Int64" />
