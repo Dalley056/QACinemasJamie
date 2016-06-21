@@ -54,15 +54,21 @@
                 <img class="img-responsive; img-rounded" height="400" width="300" src="Images\Static_MovieLoganMain.jpg" alt="LoganMain" />
             </div>
             <div class="col-sm-7">
-                Here need to pull the classification of the film from database
+                <div class="container" id="titledata" runat="server" style="font-size:18px"></div>
+                
+                <%--Here need to pull the classification of the film from database--%>
+                <div class="container" id ="classificationdata" runat="server"></div>
                 <br />
-                Need to pull the movie info from the database
+                <%--Need to pull the movie info from the database--%>
+                <div class="container" id="descriptiondata" runat="server"></div>
                 <br />
                 Need to pull the movie's actors and director from database
                 <br />
-                Need to pull the movie's release date from database
+                <%--Need to pull the movie's release date from database--%>
+                <div class="container" id="releasedatedata" runat="server"></div>
                 <br />
-                Need to pull the movie's duration from database
+                <%--Need to pull the movie's duration from database--%>
+                <div class="container" id="durationdata" runat="server"></div>
                 <br />
             </div>
         </div>
