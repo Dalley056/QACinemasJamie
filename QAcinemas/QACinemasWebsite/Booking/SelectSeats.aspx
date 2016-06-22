@@ -27,6 +27,6 @@
         <asp:Image ID="imgInteractiveSeats" runat="server" Height="500px" Width="500px" />
         <br />
         This will also grab from the session and calculate the price based on number of seats selected<br />
-        <asp:Button ID="btnToPay" runat="server" Text="To Payment" />
+        <asp:Button ID="btnToPay" runat="server" Text="To Payment" OnClick="btnToPay_Click" />
     </form>
 </asp:Content>

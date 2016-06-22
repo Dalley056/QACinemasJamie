@@ -20,7 +20,7 @@ namespace QACinemasWebsite.Booking
             DataSet.ShowingsDataTable showingsData = showingsAdapter.GetData();
 
             DataSetTableAdapters.FilmsTableAdapter taFilms = new DataSetTableAdapters.FilmsTableAdapter();
-            DataSet.FilmsDataTable fData = taFilms.GetFilmById(Convert.ToInt64(Session["MovieID"]));
+            DataSet.FilmsDataTable fData = taFilms.GetFilmById(Convert.ToInt64(Session["SelectedMovieID"]));
 
             //Format the start times*************************
             lblFilmStuff.Text = "Booking for the " + showingsData[0].StartTime + " showing of " + fData[0].Title + " on " + showingsData[0].StartTime;
@@ -30,6 +30,12 @@ namespace QACinemasWebsite.Booking
         protected void dlstNoSeats_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["NoSeats"] = dlstNoSeats.SelectedValue;
+        }
+
+        protected void btnToPay_Click(object sender, EventArgs e)
+        {
+            Session["NoSeats"] = dlstNoSeats.SelectedValue;
+            Response.Redirect("PaypalPlaceholder.aspx");
         }
     }
 }
