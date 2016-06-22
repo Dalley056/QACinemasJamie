@@ -11,5 +11,14 @@ namespace QACinemasWebsite {
     
     
     public partial class GettingThere {
+        
+        /// <summary>
+        /// DDLCinimas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLCinimas;
     }
 }

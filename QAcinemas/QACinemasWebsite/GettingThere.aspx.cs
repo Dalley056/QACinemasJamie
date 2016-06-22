@@ -19,44 +19,53 @@ namespace QACinemasWebsite
         {
             var address = new DataSetTableAdapters.AddressesTableAdapter();
             var cinima = new DataSetTableAdapters.CinemasTableAdapter();
+            int cinemaId = 1;
+            DataSetTableAdapters.CinemasTableAdapter cinemas = new DataSetTableAdapters.CinemasTableAdapter();
 
-            //getting the long and altatude of the cinima
+            if (!IsPostBack)
+            {
+                DataSet.CinemasDataTable listCinemas = cinima.GetData();
+
+                DDLCinimas.DataSource = listCinemas;
+                DDLCinimas.DataBind();
+            }
+            
+
 
             if (Request["cinema"] != null)
             {
-                int cinemaId = Int32.Parse(Request["cinema"].ToString());
+                cinemaId = Int32.Parse(Request["cinema"].ToString());
+            }
 
-                DataSet.AddressesDataTable addressData = address.GetAddressByCinemaId(cinemaId, true);
+            cinemaId = Int32.Parse(DDLCinimas.SelectedValue);
+            DataSet.AddressesDataTable addressData = address.GetAddressByCinemaId(cinemaId, true);
 
-                if (addressData != null && addressData.Count == 1)
-                {
-                    //cords for google maps
-                    lat = Convert.ToDecimal(addressData[0].CoordY);
-                    lon = Convert.ToDecimal(addressData[0].CoordX);
+            if (addressData != null && addressData.Count == 1)
+            {
+                //cords for google maps
+                lat = Convert.ToDecimal(addressData[0].CoordY);
+                lon = Convert.ToDecimal(addressData[0].CoordX);
 
-                    //address details
-                    line1 = addressData[0].Line1;
-                    line2 = addressData[0].Line2;
-                    city = addressData[0].City;
-                    region = addressData[0].Region;
-                    country = addressData[0].Country;
-                    postcode = addressData[0].Postcode;
-
-                }
-
-                DataSet.CinemasDataTable cinemaData = cinima.GetCinemaByCinemaId(cinemaId, true);
-
-                if (cinemaData != null && cinemaData.Count == 1)
-                {
-                    name = cinemaData[0].Name;
-                    cinemaImg = cinemaData[0].ImgLarge;
-                    parkingImg = cinemaData[0].ImgParking;
-                    Description = cinemaData[0].Description;
-                }
-
-                // Getting the cinima discirption
+                //address details
+                line1 = addressData[0].Line1;
+                line2 = addressData[0].Line2;
+                city = addressData[0].City;
+                region = addressData[0].Region;
+                country = addressData[0].Country;
+                postcode = addressData[0].Postcode;
 
             }
+
+            DataSet.CinemasDataTable cinemaData = cinima.GetCinemaByCinemaId(cinemaId, true);
+
+            if (cinemaData != null && cinemaData.Count == 1)
+            {
+                name = cinemaData[0].Name;
+                cinemaImg = cinemaData[0].ImgLarge;
+                parkingImg = cinemaData[0].ImgParking;
+                Description = cinemaData[0].Description;
+            }
+            
 
 
 

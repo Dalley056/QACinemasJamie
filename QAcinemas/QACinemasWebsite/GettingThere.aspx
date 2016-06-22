@@ -8,26 +8,35 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3><%=name %>
-                        </h3>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <img class="img-rounded" alt="http://lorempixel.com/140/140/" src="<%=cinemaImg%>" width="800" height="400" />
-                            </div>
-                            <div class="col-md-4">
-                                <h4>Cinima Description</h4>
-                                <p>
-                                    <%=Description %>
-                                </p>
-
-                            </div>
+                        <h3><%=name %> </h3>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="selectbasic">Select Cinema :</label>
+                        <div class="col-md-3 col-md-offset-0">
+                            <asp:DropDownList ID="DDLCinimas" class="form-control" runat="server" DataTextField="name" DataValueField="id" AutoPostBack="True"></asp:DropDownList>
+                            <br />
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <img class="img-rounded" alt="http://lorempixel.com/140/140/" src="<%=cinemaImg%>" width="800" height="400" />
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Cinema Description</h4>
+                            <p>
+                                <%=Description %>
+                            </p>
+
+                        </div>
+                    </div>
+
                 </div>
                 <div class="row">
+                    <div class="col-md-12">
+                        <h3>How to get there </h3>
+                    </div>
                     <div class="col-md-8">
-                        <h3>How to Get There</h3>
-                        <div id="map" style="width: 90%; height: 400px"></div>
+                        <div id="map" style="width:800px; height: 400px"></div>
 
                         <script>
                             function myMap() {
@@ -61,10 +70,12 @@
                         </address>
                     </div>
                 </div>
+                <div class="col-md-12">
+                    <h3>Parking </h3>
+                </div>
                 <div class="row">
                     <div class="col-md-8">
-                        <h3>Parking
-                        </h3>
+                        >
                         <%=parkingImg %>
                         <img class="img-rounded" alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" width="800" height="400" />
                     </div>
