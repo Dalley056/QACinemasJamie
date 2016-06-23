@@ -40,7 +40,7 @@
                 <label class="col-md-4 control-label" for="TextBoxCVC">CVC</label>
                 <div class="col-md-4">
                     <input id="TextBoxCVC" name="TextBoxCVC" type="text" maxlength="3" placeholder="Enter your security code" class="form-control input-md" required="" runat="server" min="3" />
-                    <span class="help-block">This is the 3 digit number on the back of your card</span>
+                    <span id="CVCHelp" class="help-block" runat="server">This is the 3 digit number on the back of your card</span>
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
                 <label class="col-md-4 control-label" for="TextBoxCardNumber">Card Number</label>
                 <div class="col-md-4">
                     <input id="TextBoxCardNumber" name="TextBoxCardNumber" type="text" maxlength="16" placeholder="Enter card number" class="form-control input-md" required="" runat="server" min="16"/>
-                    <span class="help-block">This is the 16 digit number on the front of your card</span>
+                    <span id="CardNumHelp" class="help-block" runat="server">This is the 16 digit number on the front of your card</span>
                 </div>
 
             </div>

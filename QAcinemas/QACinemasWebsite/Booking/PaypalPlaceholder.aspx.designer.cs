@@ -49,6 +49,15 @@ namespace QACinemasWebsite {
         protected global::System.Web.UI.HtmlControls.HtmlInputText TextBoxCVC;
         
         /// <summary>
+        /// CVCHelp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CVCHelp;
+        
+        /// <summary>
         /// TextBoxCardNumber control.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,14 @@ namespace QACinemasWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText TextBoxCardNumber;
+        
+        /// <summary>
+        /// CardNumHelp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CardNumHelp;
     }
 }
