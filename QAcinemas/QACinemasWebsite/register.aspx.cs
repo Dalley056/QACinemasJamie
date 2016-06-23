@@ -27,7 +27,7 @@ namespace QACinemasWebsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+            Alert_Composer();
         }
 
         protected void textBoxEmail_TextChanged(object sender, EventArgs e)
@@ -38,27 +38,24 @@ namespace QACinemasWebsite
         protected void textBoxRegister_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("REGISTER CLICKED");
-            string ADDR1        = textBoxALine1.Text;
-            string ADDR2        = textBoxALine2.Text;
-            string CITY         = textBoxACity.Text;
-            string REGION       = textBoxARegion.Text;
-            string COUNTRY      = textBoxACountry.Text;
-            string POSTCODE     = textBoxAPost.Text;
-            string USERNAME     = textBoxUsername.Text;
-            string PASSWORD     = textBoxPassword.Text;
-            string EMAIL        = textBoxEmail.Text;
-            string PHONENO      = textBoxPhonNo.Text;
-            string FIRSTNAME    = textBoxFirstN.Text;
-            string LASTNAME     = textBoxLastN.Text;
+            string ADDR1 = textBoxALine1.Text;
+            string ADDR2 = textBoxALine2.Text;
+            string CITY = textBoxACity.Text;
+            string REGION = textBoxARegion.Text;
+            string COUNTRY = textBoxACountry.Text;
+            string POSTCODE = textBoxAPost.Text;
+            string USERNAME = textBoxUsername.Text;
+            string PASSWORD = textBoxPassword.Text;
+            string EMAIL = textBoxEmail.Text;
+            string PHONENO = textBoxPhonNo.Text;
+            string FIRSTNAME = textBoxFirstN.Text;
+            string LASTNAME = textBoxLastN.Text;
 
             //Validate
 
 
             //Register
             Register_User(ADDR1, ADDR2, CITY, REGION, COUNTRY, POSTCODE, USERNAME, PASSWORD, EMAIL, PHONENO, FIRSTNAME, LASTNAME);
-
-
-
         }
 
         protected void textBoxUsername_TextChanged(object sender, EventArgs e)
@@ -70,7 +67,7 @@ namespace QACinemasWebsite
             string username, string password, string email, string phoneno, string firstname, string lastname)
         {
             //STEP 1: Get Hash/Salt for password
-            Auth.AuthData authdata = Auth.PasswordToHashSalt(password);
+            Auth.AuthData authdata = Auth.StringToHashSalt(password);
 
             //STEP 2: (Optional) Attempt to get coords for address
             string coordsX = "0";
@@ -78,11 +75,49 @@ namespace QACinemasWebsite
 
 
             //STEP 3: Register!
-            DataSetTableAdapters.QueriesTableAdapter querytableadapter = new DataSetTableAdapters.QueriesTableAdapter();
-            querytableadapter.RegisterUser(addr1, addr2, city, region, country, postcode, coordsX, coordsY, true,
-                                            username, authdata.Hash, authdata.Salt, email, phoneno, firstname, lastname, true);
-            
+            try
+            {
+                DataSetTableAdapters.QueriesTableAdapter querytableadapter = new DataSetTableAdapters.QueriesTableAdapter();
+                querytableadapter.RegisterUser(addr1, addr2, city, region, country, postcode, coordsX, coordsY, true,
+                                                username, authdata.Hash, authdata.Salt, email, phoneno, firstname, lastname, true);
+            }
+            catch (Exception exc)
+            {
+                if(exc.Message.Contains("Cannot insert duplicate key in object 'dbo.Users'"))
+                Alert_Composer("alert-danger", "Could not register account!", "Username already exists. Try another one.");
+                return;
+            }
 
+            Response.Redirect("/Login.aspx?alert=4&username="+textBoxUsername.Text);
+
+
+
+        }
+        protected void Alert_Composer()
+        {
+
+
+            if (Request["alert"] != null)
+            {
+                string alerttype = Request["alert"].ToString();
+
+                switch (alerttype)
+                {
+                    case "1": //Log in to continue
+                        Alert_Composer("alert-danger", "Could not register account", "Please try again.");
+                        break;
+                    default:
+                        return;
+                }
+                alertcomponent.Visible = true;
+            }
+        }
+        protected void Alert_Composer(string attribute, string header, string body, bool visible = true)
+        {
+            alertcomponent.Attributes["class"] += " " + attribute;
+            alertheader.InnerHtml = header;
+            alertbody.InnerHtml = body;
+            alertcomponent.Visible = visible;
         }
     }
 }
