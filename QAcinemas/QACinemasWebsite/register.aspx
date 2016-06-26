@@ -157,16 +157,7 @@
                                         <asp:TextBox ID="textBoxACountry" name="textBoxACountry" class="form-control input-md" required="" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
-
-                                <!-- Select Country -->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label" for="DropDownCountry">Country</label>
-                                    <div class="col-md-7">
-                                        <asp:DropDownList ID="DropDownCountry" name="DropDownCountry" class="form-control" runat="server"></asp:DropDownList>
-
-                                    </div>
-                                </div>
-
+                              
                                 <!-- Register Button -->
                                 <div class="form-group ">
                                     <div class="col-md-12 center-block">

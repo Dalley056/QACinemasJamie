@@ -157,15 +157,6 @@ namespace QACinemasWebsite {
         protected global::System.Web.UI.WebControls.TextBox textBoxACountry;
         
         /// <summary>
-        /// DropDownCountry control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownCountry;
-        
-        /// <summary>
         /// textBoxRegister control.
         /// </summary>
         /// <remarks>
