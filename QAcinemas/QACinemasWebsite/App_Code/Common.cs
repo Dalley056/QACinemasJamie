@@ -14,6 +14,9 @@ namespace QACinemasWebsite.App_Code
     /// </summary>
     public class Common
     {
+        /// <summary>
+        /// Email Subclass
+        /// </summary>
         public static class Email
         {
             static string Username = "qacinemasbot@gmail.com";
@@ -22,6 +25,12 @@ namespace QACinemasWebsite.App_Code
             static bool SSL = true;
             static string Server = "smtp.gmail.com";
 
+            /// <summary>
+            /// Sends a single email to an email address
+            /// </summary>
+            /// <param name="To">Recepient email address</param>
+            /// <param name="Subject">Subject of the email</param>
+            /// <param name="Body">Body of the email</param>
             public static void SendEmail(string To, string Subject, string Body)
             {
                 var client = new SmtpClient(Server, Port)
