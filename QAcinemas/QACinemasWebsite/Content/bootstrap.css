@@ -6514,6 +6514,9 @@ button.close {
   display: block;
   margin-right: auto;
   margin-left: auto;
+    top: 0px;
+    left: 0px;
+    height: 52px;
 }
 .pull-right {
   float: right !important;

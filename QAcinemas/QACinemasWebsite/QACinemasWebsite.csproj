@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -17,7 +17,8 @@
     <AssemblyName>QACinemasWebsite</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -71,11 +72,27 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.1.1.0\lib\net451\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.KeyDerivation.1.1.0\lib\net451\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -97,18 +114,60 @@
     <Content Include="App_Data\README - How to set up DB.txt" />
     <Content Include="App_Data\STEP1_Populate_DB.sql" />
     <Content Include="App_Data\STEP2_Add_Data.sql" />
+    <Content Include="Bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="Bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="Bin\Microsoft.AI.DependencyCollector.xml" />
+    <Content Include="Bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="Bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="Bin\Microsoft.AI.ServerTelemetryChannel.xml" />
+    <Content Include="Bin\Microsoft.AI.Web.dll" />
+    <Content Include="Bin\Microsoft.AI.Web.xml" />
+    <Content Include="Bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="Bin\Microsoft.AI.WindowsServer.xml" />
+    <Content Include="Bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="Bin\Microsoft.ApplicationInsights.xml" />
+    <Content Include="Bin\Microsoft.AspNetCore.Cryptography.Internal.dll" />
+    <Content Include="Bin\Microsoft.AspNetCore.Cryptography.Internal.xml" />
+    <Content Include="Bin\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll" />
+    <Content Include="Bin\Microsoft.AspNetCore.Cryptography.KeyDerivation.xml" />
+    <Content Include="Bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="Bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="Bin\QACinemasWebsite.dll" />
+    <Content Include="Bin\QACinemasWebsite.pdb" />
+    <Content Include="Bin\roslyn\csc.exe" />
+    <Content Include="Bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="Bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="Bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="Bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="Bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="Bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="Bin\roslyn\vbc.exe" />
+    <Content Include="Bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="Bin\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="Classification.aspx" />
+    <Content Include="Booking\SelectScreening.aspx" />
+    <Content Include="Booking\SelectSeats.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Content.css" />
+    <Content Include="Error\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ForgotPass.aspx" />
     <Content Include="Logan1.jpg" />
     <Content Include="Logan2.jpg" />
     <Content Include="Logan3.jpg" />
     <Content Include="Logan4.jpg" />
     <Content Include="LoganMain.jpg" />
+    <Content Include="LogIn.aspx" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="MovieListingGallarey.aspx" />
+    <Content Include="NewReleaseGallery.aspx" />
+    <Content Include="OpeningTimes.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -125,14 +184,23 @@
     <Content Include="Members.Master" />
     <Content Include="DataSet.xsc">
       <DependentUpon>DataSet.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Error\404.aspx" />
     <Content Include="GettingThere.aspx" />
+    <Content Include="Booking\PaymentConfirmation.aspx" />
+    <Content Include="Booking\PaypalPlaceholder.aspx" />
     <Content Include="SelectSeats.aspx" />
     <Content Include="PaymentSystem.aspx" />
     <Content Include="BookingTicket.aspx" />
     <Content Include="MovieDetails.aspx" />
+    <Content Include="Bin\ApplicationInsights.config" />
+    <Content Include="Bin\QACinemasWebsite.dll.config" />
+    <Content Include="Bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="Bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="Bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="AboutUs.aspx" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="DataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -140,10 +208,13 @@
     </None>
     <Content Include="DataSet.xss">
       <DependentUpon>DataSet.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="RestPass.aspx" />
     <Content Include="Screens.aspx" />
     <Content Include="PlacesToGo.aspx" />
+    <Content Include="register.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -160,6 +231,30 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Auth.cs" />
+    <Compile Include="App_Code\Booking.cs" />
+    <Compile Include="App_Code\Common.cs" />
+    <Compile Include="Classification.aspx.cs">
+      <DependentUpon>Classification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classification.aspx.designer.cs">
+      <DependentUpon>Classification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\SelectScreening.aspx.cs">
+      <DependentUpon>SelectScreening.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking\SelectScreening.aspx.designer.cs">
+      <DependentUpon>SelectScreening.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\SelectSeats.aspx.cs">
+      <DependentUpon>SelectSeats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking\SelectSeats.aspx.designer.cs">
+      <DependentUpon>SelectSeats.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ContactUs.aspx.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -182,12 +277,68 @@
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
     </Compile>
+    <Compile Include="MovieListingGallarey.aspx.cs">
+      <DependentUpon>MovieListingGallarey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MovieListingGallarey.aspx.designer.cs">
+      <DependentUpon>MovieListingGallarey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewReleaseGallery.aspx.cs">
+      <DependentUpon>NewReleaseGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewReleaseGallery.aspx.designer.cs">
+      <DependentUpon>NewReleaseGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OpeningTimes.aspx.cs">
+      <DependentUpon>OpeningTimes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpeningTimes.aspx.designer.cs">
+      <DependentUpon>OpeningTimes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPass.aspx.cs">
+      <DependentUpon>ForgotPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ForgotPass.aspx.designer.cs">
+      <DependentUpon>ForgotPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.aspx.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogIn.aspx.designer.cs">
+      <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Members.Master.cs">
       <DependentUpon>Members.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Members.Master.designer.cs">
       <DependentUpon>Members.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\PaymentConfirmation.aspx.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking\PaymentConfirmation.aspx.designer.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\PaypalPlaceholder.aspx.cs">
+      <DependentUpon>PaypalPlaceholder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking\PaypalPlaceholder.aspx.designer.cs">
+      <DependentUpon>PaypalPlaceholder.aspx</DependentUpon>
     </Compile>
     <Compile Include="PlacesToGo.aspx.cs">
       <DependentUpon>PlacesToGo.aspx</DependentUpon>
@@ -203,6 +354,13 @@
     </Compile>
     <Compile Include="MovieDetails.aspx.designer.cs">
       <DependentUpon>MovieDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RestPass.aspx.cs">
+      <DependentUpon>RestPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RestPass.aspx.designer.cs">
+      <DependentUpon>RestPass.aspx</DependentUpon>
     </Compile>
     <Compile Include="Screens.aspx.cs">
       <DependentUpon>Screens.aspx</DependentUpon>
@@ -246,8 +404,18 @@
     <Compile Include="BookingTicket.aspx.designer.cs">
       <DependentUpon>BookingTicket.aspx</DependentUpon>
     </Compile>
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_GlobalResources\" />
+    <Folder Include="App_LocalResources\" />
+    <Folder Include="Images\Cinemas\" />
     <Folder Include="App_Code\" />
     <Folder Include="Images\" />
   </ItemGroup>
@@ -280,8 +448,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
