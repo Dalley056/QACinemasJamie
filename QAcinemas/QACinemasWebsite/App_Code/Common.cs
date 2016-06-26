@@ -5,6 +5,9 @@ using System.Web;
 
 namespace QACinemasWebsite.App_Code
 {
+    /// <summary>
+    /// QACinemasWebsite common functionality class
+    /// </summary>
     public class Common
     {
 

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using QACinemasWebsite.App_Code;
 using System.Net.Mail;
 using System.Net;
-
+using System.Text.RegularExpressions;
 
 namespace QACinemasWebsite
 {
@@ -46,18 +46,63 @@ namespace QACinemasWebsite
             string POSTCODE = textBoxAPost.Text;
             string USERNAME = textBoxUsername.Text;
             string PASSWORD = textBoxPassword.Text;
+            string PASSWORD2 = inputPasswordConfirm.Text;
             string EMAIL = textBoxEmail.Text;
             string PHONENO = textBoxPhonNo.Text;
             string FIRSTNAME = textBoxFirstN.Text;
             string LASTNAME = textBoxLastN.Text;
 
             //Validate
+            checkMail(EMAIL);
+            checkPass(PASSWORD, PASSWORD2);
 
-
+            if (PHONENO.Length < 8 || PHONENO.Length > 15) valadetErr(5);
             //Register
             Register_User(ADDR1, ADDR2, CITY, REGION, COUNTRY, POSTCODE, USERNAME, PASSWORD, EMAIL, PHONENO, FIRSTNAME, LASTNAME);
         }
+        //validation methods
+        private void checkMail(string email)
+        {
+            bool isValid = true;
 
+            isValid = Regex.IsMatch(email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+
+            if (!isValid)
+            {
+                valadetErr(2);
+            }
+
+        }
+
+        private void checkPass(string pass1, string pass2)
+        {
+            bool isValid = true;
+            int error = 3;
+
+            //check if password is valid
+            if (pass1.Length < 6 || pass1.Length > 20 || pass1.Any(char.IsDigit)) isValid = false;
+
+            if (pass1 != pass2)
+            //check if password match
+            {
+                isValid = false;
+                error = 4;
+            }
+
+            if (!isValid)
+            //send error message
+            {
+                valadetErr(error);
+            }
+        }
+
+        private void valadetErr(int err)
+        {
+            Response.Redirect("/register.aspx?alert=" + err);
+        }
+
+
+        // end of validation method
         protected void textBoxUsername_TextChanged(object sender, EventArgs e)
         {
 
@@ -83,12 +128,12 @@ namespace QACinemasWebsite
             }
             catch (Exception exc)
             {
-                if(exc.Message.Contains("Cannot insert duplicate key in object 'dbo.Users'"))
-                Alert_Composer("alert-danger", "Could not register account!", "Username already exists. Try another one.");
+                if (exc.Message.Contains("Cannot insert duplicate key in object 'dbo.Users'"))
+                    Alert_Composer("alert-danger", "Could not register account!", "Username already exists. Try another one.");
                 return;
             }
 
-            Response.Redirect("/Login.aspx?alert=4&username="+textBoxUsername.Text);
+            Response.Redirect("/Login.aspx?alert=4&username=" + textBoxUsername.Text);
 
 
 
@@ -105,6 +150,18 @@ namespace QACinemasWebsite
                 {
                     case "1": //Log in to continue
                         Alert_Composer("alert-danger", "Could not register account", "Please try again.");
+                        break;
+                    case "2": //Email address not in correct format
+                        Alert_Composer("alert-danger", "Email Address must be a valid format e.g. usernam@domain.com ", "Please try again.");
+                        break;
+                    case "3": //Password is not valid
+                        Alert_Composer("alert-danger", "Password must be over 6 characters, under 20 and must contain at least one number", "Please try again.");
+                        break;
+                    case "4": //Password does not match
+                        Alert_Composer("alert-danger", "Password and repeat password do not match", "Please try again.");
+                        break;
+                    case "5": //Log in to continue
+                        Alert_Composer("alert-danger", "Phone Number length must be between 8-15 characters", "Please try again.");
                         break;
                     default:
                         return;
