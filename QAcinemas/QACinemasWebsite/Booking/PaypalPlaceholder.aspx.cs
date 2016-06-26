@@ -18,7 +18,8 @@ namespace QACinemasWebsite
         {
             if (TextBoxCVC.Value.Length == 3 && TextBoxCardNumber.Value.Length == 16)
             {
-                Response.Redirect("PaymentConfirmation.aspx");                
+                Response.Redirect("PaymentConfirmation.aspx");
+                // will we store or send card info?           
             }
             if (TextBoxCVC.Value.Length !=3)
             {

@@ -55,7 +55,7 @@
             </div>
 
             
-            <!-- LogIn Button -->
+            <!-- Confirm Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ButtonConfirm"></label>
                 <div class="col-md-4">

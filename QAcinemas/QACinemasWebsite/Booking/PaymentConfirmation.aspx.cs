@@ -54,7 +54,7 @@ namespace QACinemasWebsite
                 "\n \nYour confirmation ID is :" + cinemaData[0].Name.ToString().Substring(0, 2).ToUpper() + 
                 Session["ShowingDateTime"].ToString().Substring(2, 2) + movieData[0].Title.ToString().Substring(0, 2).ToUpper() +  
                 Session["BookingID"] + " \n \nYour total is:  ";
-
+            // Replace with session objects
 
         }
 
