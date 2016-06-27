@@ -17,8 +17,16 @@ namespace QACinemasWebsite
             Session["Movie"] = "Logan";
             Session["ShowingDateTime"] = "2007-05-08 12:35:29.123";
             Session["BookingID"] = "3";
+            //Session["ShowingID"] = ;
+            //Session["SeatPrice"] = ;
+            // Session["ScreenType"] = "Standard";
             //Session["PriceTotal"] = ;
+            //Session["NoSeats"] =;
+            //Session 
             // costs?
+
+            Response.Write(Session["Cinema"].ToString() + Session["Movie"].ToString() + Session["ShowingDateTime"].ToString() + Session["BookingID"].ToString());
+            Response.Write(Session["SelectedCinemaID"].ToString() + Session["SelectedMovieID"].ToString() + Session["ScreenType"].ToString() );
 
             int year = Int32.Parse(Session["ShowingDateTime"].ToString().Substring(2, 2));
             int month = Int32.Parse(Session["ShowingDateTime"].ToString().Substring(5, 2));
@@ -55,6 +63,8 @@ namespace QACinemasWebsite
                 Session["ShowingDateTime"].ToString().Substring(2, 2) + movieData[0].Title.ToString().Substring(0, 2).ToUpper() +  
                 Session["BookingID"] + " \n \nYour total is:  ";
             // Replace with session objects
+
+
 
         }
 
