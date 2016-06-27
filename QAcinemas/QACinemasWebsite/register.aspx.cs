@@ -7,24 +7,13 @@ using System.Web.UI.WebControls;
 using QACinemasWebsite.App_Code;
 using System.Net.Mail;
 using System.Net;
-
+using System.Text.RegularExpressions;
 
 namespace QACinemasWebsite
 {
     public partial class register : System.Web.UI.Page
     {
-        int MINLENGTH_FIRSTNAME = 1;
-        int MINLENGTH_LASTNAME = 2;
-        int MINLENGTH_EMAIL = 6;
-        int MINLENGTH_USERNAME = 3;
-        int MINLENGTH_PASSWORD = 6;
-        int MINLENGTH_PHONE = 6;
-        int MINLENGTH_PCODE = 3;
-        int MINLENGTH_LINE1 = 1;
-        int MINLENGTH_LINE2 = 0;
-        int MINLENGTH_REGION = 1;
-        int MINLENGTH_COUNTRY = 2;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             Alert_Composer();
@@ -46,6 +35,7 @@ namespace QACinemasWebsite
             string POSTCODE = textBoxAPost.Text;
             string USERNAME = textBoxUsername.Text;
             string PASSWORD = textBoxPassword.Text;
+            string PASSWORD2 = inputPasswordConfirm.Text;
             string EMAIL = textBoxEmail.Text;
             string PHONENO = textBoxPhonNo.Text;
             string FIRSTNAME = textBoxFirstN.Text;
@@ -54,10 +44,89 @@ namespace QACinemasWebsite
             //Validate
 
 
-            //Register
-            Register_User(ADDR1, ADDR2, CITY, REGION, COUNTRY, POSTCODE, USERNAME, PASSWORD, EMAIL, PHONENO, FIRSTNAME, LASTNAME);
+            //is the username taken
+            int MINLENGTH_FIRSTNAME = 2;
+            int MINLENGTH_LASTNAME = 2;
+            int MINLENGTH_EMAIL = 6;
+            int MINLENGTH_USERNAME = 3;
+            int MINLENGTH_PASSWORD = 6;
+            int MINLENGTH_PHONE = 6;
+            int MINLENGTH_PCODE = 3;
+            int MINLENGTH_LINE1 = 2;
+            int MINLENGTH_LINE2 = 0;
+            int MINLENGTH_REGION = 3;
+            int MINLENGTH_COUNTRY = 4;
+
+            if (FIRSTNAME.Length < MINLENGTH_FIRSTNAME  ||
+            LASTNAME.Length < MINLENGTH_LASTNAME ||
+            EMAIL.Length < MINLENGTH_EMAIL ||
+            USERNAME.Length < MINLENGTH_USERNAME ||
+            PASSWORD.Length < MINLENGTH_PASSWORD ||
+            PHONENO.Length < MINLENGTH_PHONE ||
+            POSTCODE.Length < MINLENGTH_PCODE ||
+            ADDR1.Length < MINLENGTH_LINE1 ||
+            ADDR2.Length < MINLENGTH_LINE2 ||
+            REGION.Length < MINLENGTH_REGION ||
+            COUNTRY.Length < MINLENGTH_COUNTRY) validateError(6);
+
+            DataSetTableAdapters.UsersTableAdapter usertableadapter = new DataSetTableAdapters.UsersTableAdapter();
+            DataSet.UsersDataTable data = usertableadapter.GetUserByUsernameIgnoreActive(USERNAME);
+            if (data.Count != 0)
+            {
+                validateError(7);
+            }
+            else
+            {
+                checkMail(EMAIL);
+                checkPass(PASSWORD, PASSWORD2);
+
+                if (PHONENO.Length < 8 || PHONENO.Length > 15) validateError(5);
+                //Register
+                Register_User(ADDR1, ADDR2, CITY, REGION, COUNTRY, POSTCODE, USERNAME, PASSWORD, EMAIL, PHONENO, FIRSTNAME, LASTNAME);
+            }
+        }
+        //validation methods
+        private void checkMail(string email)
+        {
+            bool isValid = true;
+
+            isValid = Regex.IsMatch(email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+
+            if (!isValid)
+            {
+                validateError(2);
+            }
+
         }
 
+        private void checkPass(string pass1, string pass2)
+        {
+            bool isValid = true;
+            int error = 3;
+
+            //check if password is valid
+            if (pass1.Length < 6 || pass1.Length > 20 || pass1.Any(char.IsDigit)) isValid = false;
+
+            if (pass1 != pass2)
+            //check if password match
+            {
+                isValid = false;
+                error = 4;
+            }
+
+            if (!isValid)
+            //send error message
+            {
+                validateError(error);
+            }
+        }
+
+        private void validateError(int err)
+        {
+            Response.Redirect("/register.aspx?alert=" + err);
+        }
+
+        // end of validation method
         protected void textBoxUsername_TextChanged(object sender, EventArgs e)
         {
 
@@ -83,12 +152,16 @@ namespace QACinemasWebsite
             }
             catch (Exception exc)
             {
-                if(exc.Message.Contains("Cannot insert duplicate key in object 'dbo.Users'"))
-                Alert_Composer("alert-danger", "Could not register account!", "Username already exists. Try another one.");
+                if (exc.Message.Contains("Cannot insert duplicate key in object 'dbo.Users'"))
+                    Alert_Composer("alert-danger", "Could not register account!", "Username already exists. Try another one.");
                 return;
             }
 
-            Response.Redirect("/Login.aspx?alert=4&username="+textBoxUsername.Text);
+
+            //STEP 4: Send a confirmation email
+            Common.Email.SendEmail(textBoxEmail.Text, "Thank you for joining QACinemas", String.Format("{0} {1}, {2} registered.", textBoxFirstN.Text, textBoxLastN.Text, textBoxUsername.Text));
+
+            Response.Redirect("/Login.aspx?alert=4&username=" + textBoxUsername.Text);
 
 
 
@@ -105,6 +178,24 @@ namespace QACinemasWebsite
                 {
                     case "1": //Log in to continue
                         Alert_Composer("alert-danger", "Could not register account", "Please try again.");
+                        break;
+                    case "2": //Email address not in correct format
+                        Alert_Composer("alert-warning", "Email Address must be a valid format e.g. usernam@domain.com ", "Please try again.");
+                        break;
+                    case "3": //Password is not valid
+                        Alert_Composer("alert-warning", "Password must be over 6 characters, under 20 and must contain at least one number", "Please try again.");
+                        break;
+                    case "4": //Password does not match
+                        Alert_Composer("alert-warning", "Password and repeat password do not match", "Please try again.");
+                        break;
+                    case "5": //Log in to continue
+                        Alert_Composer("alert-warning", "Phone Number length must be between 8-15 characters", "Please try again.");
+                        break;
+                    case "6": //Log in to continue
+                        Alert_Composer("alert-warning", "Please make sure you have entered the form correctly and check that everything is valid", "Please try again.");
+                        break;
+                    case "7": //Log in to continue
+                        Alert_Composer("alert-warning", "Username already taken, please enter a different username", "Please try again.");
                         break;
                     default:
                         return;

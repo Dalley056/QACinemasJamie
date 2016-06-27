@@ -156,6 +156,12 @@
     <Content Include="Error\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ForgotPass.aspx" />
+    <Content Include="Images\Classifications\12Alarge.png" />
+    <Content Include="Images\Classifications\12large.png" />
+    <Content Include="Images\Classifications\15large.png" />
+    <Content Include="Images\Classifications\18large.png" />
+    <Content Include="Images\Classifications\PGlarge.png" />
+    <Content Include="Images\Classifications\Ularge.png" />
     <Content Include="Images\Films\HP.jpg" />
     <Content Include="Logan1.jpg" />
     <Content Include="Logan2.jpg" />
@@ -233,8 +239,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Auth.cs" />
-    <Content Include="App_Code\Booking.cs" />
-    <Content Include="App_Code\Common.cs" />
+    <Compile Include="App_Code\Booking.cs" />
+    <Compile Include="App_Code\Common.cs" />
     <Compile Include="Classification.aspx.cs">
       <DependentUpon>Classification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

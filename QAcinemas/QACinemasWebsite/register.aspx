@@ -7,19 +7,20 @@
     <script>
 
         function ValidateEmail() {
-            var check = true
-            var inputText = document.getElementById("ContentPlaceHolder1_textBoxEmail");
-            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            if (inputText.value.match(mailformat)) {
-                check = true;
-            }
-            else {
-                alert("You have entered an invalid email address!");
-                inputText.focus();
-                check = false;
-            }
+            //var check = true
+            //var inputText = document.getElementById("ContentPlaceHolder1_textBoxEmail");
+            //var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            //if (inputText.value.match(mailformat)) {
+            //    check = true;
+            //}
+            //else {
+            //    alert("You have entered an invalid email address!");
+            //    inputText.focus();
+            //    check = false;
+            //}
 
-            return check;
+            //return check;
+            return true;
         }
     </script>
 
@@ -87,7 +88,7 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="textBoxPassword"></label>
                                     <div class="col-md-7">
-                                        <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Repeat" required="required" />
+                                        <asp:TextBox ID="inputPasswordConfirm" name="inputPasswordConfirm" type="password" data-match-error="Whoops, these don't match" data-match="#inputPassword" placeholder="Repeat" class="form-control input-md" required="required" runat="server"></asp:TextBox>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -156,20 +157,11 @@
                                         <asp:TextBox ID="textBoxACountry" name="textBoxACountry" class="form-control input-md" required="" runat="server"></asp:TextBox>
                                     </div>
                                 </div>
-
-                                <!-- Select Country -->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label" for="DropDownCountry">Country</label>
-                                    <div class="col-md-7">
-                                        <asp:DropDownList ID="DropDownCountry" name="DropDownCountry" class="form-control" runat="server"></asp:DropDownList>
-
-                                    </div>
-                                </div>
-
+                              
                                 <!-- Register Button -->
                                 <div class="form-group ">
                                     <div class="col-md-12 center-block">
-                                        <asp:Button ID="textBoxRegister" type="submit" name="textBoxRegister" cssclass="btn btn-primary center-block" runat="server" Text="  Register  " OnClick="textBoxRegister_Click" />
+                                        <asp:Button ID="textBoxRegister" type="submit" name="textBoxRegister" CssClass="btn btn-primary center-block" runat="server" Text="  Register  " OnClick="textBoxRegister_Click" />
                                     </div>
                                 </div>
                             </fieldset>
