@@ -156,6 +156,12 @@
     <Content Include="Error\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ForgotPass.aspx" />
+    <Content Include="Images\Classifications\12Alarge.png" />
+    <Content Include="Images\Classifications\12large.png" />
+    <Content Include="Images\Classifications\15large.png" />
+    <Content Include="Images\Classifications\18large.png" />
+    <Content Include="Images\Classifications\PGlarge.png" />
+    <Content Include="Images\Classifications\Ularge.png" />
     <Content Include="Logan1.jpg" />
     <Content Include="Logan2.jpg" />
     <Content Include="Logan3.jpg" />
@@ -416,8 +422,6 @@
     <Folder Include="App_GlobalResources\" />
     <Folder Include="App_LocalResources\" />
     <Folder Include="Images\Cinemas\" />
-    <Folder Include="App_Code\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
