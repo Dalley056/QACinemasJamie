@@ -156,6 +156,7 @@
     <Content Include="Error\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ForgotPass.aspx" />
+    <Content Include="Images\Films\HP.jpg" />
     <Content Include="Logan1.jpg" />
     <Content Include="Logan2.jpg" />
     <Content Include="Logan3.jpg" />
