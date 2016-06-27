@@ -217,7 +217,7 @@
       <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="RestPass.aspx" />
+    <Content Include="ResetPass.aspx" />
     <Content Include="Screens.aspx" />
     <Content Include="PlacesToGo.aspx" />
     <Content Include="register.aspx" />
@@ -240,6 +240,7 @@
     <Compile Include="App_Code\Auth.cs" />
     <Compile Include="App_Code\Booking.cs" />
     <Compile Include="App_Code\Common.cs" />
+    <Compile Include="App_Code\PasswordReset.cs" />
     <Compile Include="Classification.aspx.cs">
       <DependentUpon>Classification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -361,12 +362,12 @@
     <Compile Include="MovieDetails.aspx.designer.cs">
       <DependentUpon>MovieDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RestPass.aspx.cs">
-      <DependentUpon>RestPass.aspx</DependentUpon>
+    <Compile Include="ResetPass.aspx.cs">
+      <DependentUpon>ResetPass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RestPass.aspx.designer.cs">
-      <DependentUpon>RestPass.aspx</DependentUpon>
+    <Compile Include="ResetPass.aspx.designer.cs">
+      <DependentUpon>ResetPass.aspx</DependentUpon>
     </Compile>
     <Compile Include="Screens.aspx.cs">
       <DependentUpon>Screens.aspx</DependentUpon>
@@ -434,7 +435,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59075</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

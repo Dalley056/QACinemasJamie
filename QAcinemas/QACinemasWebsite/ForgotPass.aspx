@@ -22,18 +22,18 @@
             </div>
             <div class=" row">
                 <div class="col-md-12>">
-                    <div class="col-md-2 col-md-offset-5 ">
-                        <input name="textEmail" class="form-control input-md" id="textEmail" required="" type="email" placeholder="Email address" />
-                        <span class="help-block">Enter the email address used for regestration</span>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="textBoxUsername">Username</label>
+                        <div class="col-md-7">
+                            <asp:TextBox ID="textBoxUsername" name="textBoxUsername" placeholder="" class="form-control input-md" required="" runat="server"></asp:TextBox>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
 
-                    <button class="btn btn-primary active" type="button">
-                        Reset Password
-                    </button>
+                    <asp:Button ID="ResetButton" CssClass="btn btn-primary active" Text="Reset Password" runat="server" OnClick="ResetButton_Click"/>
                 </div>
             </div>
         </div>

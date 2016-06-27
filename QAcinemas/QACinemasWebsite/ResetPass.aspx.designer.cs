@@ -10,7 +10,7 @@
 namespace QACinemasWebsite {
     
     
-    public partial class RestPass {
+    public partial class ResetPassword {
         
         /// <summary>
         /// NewPassword control.
@@ -29,5 +29,14 @@ namespace QACinemasWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox reNewPassword;
+        
+        /// <summary>
+        /// ConfirmButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ConfirmButton;
     }
 }

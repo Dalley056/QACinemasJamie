@@ -13,6 +13,7 @@ namespace QACinemasWebsite.App_Code
     /// </summary>
     public static class Auth
     {
+        #region AUTHENTICATION
         /// <summary>
         /// Authentication data storage object
         /// </summary>
@@ -103,7 +104,9 @@ namespace QACinemasWebsite.App_Code
             return new AuthData(hash, salt);
         }
 
+        #endregion
 
+        #region MISC. SECURITY
         /// <summary>
         /// Generates a random string of characters using a cryptographic random number generator
         /// </summary>
@@ -113,5 +116,7 @@ namespace QACinemasWebsite.App_Code
         {
             return Convert.ToBase64String(GenerateSalt(length * 8)); //GenerateSalt already uses a relatively secure RNG, so use that
         }
+
+        #endregion
     }
 }

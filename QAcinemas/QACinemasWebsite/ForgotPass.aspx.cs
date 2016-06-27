@@ -4,41 +4,42 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using QACinemasWebsite.App_Code;
 
 namespace QACinemasWebsite
 {
     public partial class ForgotPass : System.Web.UI.Page
     {
+        private bool REQUEST_SENT = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            Alert_Composer();
         }
 
-        protected void Alert_Composer()
+        protected void ResetButton_Click(object sender, EventArgs e)
         {
-            //Check if alert needed
-            if (Request["alert"] != null)
+            if (!REQUEST_SENT)
             {
-                string alerttype = Request["alert"].ToString(); //get alert string
 
-                switch (alerttype)
+                DataSetTableAdapters.UsersTableAdapter userta = new DataSetTableAdapters.UsersTableAdapter();
+                DataSet.UsersDataTable data = userta.GetUserByUsername(textBoxUsername.Text, true);
+
+                if (data.Count != 0)
                 {
-                    case "1": //Log in to continue
-                        alertcomponent.Attributes["class"] += " alert-warning";
-                        alertheader.InnerHtml = "unregestred username";
-                        alertbody.InnerHtml = "The email address entered does not exisit in our database";
-                        break;
-                    case "2": //Login invalid
-                        alertcomponent.Attributes["class"] += " alert-danger";
-                        alertheader.InnerHtml = "invalid email format!";
-                        alertbody.InnerHtml = "Please enter a valid email address.";
-                        break;
-                    default:
-                        return;
+                    PasswordReset.AddRequest(new PasswordReset.PasswordResetRequest(data[0]));
+                    
                 }
+
+
+                alertcomponent.Attributes["class"] += " alert-info";
+                alertheader.InnerHtml = "Reset Email Sent";
+                alertbody.InnerHtml = String.Format("A password reset link has been sent to the email address associated with {0}.<br>" +
+                                                    "This link will expire in 15 minutes.<br>" +
+                                                    "<a href=\"Login.aspx\">Return to Login</a>", textBoxUsername.Text);
                 alertcomponent.Visible = true;
+
+
             }
         }
-
     }
 }
