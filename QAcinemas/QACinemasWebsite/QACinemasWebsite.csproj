@@ -162,6 +162,7 @@
     <Content Include="Images\Classifications\18large.png" />
     <Content Include="Images\Classifications\PGlarge.png" />
     <Content Include="Images\Classifications\Ularge.png" />
+    <Content Include="Images\Films\HP.jpg" />
     <Content Include="Logan1.jpg" />
     <Content Include="Logan2.jpg" />
     <Content Include="Logan3.jpg" />

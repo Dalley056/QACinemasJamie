@@ -34,8 +34,10 @@ namespace QACinemasWebsite.Booking
                 }
 
                 dlstScreenType.Items.Add(new ListItem("Any", "0"));
-                dlstScreenType.Items.Add(new ListItem("Standard", "1"));
-                dlstScreenType.Items.Add(new ListItem("Delux", "2"));         
+                dlstScreenType.Items.Add(new ListItem("Standard", "false"));
+                dlstScreenType.Items.Add(new ListItem("Delux", "true"));
+
+                Session["ScreenType"] = dlstScreenType.SelectedValue;
             }
         }
 
@@ -46,20 +48,66 @@ namespace QACinemasWebsite.Booking
 
         protected void dlstMovie_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataSetTableAdapters.FilmsTableAdapter taFilms = new DataSetTableAdapters.FilmsTableAdapter();
-            DataSet.FilmsDataTable fData = taFilms.GetFilmById(Convert.ToInt64(dlstMovie.SelectedValue.ToString()));
-            lblMovieDescription.Text = fData[0].Description;
-            Session["SelectedMovieID"] = fData[0].Id;
+            if (dlstMovie.SelectedValue == "0")
+            {
+                lblMovieDescription.Text = "No Film Selected!";
+                imgSelectedMovie.ImageUrl = null;
+                Session["SelectedMovieID"] = null;
+            }
+            else
+            {
+                DataSetTableAdapters.FilmsTableAdapter taFilms = new DataSetTableAdapters.FilmsTableAdapter();
+                DataSet.FilmsDataTable fData = taFilms.GetFilmById(Convert.ToInt64(dlstMovie.SelectedValue.ToString()));
+                lblMovieDescription.Text = fData[0].Description;
+                imgSelectedMovie.ImageUrl = fData[0].ImgSmall;
+                Session["SelectedMovieID"] = fData[0].Id;
+                d1.InnerHtml = "";
+                getFilmShowings();
+            }
         }
 
         protected void dlstScreenType_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["ScreenType"] = dlstScreenType.SelectedValue;
+            d1.InnerHtml = "";
+
+            if (Session["ScreenType"].ToString() == "0")
+            {
+                getFilmShowings();
+            }
+            else if(Session["ScreenType"].ToString() == "true")
+            {
+                getFilmShowingsWithScreenType();
+            }
+            else if(Session["ScreenType"].ToString() == "false")
+            {
+                getFilmShowingsWithScreenType();
+            }
         }
 
         protected void dlstTime_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void getFilmShowings()
+        {
+            DataSetTableAdapters.ShowingsTableAdapter taShowings = new DataSetTableAdapters.ShowingsTableAdapter();
+            DataSet.ShowingsDataTable sData = taShowings.GetShowingsByCinemaIdFilmId(Convert.ToInt64(dlstMovie.SelectedValue.ToString()), true, Convert.ToInt64(dlstCinema.SelectedValue.ToString()));
+            foreach(DataSet.ShowingsRow r in sData)
+            {
+                d1.InnerHtml += "<a href='SelectSeats.aspx?sID=" + r.Id + "&price=" + r.CostPerSeat + "'>" + r.StartTime + "</a>";
+            }
+        }
+
+        private void getFilmShowingsWithScreenType()
+        {
+            DataSetTableAdapters.ShowingsTableAdapter taShowings = new DataSetTableAdapters.ShowingsTableAdapter();
+            DataSet.ShowingsDataTable sData = taShowings.GetShowingsByCinemaIdFilmIdDeluxe(Convert.ToInt64(dlstMovie.SelectedValue.ToString()), true, Convert.ToInt64(dlstCinema.SelectedValue.ToString()), Convert.ToBoolean(Session["ScreenType"].ToString()));
+            foreach (DataSet.ShowingsRow r in sData)
+            {
+                d1.InnerHtml += "<a href='SelectSeats.aspx?sID=" + r.Id + "'>" + r.StartTime + "</a>";
+            }
         }
     }
 }
