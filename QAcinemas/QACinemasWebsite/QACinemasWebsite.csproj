@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Populate_DB.sql" />
     <Content Include="App_Data\QACDatabase.mdf" />
     <Content Include="App_Data\QACDatabase_log.ldf">
       <DependentUpon>QACDatabase.mdf</DependentUpon>
