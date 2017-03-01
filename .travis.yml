@@ -1,5 +1,5 @@
 language: csharp
-solution: QACinemas/QACinemas.sln
+solution: QACinemas.sln
 script:
   - ./build.sh
   - ./test.sh
