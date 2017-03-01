@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QACinemasWebsite", "QACinemasWebsite\QACinemasWebsite.csproj", "{D312F3C1-D7D0-4381-871B-C0C334AACA5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QACinemasWebsite.Tests", "QACinemasWebsite.Tests\QACinemasWebsite.Tests.csproj", "{492A3B2D-349A-4EFB-B200-4DAE2D3E22F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D312F3C1-D7D0-4381-871B-C0C334AACA5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D312F3C1-D7D0-4381-871B-C0C334AACA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D312F3C1-D7D0-4381-871B-C0C334AACA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D312F3C1-D7D0-4381-871B-C0C334AACA5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492A3B2D-349A-4EFB-B200-4DAE2D3E22F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492A3B2D-349A-4EFB-B200-4DAE2D3E22F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492A3B2D-349A-4EFB-B200-4DAE2D3E22F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492A3B2D-349A-4EFB-B200-4DAE2D3E22F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

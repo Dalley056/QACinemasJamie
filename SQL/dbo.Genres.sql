@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Genres]
+(
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(50) NOT NULL, 
+    [Active] BIT NOT NULL DEFAULT 1, 
+    [DateAdded] DATETIME NOT NULL DEFAULT getdate()
+)
