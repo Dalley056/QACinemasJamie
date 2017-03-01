@@ -6,6 +6,6 @@
         hello there. this is the classifications test bit.
         <br />
         <br />
-        <img src="UK.png" style="height:200px;width:100px"/>
+        <img src="UK.png" style="height:200px;width:200px"/>
     </div>
 </asp:Content>
