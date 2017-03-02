@@ -29,7 +29,7 @@ OPTION 2: REGENERATING DATABASE FROM SCRATCH
 	   Can be found in View> SQL Server Object Explorer or by using Ctrl+\, Ctrl+S.
 
 	2: Find your instance of the database.
-	   Usual location: (LocalDB)\MSSQLLocalDB (SQL Server *.*.*.* - ThisPC\You) > QACinemasDB
+	   Usual location: (LocalDB)\MSSQLLocalDB (SQL Server *.*.*.* - ThisPC\You) > Databases > QACinemasDB
 
 	3: Right click the database and delete it. (WARNING)
 	   Alternatively, rename it to reslove conflicts.
