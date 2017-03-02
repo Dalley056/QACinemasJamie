@@ -1,8 +1,8 @@
 ﻿PRINT N'CREATING DATABASE QACinemasDB';
 GO
-CREATE SCHEMA [QACinemasDB]
-	AUTHORISATION [dbo];
-
+CREATE DATABASE [QACinemasDB];
+GO
+USE [QACinemasDB];
 
 GO
 PRINT N'Creating Addresses';
@@ -178,7 +178,7 @@ CREATE TABLE [dbo].[Films]
 );
 
 GO
-PRINT N 'Creating Contributors';
+PRINT N'Creating Contributors';
 GO
 CREATE TABLE [dbo].[Contributors]
 (
