@@ -71,7 +71,7 @@ CREATE TABLE [dbo].[Cinemas]
     [Description] NVARCHAR(MAX) NOT NULL,
     [ImgSmall] NVARCHAR(MAX) NOT NULL,
     [ImgLarge] NVARCHAR(MAX) NOT NULL,
-		[ImgParking] NVARCHAR(MAX) NOT NULL,
+	[ImgParking] NVARCHAR(MAX) NOT NULL,
     [Active] BIT NOT NULL DEFAULT 1,
     [DateAdded] DATETIME NOT NULL DEFAULT getdate(),
     CONSTRAINT [FK_Cinemas_Addresses] FOREIGN KEY ([AddressId]) REFERENCES [Addresses]([Id]),
@@ -172,9 +172,9 @@ CREATE TABLE [dbo].[Films]
     [Featured] BIT NOT NULL,
     [ImgSmall] NVARCHAR(MAX) NOT NULL,
     [ImgLarge] NVARCHAR(MAX) NOT NULL,
-    [Active] BIT NULL DEFAULT 1,
-    [DateAdded] DATE NULL DEFAULT getdate(),
-    CONSTRAINT [FK_Films_Classifications] FOREIGN KEY ([ClassificationId]) REFERENCES [Classifications]([Id]),
+    [Active] BIT NOT NULL DEFAULT 1,
+    [DateAdded] DATETIME NOT NULL DEFAULT getdate(),
+    CONSTRAINT [FK_Films_Classifications] FOREIGN KEY ([ClassificationId]) REFERENCES [Classifications]([Id])
 );
 
 GO
@@ -187,7 +187,7 @@ CREATE TABLE [dbo].[Contributors]
     [LastName] NVARCHAR(50) NOT NULL,
     [Description] NVARCHAR(MAX) NOT NULL,
     [Active] BIT NOT NULL DEFAULT 1,
-    [DateAdded] DATETIME NOT NULL
+    [DateAdded] DATETIME NOT NULL DEFAULT getdate()
 );
 
 GO
@@ -206,11 +206,15 @@ PRINT N'Creating FilmsContributors';
 GO
 CREATE TABLE [dbo].[FilmsContributors]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY,
     [FilmId] BIGINT NOT NULL,
     [ContributorId] BIGINT NOT NULL,
     [Active] BIT NOT NULL DEFAULT 1,
     [DateAdded] DATETIME NOT NULL DEFAULT getdate(),
+	CONSTRAINT PK_FilmContributors PRIMARY KEY
+	(
+	[FilmId],
+	[ContributorId]
+	),
     CONSTRAINT [FK_FilmsContributors_Films] FOREIGN KEY ([FilmId]) REFERENCES [Films]([Id]),
     CONSTRAINT [FK_FilmsContributors_Contributors] FOREIGN KEY ([ContributorId]) REFERENCES [Contributors]([Id])
 );
@@ -220,14 +224,21 @@ PRINT N'Creating FilmsGenres';
 GO
 CREATE TABLE [dbo].[FilmsGenres]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY,
-    [FilmId] BIGINT NOT NULL,
+	[FilmId] BIGINT NOT NULL,
     [GenreId] BIGINT NOT NULL,
-    [Active] BIT NOT NULL DEFAULT 1,
+	[Active] BIT NOT NULL DEFAULT 1,
     [DateAdded] DATETIME NOT NULL DEFAULT getdate(),
-    CONSTRAINT [FK_FilmsGenres_Films] FOREIGN KEY ([FilmId]) REFERENCES [Films]([Id]),
+	CONSTRAINT PK_FilmGenres PRIMARY KEY
+	(
+	[FilmId],
+	[GenreId]
+	),
+	CONSTRAINT [FK_FilmsGenres_Films] FOREIGN KEY ([FilmId]) REFERENCES [Films]([Id]),
     CONSTRAINT [FK_FilmsGenres_Genres] FOREIGN KEY ([GenreId]) REFERENCES [Genres]([Id])
+
 );
+
+
 
 --------------------------------------------------------------------------------
 --BOOKINGS ASSOCIATED TABLES
@@ -306,7 +317,7 @@ CREATE TABLE [dbo].[Ratings]
 		[Rating] INT NOT NULL,
     [Active] BIT NOT NULL DEFAULT 1,
     [DateAdded] DATETIME NOT NULL DEFAULT getdate(),
-		CONSTRAINT [FK_Ratings_Users] FOREIGN KEY ([UserId]) REFERENCES [Users]([Id]),
+	CONSTRAINT [FK_Ratings_Users] FOREIGN KEY ([UserId]) REFERENCES [Users]([Id]),
     CONSTRAINT [FK_Ratings_Films] FOREIGN KEY ([FilmId]) REFERENCES [Films]([Id])
 );
 

@@ -72,8 +72,6 @@ namespace QACinemasWebsite {
         
         private global::System.Data.DataRelation relationFK_Films_Classifications;
         
-        private global::System.Data.DataRelation relationFK_FilmsContributors_Contributors;
-        
         private global::System.Data.DataRelation relationFK_FilmsContributors_Films;
         
         private global::System.Data.DataRelation relationFK_FilmsGenres_Films;
@@ -109,6 +107,8 @@ namespace QACinemasWebsite {
         private global::System.Data.DataRelation relationFK_Showings_Screens;
         
         private global::System.Data.DataRelation relationFK_Users_Addresses;
+        
+        private global::System.Data.DataRelation relationFK_FilmsContributors_Contributors;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -679,7 +679,6 @@ namespace QACinemasWebsite {
             this.relationFK_Bookings_Users = this.Relations["FK_Bookings_Users"];
             this.relationFK_Cinemas_Addresses = this.Relations["FK_Cinemas_Addresses"];
             this.relationFK_Films_Classifications = this.Relations["FK_Films_Classifications"];
-            this.relationFK_FilmsContributors_Contributors = this.Relations["FK_FilmsContributors_Contributors"];
             this.relationFK_FilmsContributors_Films = this.Relations["FK_FilmsContributors_Films"];
             this.relationFK_FilmsGenres_Films = this.Relations["FK_FilmsGenres_Films"];
             this.relationFK_FilmsGenres_Genres = this.Relations["FK_FilmsGenres_Genres"];
@@ -698,6 +697,7 @@ namespace QACinemasWebsite {
             this.relationFK_Showings_Films = this.Relations["FK_Showings_Films"];
             this.relationFK_Showings_Screens = this.Relations["FK_Showings_Screens"];
             this.relationFK_Users_Addresses = this.Relations["FK_Users_Addresses"];
+            this.relationFK_FilmsContributors_Contributors = this.Relations["FK_FilmsContributors_Contributors"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -766,10 +766,6 @@ namespace QACinemasWebsite {
                         this.tableClassifications.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableFilms.ClassificationIdColumn}, false);
             this.Relations.Add(this.relationFK_Films_Classifications);
-            this.relationFK_FilmsContributors_Contributors = new global::System.Data.DataRelation("FK_FilmsContributors_Contributors", new global::System.Data.DataColumn[] {
-                        this.tableContributors.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableFilmsContributors.ContributorIdColumn}, false);
-            this.Relations.Add(this.relationFK_FilmsContributors_Contributors);
             this.relationFK_FilmsContributors_Films = new global::System.Data.DataRelation("FK_FilmsContributors_Films", new global::System.Data.DataColumn[] {
                         this.tableFilms.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableFilmsContributors.FilmIdColumn}, false);
@@ -842,6 +838,10 @@ namespace QACinemasWebsite {
                         this.tableAddresses.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableUsers.AddressIdColumn}, false);
             this.Relations.Add(this.relationFK_Users_Addresses);
+            this.relationFK_FilmsContributors_Contributors = new global::System.Data.DataRelation("FK_FilmsContributors_Contributors", new global::System.Data.DataColumn[] {
+                        this.tableContributors.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableFilmsContributors.ContributorIdColumn}, false);
+            this.Relations.Add(this.relationFK_FilmsContributors_Contributors);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9073,23 +9073,23 @@ namespace QACinemasWebsite {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ContributorsRow ContributorsRow {
-                get {
-                    return ((ContributorsRow)(this.GetParentRow(this.Table.ParentRelations["FK_FilmsContributors_Contributors"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_FilmsContributors_Contributors"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FilmsRow FilmsRow {
                 get {
                     return ((FilmsRow)(this.GetParentRow(this.Table.ParentRelations["FK_FilmsContributors_Films"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_FilmsContributors_Films"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ContributorsRow ContributorsRow {
+                get {
+                    return ((ContributorsRow)(this.GetParentRow(this.Table.ParentRelations["FK_FilmsContributors_Contributors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_FilmsContributors_Contributors"]);
                 }
             }
         }
@@ -12620,12 +12620,21 @@ namespace QACinemasWebsite.DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, Title, Description, ImgSmall, ImgLarge, Active, DateAdded FROM dbo.Cla" +
                 "ssifications";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        Classifications.Id, Classifications.Title, Classifications.Description, Classifications.ImgSmall, Classifications.ImgLarge, Classifications.Active, 
+                         Classifications.DateAdded
+FROM            Classifications INNER JOIN
+                         Films ON Classifications.Id = Films.ClassificationId
+WHERE        (Films.Id = @FilmId)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilmId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12647,6 +12656,18 @@ namespace QACinemasWebsite.DataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSet.ClassificationsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSet.ClassificationsDataTable dataTable = new DataSet.ClassificationsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet.ClassificationsDataTable GetFilmClassification(long FilmId) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(FilmId));
             DataSet.ClassificationsDataTable dataTable = new DataSet.ClassificationsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -13709,11 +13730,21 @@ namespace QACinemasWebsite.DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, FilmId, ContributorId, Active, DateAdded FROM dbo.FilmsContributors";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        Contributors.Id, Contributors.FirstName, Contributors.LastName, Contributors.Description, Contributors.Active, Contributors.DateAdded
+FROM            FilmsContributors INNER JOIN
+                         Contributors ON FilmsContributors.ContributorId = Contributors.Id INNER JOIN
+                         Films ON FilmsContributors.FilmId = Films.Id
+WHERE        (FilmsContributors.FilmId = @FilmId)
+ORDER BY Contributors.LastName DESC";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilmId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "FilmId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13735,6 +13766,18 @@ namespace QACinemasWebsite.DataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSet.FilmsContributorsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSet.FilmsContributorsDataTable dataTable = new DataSet.FilmsContributorsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet.FilmsContributorsDataTable GetContributorsByFilmId(long FilmId) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(FilmId));
             DataSet.FilmsContributorsDataTable dataTable = new DataSet.FilmsContributorsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -17957,15 +18000,6 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._screensTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Screens.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._screensTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._filmsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Films.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -17975,21 +18009,21 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._screensTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Screens.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._screensTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._usersTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._bookingsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Bookings.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._bookingsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -18020,6 +18054,15 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._bookingsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Bookings.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._bookingsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._genresTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Genres.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -18029,30 +18072,12 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._filmsContributorsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.FilmsContributors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._filmsContributorsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._filmsGenresTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.FilmsGenres.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._filmsGenresTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._localVenuesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.LocalVenues.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._localVenuesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -18083,12 +18108,12 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._billingDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.BillingDetails.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._filmsContributorsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.FilmsContributors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._billingDetailsTableAdapter.Update(updatedRows));
+                    result = (result + this._filmsContributorsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -18098,6 +18123,24 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._seatsBookingsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._billingDetailsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.BillingDetails.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._billingDetailsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._localVenuesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.LocalVenues.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._localVenuesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -18135,14 +18178,6 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._screensTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Screens.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._screensTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._filmsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Films.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -18151,19 +18186,19 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._screensTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Screens.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._screensTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._usersTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._bookingsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Bookings.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._bookingsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -18191,6 +18226,14 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._bookingsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Bookings.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._bookingsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._genresTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Genres.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -18199,27 +18242,11 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._filmsContributorsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.FilmsContributors.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._filmsContributorsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._filmsGenresTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.FilmsGenres.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._filmsGenresTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._localVenuesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.LocalVenues.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._localVenuesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -18247,11 +18274,11 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._billingDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.BillingDetails.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._filmsContributorsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.FilmsContributors.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._billingDetailsTableAdapter.Update(addedRows));
+                    result = (result + this._filmsContributorsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -18260,6 +18287,22 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._seatsBookingsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._billingDetailsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.BillingDetails.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._billingDetailsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._localVenuesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.LocalVenues.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._localVenuesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -18273,11 +18316,11 @@ namespace QACinemasWebsite.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._seatsBookingsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.SeatsBookings.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._localVenuesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.LocalVenues.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._seatsBookingsTableAdapter.Update(deletedRows));
+                    result = (result + this._localVenuesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -18286,6 +18329,22 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._billingDetailsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._seatsBookingsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.SeatsBookings.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._seatsBookingsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._filmsContributorsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.FilmsContributors.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._filmsContributorsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -18313,14 +18372,6 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._localVenuesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.LocalVenues.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._localVenuesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._filmsGenresTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.FilmsGenres.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -18329,19 +18380,19 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._filmsContributorsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.FilmsContributors.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._filmsContributorsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._genresTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Genres.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._genresTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._bookingsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Bookings.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._bookingsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -18369,14 +18420,6 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._bookingsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Bookings.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._bookingsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -18385,19 +18428,19 @@ namespace QACinemasWebsite.DataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._filmsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Films.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._filmsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._screensTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Screens.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._screensTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._filmsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Films.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._filmsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
