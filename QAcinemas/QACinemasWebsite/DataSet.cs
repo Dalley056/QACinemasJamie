@@ -1,6 +1,8 @@
-﻿namespace QACinemasWebsite {
-    
-    
-    public partial class DataSet {
+﻿namespace QACinemasWebsite
+{
+
+
+    public partial class DataSet
+    {
     }
 }
