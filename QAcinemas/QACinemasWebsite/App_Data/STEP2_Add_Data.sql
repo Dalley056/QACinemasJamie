@@ -31,11 +31,11 @@ DECLARE @SCREEN_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
 INSERT INTO [dbo].[Seats] ([ScreenId], [Name], [PosTop], [PosLeft], [AudioDescription], [WheelchairAccess]) 
 	VALUES (@SCREEN_ID, 'A1', 5, 5, 0, 0);
 INSERT INTO [dbo].[Seats] ([ScreenId], [Name], [PosTop], [PosLeft], [AudioDescription], [WheelchairAccess]) 
-	VALUES (@SCREEN_ID, 'A2', 5, 20, 0, 0);
+	VALUES (@SCREEN_ID, 'A2', 5, 20, 1, 0);
 INSERT INTO [dbo].[Seats] ([ScreenId], [Name], [PosTop], [PosLeft], [AudioDescription], [WheelchairAccess]) 
-	VALUES (@SCREEN_ID, 'A1', 20, 5, 0, 0);
+	VALUES (@SCREEN_ID, 'A1', 20, 5, 0, 1);
 INSERT INTO [dbo].[Seats] ([ScreenId], [Name], [PosTop], [PosLeft], [AudioDescription], [WheelchairAccess]) 
-	VALUES (@SCREEN_ID, 'A1', 20, 20, 0, 0);
+	VALUES (@SCREEN_ID, 'A1', 20, 20, 1, 1);
 
 
 
