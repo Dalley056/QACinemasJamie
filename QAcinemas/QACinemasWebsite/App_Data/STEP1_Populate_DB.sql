@@ -310,6 +310,7 @@ CREATE TABLE [dbo].[Ratings]
     CONSTRAINT [FK_Ratings_Films] FOREIGN KEY ([FilmId]) REFERENCES [Films]([Id])
 );
 
+
 GO
 PRINT N'Done!';
 GO
