@@ -30,9 +30,18 @@
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="/">Home</a>
                 </li>
-                <li><a href="films.aspx">Films</a>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Films<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">New Releases</a></li>
+                        <li><a href="#">Listing Gallery</a></li>
+                    </ul>
                 </li>
-                <li><a href="ourCinemas.aspx">Our Cinemas</a>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Our Cinemas<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Screens</a></li>
+                        <li><a href="#">Opening Times</a></li>
+                        <li><a href="#">Places to Go</a></li>
+                    </ul>
                 </li>
                 <li><a href="discussion.aspx">Discussion</a>
                 </li>
@@ -44,8 +53,33 @@
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         <hr />
-        <footer>
-            <p>&copy; <%: DateTime.Now.Year %> - QA Cinemas</p>
+             <div class="container">
+            <section style="height: 80px;"></section>
+            <!----------- Footer ------------>
+            <footer class="footer-bs">
+                <div class="row">
+                    <div class="col-md-3 footer-brand animated fadeInLeft">
+                        <h2>Logo</h2>
+                    </div>
+                    <div class="col-md-4 footer-nav animated fadeInUp">
+                        <h4>Menu</h4>
+                        <div class="col-md-6">
+                            <ul class="pages">
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Getting there</a></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Classifications</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 footer-social animated fadeInDown">
+                        <h4>Follow Us</h4>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
         </footer>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
