@@ -16,7 +16,7 @@
       </ol>
 
       <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
+      <div class="carousel-inner" role="listbox" style="height:250px">
         <div class="item active">
           <img class="img-responsive center-block" src="Logan1.jpg" alt="Logan1" width="200" height="250">
         </div>
@@ -45,14 +45,35 @@
       </a>
     </div>
 
+    <br />
+    <br />
 
-    <div id="Main_Image" style="border: 5px solid">
-        Main image
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="img-responsive; img-rounded" src="LoganMain.jpg" alt="LoganMain" />
+            </div>
+            <div class="col-sm-offset-1 col-sm-6">
+                NAything about the selected film
+                fdjhsfjhdsf
+                dsfdsfdsf
+                dsfdsfsdg
+            </div>
+        </div>
     </div>
 
-    <div id="Film_Info" style="border: 5px solid">
+<%--    <div>
+        <div id="Main_Image" style="position:absolute; top:400px; left:200px;" >
+           
+            <img class="img-responsive; img-rounded" src="LoganMain.jpg" alt="LoganMain" />
+        </div>
 
-        NAything about the selected film
-    </div>
+        <div id="Film_Info" style="border: 5px solid; position:absolute; top:400px; right:200px;">
+
+            NAything about the selected film
+        </div>
+    </div>--%>
+
 
 </asp:Content>
