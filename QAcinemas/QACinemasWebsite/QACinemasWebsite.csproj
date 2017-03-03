@@ -120,6 +120,7 @@
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Content>
     <Content Include="Error\404.aspx" />
+    <Content Include="GettingThere.aspx" />
     <None Include="DataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -174,6 +175,13 @@
     </Compile>
     <Compile Include="Error\404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GettingThere.aspx.cs">
+      <DependentUpon>GettingThere.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GettingThere.aspx.designer.cs">
+      <DependentUpon>GettingThere.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
