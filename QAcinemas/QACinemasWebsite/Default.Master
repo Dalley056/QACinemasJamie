@@ -18,12 +18,17 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div>
+
+
+    <div class="container">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         <hr />
         <footer>
+            about us and so on
             <p>&copy; <%: DateTime.Now.Year %> - QA Cinemas</p>
+            
+
         </footer>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
