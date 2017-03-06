@@ -3,15 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
-    Cinema:
-    <asp:DropDownList ID="dlstCinema" runat="server">
-        <asp:ListItem>Cinema One</asp:ListItem>
-        <asp:ListItem>Cinema Two</asp:ListItem>
-        <asp:ListItem>Cinema Three</asp:ListItem>
-        <asp:ListItem>Cinema Four</asp:ListItem>
-        <asp:ListItem>Cinema Five</asp:ListItem>
+    Cinema:<asp:DropDownList ID="dlstCinema" runat="server" OnSelectedIndexChanged="dlstCinema_SelectedIndexChanged">
     </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Screen:<asp:DropDownList ID="dlstScreen" runat="server">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Screen:<asp:DropDownList ID="dlstScreen" runat="server" OnSelectedIndexChanged="dlstScreen_SelectedIndexChanged">
         <asp:ListItem>Screen One</asp:ListItem>
         <asp:ListItem>Screen Two</asp:ListItem>
         <asp:ListItem>Screen Three</asp:ListItem>
@@ -21,12 +15,12 @@
     <br />
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Image ID="imgSeatLayout" runat="server" Height="307px" Width="610px" />
+    <asp:Image ID="imgSeatLayout" runat="server" Height="500px" Width="500px" />
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Seating Layout<br />
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Image ID="Image1" runat="server" Height="314px" Width="609px" />
+    <asp:Image ID="imgScreenView" runat="server" Height="500px" Width="500px" />
     <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Screen View(??)</form>
 </asp:Content>
