@@ -12,56 +12,69 @@ namespace QACinemasWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             //use data item to retrieve all the cinemas and populate dlstCinema. Then use the default cinema (select main one or
-            //the one nearest to user if location data is turned on?) to selecte all the availabel screens and populate
+            //the one nearest to user if location data is turned on?) to select all the available screens and populate
             //dlstScreens using them.
             //Also display images for the default cinema / screen so the image area isn't empty.
 
             //imgScreenView.ImageUrl =
             //imgSeatLayout.ImageUrl =
 
-            //If a data source is used
-            //dlstCinema.DataBind();
-
-            //For each item in the dataset returned do this
-            //dlstCinema.Items.Add(new ListItem("CinemaName", "CinemaID"));
-
-            string[] testList = new string[10];
-            testList[0] = "First";
-            testList[1] = "Second";
-            testList[2] = "Third";
-            testList[3] = "Fourth";
-            testList[4] = "Fifth";
-            testList[5] = "Sixth";
-            testList[6] = "Seventh";
-            testList[7] = "Eighth";
-            testList[8] = "Ninth";
-            testList[9] = "Tenth";
-
-            //Like this but use while(r.read()) and pass in cinema name and id
-            foreach (string s in testList)
+            if (!IsPostBack)
             {
-                dlstCinema.Items.Add(new ListItem(s, "1"));
-            }
+                DataSetTableAdapters.CinemasTableAdapter cinematableadapter = new DataSetTableAdapters.CinemasTableAdapter();
+                DataSet.CinemasDataTable data = cinematableadapter.GetData();
 
+                foreach (DataSet.CinemasRow row in data)
+                {
+                    dlstCinema.Items.Add(new ListItem(row.Name.ToString(), row.Id.ToString()));
+                }
+
+                DataSetTableAdapters.ScreensTableAdapter screenTableadApter = new DataSetTableAdapters.ScreensTableAdapter();
+                DataSet.ScreensDataTable screenData = screenTableadApter.GetScreensByCinemaId(1, true);
+                dlstScreen.Items.Clear();
+                foreach (DataSet.ScreensRow row in screenData)
+                {
+                    dlstScreen.Items.Add(new ListItem(row.Name.ToString(), row.Id.ToString()));
+                }
+            }
         }
 
         protected void dlstCinema_SelectedIndexChanged(object sender, EventArgs e)
         {
             //use data item to retrieve all the available screens for the selected cinema and display them in dlstScreen.
             //also display the images for the first screen in that cinemas list
+            DataSetTableAdapters.ScreensTableAdapter screenTableadApter = new DataSetTableAdapters.ScreensTableAdapter();
+            DataSet.ScreensDataTable screenData = screenTableadApter.GetScreensByCinemaId(Convert.ToInt64(dlstCinema.SelectedValue), true);
 
-            //imgScreenView.ImageUrl =
-            //imgSeatLayout.ImageUrl =
+            dlstScreen.Items.Clear();
 
-            //Store selection somewhere or no point?
+            foreach (DataSet.ScreensRow row in screenData)
+            {
+                dlstScreen.Items.Add(new ListItem(row.Name.ToString(), row.Id.ToString()));
+            }
+
+            screenData = screenTableadApter.GetScreenByScreenId(Convert.ToInt64(dlstScreen.SelectedValue), true);
+            //imgScreenView.ImageUrl = screenData[0].ImgSeatingBackdrop;
+            //imgSeatLayout.ImageUrl = screenData[0].ImgSeating;
         }
 
         protected void dlstScreen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //display the images for the selected screen / cinema combination
+            //display the images for the selected screen / cinema combination. Use images with names which match up with the cinema / screen names so 
+            //those can be used to create the string? E.g. CinemaTwoScreenSix.jpg
 
-            //imgScreenView.ImageUrl =
-            //imgSeatLayout.ImageUrl =
+            //imgScreenView.ImageUrl = screenData[0].ImgSeatingBackdrop;
+            //imgSeatLayout.ImageUrl = screenData[0].ImgSeating;     
+        }
+
+        protected void sdsCinemas_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
+        }
+
+        protected void sdsCinemaScreens_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
         }
     }
 }
