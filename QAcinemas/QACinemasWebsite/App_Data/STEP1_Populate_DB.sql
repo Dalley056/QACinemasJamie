@@ -69,7 +69,7 @@ CREATE TABLE [dbo].[Cinemas]
     [AddressId] BIGINT NOT NULL,
     [Name] NVARCHAR(50) NOT NULL,
     [Description] NVARCHAR(MAX) NOT NULL,
-	#[OpeningTimes] NVARCHAR(1000) NOT NULL,
+	[OpeningTimes] NVARCHAR(1000) NOT NULL,
     [ImgSmall] NVARCHAR(MAX) NOT NULL,
     [ImgLarge] NVARCHAR(MAX) NOT NULL,
 	[ImgParking] NVARCHAR(MAX) NOT NULL,
@@ -118,7 +118,7 @@ CREATE TABLE [dbo].[Screens]
 	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY,
 	[CinemaId] BIGINT NOT NULL,
     [Name] NVARCHAR(50) NOT NULL,
-    ---[ImgSeating] NVARCHAR(MAX) NOT NULL,
+    [ImgSeating] NVARCHAR(MAX) NOT NULL,
     [ImgSeatingBackdrop] NVARCHAR(MAX) NOT NULL,
     [Active] BIT NOT NULL DEFAULT 1,
     [DateAdded] DATETIME NOT NULL DEFAULT getdate(),
@@ -209,6 +209,7 @@ CREATE TABLE [dbo].[FilmsContributors]
 (
     [FilmId] BIGINT NOT NULL,
     [ContributorId] BIGINT NOT NULL,
+	[Role] NVARCHAR(100) NOT NULL,
     [Active] BIT NOT NULL DEFAULT 1,
     [DateAdded] DATETIME NOT NULL DEFAULT getdate(),
 	CONSTRAINT PK_FilmContributors PRIMARY KEY

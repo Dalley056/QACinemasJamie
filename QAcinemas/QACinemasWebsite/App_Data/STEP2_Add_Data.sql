@@ -15,8 +15,8 @@ PRINT N'Adding Cinema';
 GO
 INSERT INTO [dbo].[Addresses] ([Line1], [Line2], [City], [Region], [Country], [Postcode], [CoordX], [CoordY]) 
 	VALUES ('1 Cinema Street', '', 'Cinenapolis', 'Cinnesota', 'United Cinestates', 'CI4NE', -2.290126399999963, 53.48752349999999);
-INSERT INTO [dbo].[Cinemas] ([AddressId], [Name], [Description], [ImgSmall], [ImgLarge], [ImgParking]) 
-	VALUES ((SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]), 'QA Cinemas One', 'QA Cinemas One Description', '/Images/Cinemas/QA_Cinemas_One_small.png', '/Images/Cinemas/QA_Cinemas_One_large.png', '/Images/Cinemas/QA_Cinemas_One_parking.png');
+INSERT INTO [dbo].[Cinemas] ([AddressId], [Name], [Description], [OpeningTimes], [ImgSmall], [ImgLarge], [ImgParking]) 
+	VALUES ((SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]), 'QA Cinemas One', 'QA Cinemas One Description','Opening Times' , '/Images/Cinemas/QA_Cinemas_One_small.png', '/Images/Cinemas/QA_Cinemas_One_large.png', '/Images/Cinemas/QA_Cinemas_One_parking.png');
 
 GO
 PRINT N'Adding Screen';
@@ -85,6 +85,7 @@ PRINT N'Adding Generic Film';
 GO
 INSERT INTO [dbo].[Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ImgLarge]) 
 	VALUES ( 1, 'Generic Film Title', 'Generic Description', 5000, 'English', 'ID1234', 0, '/Images/Films/Generic_Film_Title_small.png', '/Images/Films/Generic_Film_Title_large.png');
+
 
 
 GO
