@@ -37,7 +37,7 @@ namespace QACinemasWebsite
             testList[8] = "Ninth";
             testList[9] = "Tenth";
 
-            //Like this but use while(r.read()) nad pass in cinema name and id
+            //Like this but use while(r.read()) and pass in cinema name and id
             foreach(string s in testList)
             {
                 dlstCinema.Items.Add(new ListItem(s, "1"));
