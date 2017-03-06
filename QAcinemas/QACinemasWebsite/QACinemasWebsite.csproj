@@ -125,6 +125,7 @@
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Content>
     <Content Include="MovieDetails.aspx" />
+    <Content Include="AboutUs.aspx" />
     <None Include="DataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -187,6 +188,13 @@
     </Compile>
     <Compile Include="MovieDetails.aspx.designer.cs">
       <DependentUpon>MovieDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
