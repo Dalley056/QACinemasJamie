@@ -18,19 +18,19 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox" style="height:250px">
         <div class="item active">
-          <img class="img-responsive center-block" src="Logan1.jpg" alt="Logan1" width="200" height="250">
+          <img class="img-responsive center-block" src="Logan1.jpg" alt="Logan1" width="200">
         </div>
 
         <div class="item">
-          <img class="img-responsive center-block" src="Logan2.jpg" alt="Logan2" width="460" height="345">
+          <img class="img-responsive center-block" src="Logan2.jpg" alt="Logan2" width="460">
         </div>
 
         <div class="item">
-          <img class="img-responsive center-block" src="Logan3.jpg" alt="Logan3" width="460" height="345">
+          <img class="img-responsive center-block" src="Logan3.jpg" alt="Logan3" width="460">
         </div>
 
         <div class="item">
-          <img class="img-responsive center-block" src="Logan4.jpg" alt="Logan4" width="460" height="345">
+          <img class="img-responsive center-block" src="Logan4.jpg" alt="Logan4" width="460">
         </div>
       </div>
 
