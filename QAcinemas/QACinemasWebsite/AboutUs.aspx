@@ -11,8 +11,8 @@
 
     <div id="AboutUsTop" class="container">
         <div class="row">
-            <div class="col-md-7">
-                <h1 align="center">Team A</h1>
+            <div align="center" class="col-md-7">
+                <h1>Team A</h1>
             </div>
             <div class="col-md-offset-3 col-md-2">
                 <h3><a href="ContactUs.aspx">Contact Us</a></h3>
@@ -28,12 +28,12 @@
             <div class="col-md-8">
                 <div id="MemberNameDetails1" class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div align="left" class="col-md-8">
                             <h2>Prash Gajendra</h2>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12" style="font-size:18px">
+                        <div align="left" class="col-xs-12" style="font-size:18px">
                             <br />
                             The Scrum Master
                             <br />
@@ -57,12 +57,12 @@
             <div class="col-md-8">
                 <div id="MemberNameDetails2" class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div align="left" class="col-md-8">
                             <h2>Tony Jackson</h2>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12" style="font-size:18px">
+                        <div align="left" class="col-xs-12" style="font-size:18px">
                             <br />
                             Product Owner
                             <br />
@@ -86,12 +86,12 @@
             <div class="col-md-8">
                 <div id="MemberNameDetails3" class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div align="left" class="col-md-8">
                             <h2>Ian Owen</h2>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12" style="font-size:18px">
+                        <div align="left" class="col-xs-12" style="font-size:18px">
                             <br />
                             Development Team
                             <br />
@@ -115,12 +115,12 @@
             <div class="col-md-8">
                 <div id="MemberNameDetails4" class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div align="left" class="col-md-8">
                             <h2>Mohin Akhtar</h2>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12" style="font-size:18px">
+                        <div align="left" class="col-xs-12" style="font-size:18px">
                             <br />
                             Development Team
                             <br />
@@ -144,12 +144,12 @@
             <div class="col-md-8">
                 <div id="MemberNameDetails5" class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div align="left" class="col-md-8">
                             <h2>Jamie Dalley</h2>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12" style="font-size:18px">
+                        <div align="left" class="col-xs-12" style="font-size:18px">
                             <br />
                             Development Team
                             <br />
@@ -173,12 +173,12 @@
             <div class="col-md-8">
                 <div id="MemberNameDetails6" class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div align="left" class="col-md-8">
                             <h2>Daryoush Hosseinzadeh</h2>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12" style="font-size:18px">
+                        <div align="left" class="col-xs-12" style="font-size:18px">
                             <br />
                             Development Team
                             <br />
@@ -202,12 +202,12 @@
             <div class="col-md-8">
                 <div id="MemberNameDetails7" class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div align="left" class="col-md-8">
                             <h2>Abel Germa</h2>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12" style="font-size:18px">
+                        <div align="left" class="col-xs-12" style="font-size:18px">
                             <br />
                             Developement Team
                             <br />
