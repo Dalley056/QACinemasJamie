@@ -121,6 +121,9 @@
     </Content>
     <Content Include="Error\404.aspx" />
     <Content Include="GettingThere.aspx" />
+    <Content Include="SelectSeats.aspx" />
+    <Content Include="PaymentSystem.aspx" />
+    <Content Include="BookingTicket.aspx" />
     <None Include="DataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -182,6 +185,27 @@
     </Compile>
     <Compile Include="GettingThere.aspx.designer.cs">
       <DependentUpon>GettingThere.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectSeats.aspx.cs">
+      <DependentUpon>SelectSeats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SelectSeats.aspx.designer.cs">
+      <DependentUpon>SelectSeats.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentSystem.aspx.cs">
+      <DependentUpon>PaymentSystem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentSystem.aspx.designer.cs">
+      <DependentUpon>PaymentSystem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BookingTicket.aspx.cs">
+      <DependentUpon>BookingTicket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookingTicket.aspx.designer.cs">
+      <DependentUpon>BookingTicket.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
