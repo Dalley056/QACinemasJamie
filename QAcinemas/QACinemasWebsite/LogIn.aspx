@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <form class="form-horizontal">
+    <form class="form-horizontal" runat="server">
         <fieldset>
 
             <!-- Form Name -->
@@ -33,8 +33,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ButtonSignIn"></label>
                 <div class="col-md-4">
-                    <button id="ButtonSignIn" name="ButtonSignIn" class="btn btn-primary">SignIn</button>
-                    <a href="#">Regester</a>
+                    <button id="ButtonSignIn" name="ButtonSignIn" class="btn btn-primary" runat="server">SignIn</button>
+                    <a href="#">Register</a>
                 </div>
             </div>
 
