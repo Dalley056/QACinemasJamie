@@ -38,7 +38,7 @@ namespace QACinemasWebsite
             testList[9] = "Tenth";
 
             //Like this but use while(r.read()) and pass in cinema name and id
-            foreach(string s in testList)
+            foreach (string s in testList)
             {
                 dlstCinema.Items.Add(new ListItem(s, "1"));
             }
@@ -52,6 +52,8 @@ namespace QACinemasWebsite
 
             //imgScreenView.ImageUrl =
             //imgSeatLayout.ImageUrl =
+
+            //Store selection somewhere or no point?
         }
 
         protected void dlstScreen_SelectedIndexChanged(object sender, EventArgs e)

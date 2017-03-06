@@ -97,10 +97,12 @@
     <Content Include="App_Data\README - How to set up DB.txt" />
     <Content Include="App_Data\STEP1_Populate_DB.sql" />
     <Content Include="App_Data\STEP2_Add_Data.sql" />
+    <Content Include="ContactUs.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Content.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -129,6 +131,7 @@
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Screens.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -145,6 +148,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -171,6 +181,13 @@
     </Compile>
     <Compile Include="MovieDetails.aspx.designer.cs">
       <DependentUpon>MovieDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens.aspx.cs">
+      <DependentUpon>Screens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Screens.aspx.designer.cs">
+      <DependentUpon>Screens.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

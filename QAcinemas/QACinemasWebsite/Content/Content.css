@@ -4,22 +4,22 @@
 #custom-bootstrap-menu.navbar-default {
     font-size: 14px;
     background-color: rgba(34, 34, 36, 1);
-    border-bottom-width: 0px;
+border-bottom-width: 0px;
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
     color: rgba(184, 173, 173, 1);
-    background-color: rgba(63, 62, 66, 1);
+background-color: rgba(63, 62, 66, 1);
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
     color: rgba(102, 102, 102, 1);
-    background-color: rgba(189, 189, 191, 1);
+background-color: rgba(189, 189, 191, 1);
 }
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
 #custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
     color: rgba(230, 225, 225, 1);
-    background-color: rgba(130, 131, 135, 1);
+background-color: rgba(130, 131, 135, 1);
 }
 #custom-bootstrap-menu.navbar-default .navbar-toggle {
     border-color: #828387;
