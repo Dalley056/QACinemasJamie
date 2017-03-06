@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <form class="form-horizontal" runat="server">
+    <form class="form-horizontal" runat="server" onsubmit="OnSignIn">
         <fieldset>
 
             <!-- Form Name -->
@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="TextBoxUserName">Username</label>
                 <div class="col-md-4">
-                    <input id="TextBoxUserName" name="TextBoxUserName" type="text" placeholder="Enter Your username" class="form-control input-md" required="" />
+                    <input id="TextBoxUserName" name="TextBoxUserName" type="text" placeholder="Enter Your username" class="form-control input-md" required="" runat="server" />
                     <span class="help-block">Enter Username or Email Address</span>
                 </div>
             </div>
@@ -23,7 +23,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textBoxPassword">Password</label>
                 <div class="col-md-4">
-                    <input id="textBoxPassword" name="textBoxPassword" type="password" placeholder="Password" class="form-control input-md" required="" />
+                    <input id="TextBoxPassword" name="textBoxPassword" type="password" placeholder="Password" class="form-control input-md" required="" runat="server"/>
                     <br />
                     <a href="#">Forgot Password</a>
                 </div>
@@ -33,12 +33,15 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="ButtonSignIn"></label>
                 <div class="col-md-4">
-                    <button id="ButtonSignIn" name="ButtonSignIn" class="btn btn-primary" runat="server">SignIn</button>
+                    
+
+                    <asp:Button cssclass="btn btn-primary" Text="Sign In" runat="server" OnClick="SignIn_Click" />
                     <a href="#">Register</a>
                 </div>
             </div>
 
         </fieldset>
     </form>
+    
 
 </asp:Content>

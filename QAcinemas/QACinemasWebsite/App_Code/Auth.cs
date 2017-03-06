@@ -64,11 +64,11 @@ namespace QACinemasWebsite.App_Code
             DataSetTableAdapters.UsersTableAdapter usertableadapter = new DataSetTableAdapters.UsersTableAdapter();     
             DataSet.UsersDataTable data = usertableadapter.GetUserByUsername(username, true);                       //Get user with matching username
 
-            if (data != null)                                                                                       //check if user exists
+            if (data != null && data.Count!=0)                                                                                       //check if user exists
             {
                 DataSet.UsersRow user = data[0];                                                                    //get the userrow from the dataset              
                 string input_hash = HashSaltPassword(password, user.PasswordSalt.ToString());                       //input password gets hashed using the known salt
-                if (input_hash == user.PasswordHash.ToString()) return true;                                        //if existing hash and generated hash match, user is verified!
+                if (input_hash == user.PasswordHash.ToString().Trim()) return true;                                 //if existing hash and generated hash match, user is verified!
             }
             return false;                                                                                           //for all other cases verification fails
         }
