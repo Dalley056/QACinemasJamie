@@ -147,7 +147,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Error\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Logan1.jpg" />
+    <Content Include="Logan2.jpg" />
+    <Content Include="Logan3.jpg" />
+    <Content Include="Logan4.jpg" />
+    <Content Include="LoganMain.jpg" />
     <Content Include="LogIn.aspx" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -183,6 +189,7 @@
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="PlacesToGo.aspx" />
     <Content Include="register.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -213,6 +220,13 @@
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
     </Compile>
+    <Compile Include="Error\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -226,6 +240,13 @@
     </Compile>
     <Compile Include="Members.Master.designer.cs">
       <DependentUpon>Members.Master</DependentUpon>
+    </Compile>
+    <Compile Include="PlacesToGo.aspx.cs">
+      <DependentUpon>PlacesToGo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlacesToGo.aspx.designer.cs">
+      <DependentUpon>PlacesToGo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MovieDetails.aspx.cs">
@@ -244,6 +265,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_GlobalResources\" />
+    <Folder Include="App_LocalResources\" />
     <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup>

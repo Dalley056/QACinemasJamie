@@ -4,6 +4,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <div id="alertcomponent" class="alert" runat="server" visible="false">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4><span id="alertheader" runat="server">generic_header</span></h4>
+        <span id="alertbody" runat="server">generic_body</span>
+    </div>
+
     <form class="form-horizontal" runat="server" onsubmit="OnSignIn">
         <fieldset>
 

@@ -12,7 +12,6 @@ namespace QACinemasWebsite.App_Code
     {
         public class AuthData
         {
-            string Password;
             string Hash;
             string Salt;
 
@@ -67,13 +66,18 @@ namespace QACinemasWebsite.App_Code
             if (data != null && data.Count!=0)                                                                                       //check if user exists
             {
                 DataSet.UsersRow user = data[0];                                                                    //get the userrow from the dataset              
-                string input_hash = HashSaltPassword(password, user.PasswordSalt.ToString());                       //input password gets hashed using the known salt
+                string input_hash = HashSaltPassword(password, user.PasswordSalt.ToString().Trim());                //input password gets hashed using the known salt
                 if (input_hash == user.PasswordHash.ToString().Trim()) return true;                                 //if existing hash and generated hash match, user is verified!
             }
             return false;                                                                                           //for all other cases verification fails
         }
 
-        
+        public static AuthData PasswordToHashSalt(string password)
+        {
+            string salt = Convert.ToBase64String(GenerateSalt());
+            string hash = HashSaltPassword(password, salt);
 
+            return new AuthData(hash, salt);
+        }
     }
 }
