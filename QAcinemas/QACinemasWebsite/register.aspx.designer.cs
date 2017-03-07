@@ -40,22 +40,22 @@ namespace QACinemasWebsite {
         protected global::System.Web.UI.WebControls.TextBox textBoxEmail;
         
         /// <summary>
-        /// textboxUsername control.
+        /// textBoxUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textboxUsername;
+        protected global::System.Web.UI.WebControls.TextBox textBoxUsername;
         
         /// <summary>
-        /// textBoxpassword control.
+        /// textBoxPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBoxpassword;
+        protected global::System.Web.UI.WebControls.TextBox textBoxPassword;
         
         /// <summary>
         /// textBoxRePassword control.
@@ -130,12 +130,12 @@ namespace QACinemasWebsite {
         protected global::System.Web.UI.WebControls.DropDownList DropDownCountry;
         
         /// <summary>
-        /// textBoxRegester control.
+        /// textBoxRegister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button textBoxRegester;
+        protected global::System.Web.UI.WebControls.Button textBoxRegister;
     }
 }

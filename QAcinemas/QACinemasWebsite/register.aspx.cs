@@ -18,5 +18,21 @@ namespace QACinemasWebsite
         {
             
         }
+
+        protected void textBoxRegister_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void textBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    
+        protected void Register_User(string username, string password, string firstname, string lastname, string phoneno,
+                                     string addr1, string addr2, string city, string region, string country, string postcode)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

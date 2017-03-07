@@ -27,7 +27,7 @@
 
         <fieldset>
             <!-- Form Name -->
-            <legend>Regester</legend>
+            <legend>Register</legend>
 
             <!-- First name input-->
             <div class="form-group">
@@ -57,18 +57,18 @@
 
             <!-- Username input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textboxUsername">Username</label>
+                <label class="col-md-4 control-label" for="textBoxUsername">Username</label>
                 <div class="col-md-3">
-                    <asp:TextBox ID="textboxUsername" name="textboxUsername" placeholder="username" class="form-control input-md" required="" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="textBoxUsername" name="textBoxUsername" placeholder="username" class="form-control input-md" required="" runat="server" OnTextChanged="textBoxUsername_TextChanged"></asp:TextBox>
                     <span class="help-block">Enter a unique username</span>
                 </div>
             </div>
 
             <!-- Password input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textBoxpassword">New Password</label>
+                <label class="col-md-4 control-label" for="textBoxPassword">New Password</label>
                 <div class="col-md-3">
-                    <asp:TextBox ID="textBoxpassword" name="textBoxpassword" type="password" placeholder="Enter new password" class="form-control input-md" required="" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="textBoxPassword" name="textBoxPassword" type="password" placeholder="Enter new password" class="form-control input-md" required="" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -161,7 +161,7 @@
             <!-- Register Button -->
             <div class="form-group">
                 <div class="col-md-4 pull-right">
-                    <asp:Button ID="textBoxRegester" type="submit" name="textBoxRegester" class="btn btn-primary" runat="server" Text="Register" />
+                    <asp:Button ID="textBoxRegister" type="submit" name="textBoxRegister" class="btn btn-primary" runat="server" Text="Register" OnClick="textBoxRegister_Click" />
                 </div>
             </div>
         </fieldset>

@@ -66,7 +66,7 @@ namespace QACinemasWebsite.App_Code
             if (data != null && data.Count!=0)                                                                                       //check if user exists
             {
                 DataSet.UsersRow user = data[0];                                                                    //get the userrow from the dataset              
-                string input_hash = HashSaltPassword(password, user.PasswordSalt.ToString().Trim());                //input password gets hashed using the known salt
+                string input_hash = HashSaltPassword(password, user.PasswordSalt.ToString());                //input password gets hashed using the known salt
                 if (input_hash == user.PasswordHash.ToString().Trim()) return true;                                 //if existing hash and generated hash match, user is verified!
             }
             return false;                                                                                           //for all other cases verification fails
