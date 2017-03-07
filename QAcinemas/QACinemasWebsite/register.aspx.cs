@@ -13,5 +13,10 @@ namespace QACinemasWebsite
         {
 
         }
+
+        protected void textBoxEmail_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
