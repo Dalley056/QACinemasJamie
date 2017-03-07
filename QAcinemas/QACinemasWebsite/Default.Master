@@ -6,9 +6,10 @@
 <head runat="server">
     <title></title>
     <!-- Bootstrap -->
-    <link href="/Content/bootstrap.min.css" rel="stylesheet"/>
-    <!-- Bootstrap theme-->
-    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="/Content/bootstrap.css" rel="stylesheet"/>
+    <!-- Bootstrap Theme-->
+<%--    <link href="/Content/bootstrap-theme.min.css" rel="stylesheet"/>--%>
+    <link rel="stylesheet" href="Content/Content.css" />
     <style>
         body {
             padding-top: 70px;
@@ -18,17 +19,83 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <center>
+    <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header"><a class="navbar-brand" href="#">QA-Cinemas</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/">Home</a>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Films<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">New Releases</a></li>
+                        <li><a href="#">Listing Gallery</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Our Cinemas<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Screens.aspx">Screens</a></li>
+                        <li><a href="#">Opening Times</a></li>
+                        <li><a href="#">Places to Go</a></li>
+                    </ul>
+                </li>
+                <li><a href="discussion.aspx">Discussion</a>
+                </li>
+            </ul>
+            <div class="col-sm-3 col-md-3 pull-right">
+        <form class="navbar-form" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+        </div>
+        </div>
+    </div>
+</div>
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         <hr />
-        <footer>
-            <p>&copy; <%: DateTime.Now.Year %> - QA Cinemas</p>
+             <div class="container">
+            <section style="height: 80px;"></section>
+            <!----------- Footer ------------>
+            <footer class="footer-bs">
+                <div class="row">
+                    <div class="col-md-3 footer-brand animated fadeInLeft">
+                        <h2>Logo</h2>
+                    </div>
+                    <div class="col-md-4 footer-nav animated fadeInUp">
+                        <h4>Menu</h4>
+                        <div class="col-md-6">
+                            <ul class="pages">
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#">Getting there</a></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Classifications</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 footer-social animated fadeInDown">
+                        <h4>Follow Us</h4>
+                        <ul>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
         </footer>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/Scripts/bootstrap.min.js"></script>
+        </center>
 </body>
 </html>
