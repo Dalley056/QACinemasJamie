@@ -143,10 +143,12 @@
     <Content Include="Bin\roslyn\vbc.exe" />
     <Content Include="Bin\roslyn\VBCSCompiler.exe" />
     <Content Include="Bin\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="ContactUs.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Content.css" />
     <Content Include="Error\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Logan1.jpg" />
@@ -180,6 +182,7 @@
     <Content Include="Bin\roslyn\Microsoft.CSharp.Core.targets" />
     <Content Include="Bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="Bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="AboutUs.aspx" />
     <None Include="DataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -189,6 +192,7 @@
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Screens.aspx" />
     <Content Include="PlacesToGo.aspx" />
     <Content Include="register.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -208,6 +212,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Auth.cs" />
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet.cs">
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -255,6 +269,20 @@
     </Compile>
     <Compile Include="MovieDetails.aspx.designer.cs">
       <DependentUpon>MovieDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens.aspx.cs">
+      <DependentUpon>Screens.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Screens.aspx.designer.cs">
+      <DependentUpon>Screens.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
