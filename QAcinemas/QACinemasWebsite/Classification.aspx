@@ -14,7 +14,6 @@
             <h1>PG</h1>
             
             <p>some parents may find the film unsuitable for their children.</p>
-
         </div>
     </div>
     <div class="row">
