@@ -133,6 +133,14 @@
                 </div>
             </div>
 
+            <!-- Address Line 2 input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textBoxACity">City</label>
+                <div class="col-md-4">
+                    <asp:TextBox ID="textBoxACity" name="textBoxACity" class="form-control input-md" required="" runat="server"></asp:TextBox>
+                </div>
+            </div>
+
             <!-- Address Region input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textBoxARegion">Region</label>
