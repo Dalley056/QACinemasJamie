@@ -174,6 +174,7 @@ CREATE TABLE [dbo].[Films]
     [Featured] BIT NOT NULL,
     [ImgSmall] NVARCHAR(MAX) NOT NULL,
     [ImgLarge] NVARCHAR(MAX) NOT NULL,
+	[ReleaseDate] DATETIME NOT NULL DEFAULT getdate(),
     [Active] BIT NOT NULL DEFAULT 1,
     [DateAdded] DATETIME NOT NULL DEFAULT getdate(),
     CONSTRAINT [FK_Films_Classifications] FOREIGN KEY ([ClassificationId]) REFERENCES [Classifications]([Id])
