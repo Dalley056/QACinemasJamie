@@ -78,9 +78,9 @@ namespace QACinemasWebsite
 
 
             //STEP 3: Register!
-            DataSetTableAdapters.QueriesTableAdapter querytableadapter = new DataSetTableAdapters.QueriesTableAdapter();
-            querytableadapter.RegisterUser(addr1, addr2, city, region, country, postcode, coordsX, coordsY, true,
-                                            username, authdata.Hash, authdata.Salt, email, phoneno, firstname, lastname, true);
+            //DataSetTableAdapters.QueriesTableAdapter querytableadapter = new DataSetTableAdapters.QueriesTableAdapter();
+            //querytableadapter.RegisterUser(addr1, addr2, city, region, country, postcode, coordsX, coordsY, true,
+                                            //username, authdata.Hash, authdata.Salt, email, phoneno, firstname, lastname, true);
             
 
         }

@@ -199,6 +199,7 @@
     </None>
     <Content Include="DataSet.xss">
       <DependentUpon>DataSet.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Screens.aspx" />
