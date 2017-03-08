@@ -7,7 +7,7 @@ GO
 INSERT INTO [dbo].[Addresses] ([Line1], [Line2], [City], [Region], [Country], [Postcode], [CoordX], [CoordY]) 
 	VALUES ('123 Admin Road', 'Admin Complex', 'Adminton', 'Adminishire', 'Administan', 'AD12MIN', -2.290126399999963, 53.48752349999999);
 INSERT INTO [dbo].[Users] ([AddressId], [Username], [PasswordHash], [PasswordSalt], [EmailAddress], [PhoneNumber], [FirstName], [LastName]) 
-	VALUES ((SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]), 'admin', 'admin', 'admin', 'admin@admin.com', '+441234567890', 'Adminfirstname', 'adminlastname');
+	VALUES ((SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]), 'admin', 'lKVSYJt99OupgVMJmK03Vi2/0yeP3vuBJWBAxa63LY4=', 'admin', 'admin@admin.com', '+441234567890', 'Adminfirstname', 'adminlastname');
 
 --LOCATIONS
 GO

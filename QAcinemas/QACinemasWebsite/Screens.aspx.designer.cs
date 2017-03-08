@@ -10,51 +10,51 @@
 namespace QACinemasWebsite {
     
     
-    public partial class MovieDetails {
+    public partial class Screens {
         
         /// <summary>
-        /// titledata control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titledata;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// classificationdata control.
+        /// dlstCinema control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classificationdata;
+        protected global::System.Web.UI.WebControls.DropDownList dlstCinema;
         
         /// <summary>
-        /// descriptiondata control.
+        /// dlstScreen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl descriptiondata;
+        protected global::System.Web.UI.WebControls.DropDownList dlstScreen;
         
         /// <summary>
-        /// releasedatedata control.
+        /// imgSeatLayout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl releasedatedata;
+        protected global::System.Web.UI.WebControls.Image imgSeatLayout;
         
         /// <summary>
-        /// durationdata control.
+        /// imgScreenView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl durationdata;
+        protected global::System.Web.UI.WebControls.Image imgScreenView;
     }
 }

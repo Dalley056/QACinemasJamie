@@ -10,51 +10,51 @@
 namespace QACinemasWebsite {
     
     
-    public partial class MovieDetails {
+    public partial class LogIn {
         
         /// <summary>
-        /// titledata control.
+        /// alertcomponent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titledata;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertcomponent;
         
         /// <summary>
-        /// classificationdata control.
+        /// alertheader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classificationdata;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertheader;
         
         /// <summary>
-        /// descriptiondata control.
+        /// alertbody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl descriptiondata;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertbody;
         
         /// <summary>
-        /// releasedatedata control.
+        /// TextBoxUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl releasedatedata;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TextBoxUserName;
         
         /// <summary>
-        /// durationdata control.
+        /// TextBoxPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl durationdata;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword TextBoxPassword;
     }
 }
