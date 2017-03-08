@@ -31,7 +31,7 @@
                 <div class="col-md-4">
                     <input id="TextBoxPassword" name="textBoxPassword" type="password" placeholder="Password" class="form-control input-md" required="" runat="server"/>
                     <br />
-                    <a href="#">Forgot Password</a>
+                    <a href="forgotPass.aspx">Forgot Password</a>
                 </div>
             </div>
 
@@ -42,7 +42,7 @@
                     
 
                     <asp:Button cssclass="btn btn-primary" Text="Sign In" runat="server" OnClick="SignIn_Click" />
-                    <a href="#">Register</a>
+                    <a href="register.aspx">Register</a>
                 </div>
             </div>
 

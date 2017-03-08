@@ -12,8 +12,8 @@ namespace QACinemasWebsite.App_Code
     {
         public class AuthData
         {
-            string Hash;
-            string Salt;
+            public string Hash;
+            public string Salt;
 
             public AuthData(string hash = null, string salt = null)
             {
