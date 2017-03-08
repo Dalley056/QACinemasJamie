@@ -34,6 +34,7 @@
                 <label class="col-md-4 control-label" for="textBoxFirstN">First Name</label>
                 <div class="col-md-3">
                     <asp:TextBox ID="textBoxFirstN" name="textBoxFirstN" class="form-control input-md" required="" runat="server"></asp:TextBox>
+
                 </div>
             </div>
 
@@ -121,7 +122,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textBoxALine1">Line 1</label>
                 <div class="col-md-4">
-                    <asp:TextBox ID="textBoxALine1" name="textBoxALine1" class="form-control input-md" required="" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="textBoxALine1" name="textBoxALine1" class="form-control input-md " required="" runat="server"></asp:TextBox>
                 </div>
             </div>
 
@@ -130,6 +131,14 @@
                 <label class="col-md-4 control-label" for="textBoxALine2">Line 2</label>
                 <div class="col-md-4">
                     <asp:TextBox ID="textBoxALine2" name="textBoxALine2" class="form-control input-md" required="" runat="server"></asp:TextBox>
+                </div>
+            </div>
+
+            <!-- City Region input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textBoxACity">Region</label>
+                <div class="col-md-4">
+                    <asp:TextBox ID="textBoxACity" name="textBoxACity" class="form-control input-md" required="" runat="server"></asp:TextBox>
                 </div>
             </div>
 

@@ -11258,8 +11258,10 @@ WHERE        (Cinemas.Id = @cinema_id) AND (Addresses.Active = @active)";
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"INSERT INTO Addresses
                          (Line1, Line2, City, Region, Country, Postcode, CoordX, CoordY)
-VALUES        (@Line1,@Line2,@City,@Region,@Country,@Postcode,@CoordX,@CoordY); 
-SELECT Id, Line1, Line2, City, Region, Country, Postcode, CoordX, CoordY, Active, DateAdded FROM Addresses WHERE (Id = SCOPE_IDENTITY())";
+VALUES        (@Line1,@Line2,@City,@Region,@Country,@Postcode,@CoordX,@CoordY);  
+SELECT Id, Line1, Line2, City, Region, Country, Postcode, CoordX, CoordY, Active, DateAdded FROM Addresses WHERE (Id = SCOPE_IDENTITY());
+
+SELECT SCOPE_IDENTITY()";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Line1", global::System.Data.SqlDbType.NChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Line1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Line2", global::System.Data.SqlDbType.NChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Line2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11523,7 +11525,7 @@ WHERE        (Id = @Original_Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertAddress(string Line1, string Line2, string City, string Region, string Country, string Postcode, string CoordX, string CoordY) {
+        public virtual object InsertAddress(string Line1, string Line2, string City, string Region, string Country, string Postcode, string CoordX, string CoordY) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((Line1 == null)) {
                 throw new global::System.ArgumentNullException("Line1");
@@ -11578,16 +11580,22 @@ WHERE        (Id = @Original_Id)";
                         != global::System.Data.ConnectionState.Open)) {
                 command.Connection.Open();
             }
-            int returnValue;
+            object returnValue;
             try {
-                returnValue = command.ExecuteNonQuery();
+                returnValue = command.ExecuteScalar();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
             }
-            return returnValue;
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17114,7 +17122,7 @@ WHERE        (Screens.Id = @screen_id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, ScreenId, FilmId, StartTime, EndTime, CostPerSeat, Active, DateAdded F" +
@@ -17122,44 +17130,50 @@ WHERE        (Screens.Id = @screen_id)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        Showings.Id, Showings.ScreenId, Showings.FilmId, Showings.StartTime, Showings.EndTime, Showings.CostPerSeat, Showings.Active, Showings.DateAdded
-FROM            Showings INNER JOIN
-                         Screens ON Showings.ScreenId = Screens.Id INNER JOIN
-                         Cinemas ON Screens.CinemaId = Cinemas.Id
-WHERE        (Cinemas.Id = @Cinema_Id) AND (Showings.Id = @active)";
+            this._commandCollection[1].CommandText = "SELECT        Id, ScreenId, FilmId, StartTime, EndTime, CostPerSeat, Active, Date" +
+                "Added\r\nFROM            Showings\r\nWHERE        (Id = @showing_id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cinema_Id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@active", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@showing_id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT        Showings.Id, Showings.ScreenId, Showings.FilmId, Showings.StartTime, Showings.EndTime, Showings.CostPerSeat, Showings.Active, Showings.DateAdded
 FROM            Showings INNER JOIN
                          Screens ON Showings.ScreenId = Screens.Id INNER JOIN
                          Cinemas ON Screens.CinemaId = Cinemas.Id
-WHERE        (Showings.FilmId = @film_id) AND (Showings.Active = @active) AND (Cinemas.Id = @cinema_id)";
+WHERE        (Cinemas.Id = @Cinema_Id) AND (Showings.Id = @active)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@film_id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "FilmId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@active", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cinema_id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cinema_Id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@active", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT        Id, ScreenId, FilmId, StartTime, EndTime, CostPerSeat, Active, Date" +
-                "Added\r\nFROM            Showings\r\nWHERE        (FilmId = @film_id) AND Active = @" +
-                "active";
+            this._commandCollection[3].CommandText = @"SELECT        Showings.Id, Showings.ScreenId, Showings.FilmId, Showings.StartTime, Showings.EndTime, Showings.CostPerSeat, Showings.Active, Showings.DateAdded
+FROM            Showings INNER JOIN
+                         Screens ON Showings.ScreenId = Screens.Id INNER JOIN
+                         Cinemas ON Screens.CinemaId = Cinemas.Id
+WHERE        (Showings.FilmId = @film_id) AND (Showings.Active = @active) AND (Cinemas.Id = @cinema_id)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@film_id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "FilmId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@active", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cinema_id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "INSERT INTO Showings\r\n                         (ScreenId, FilmId, StartTime, EndT" +
+            this._commandCollection[4].CommandText = "SELECT        Id, ScreenId, FilmId, StartTime, EndTime, CostPerSeat, Active, Date" +
+                "Added\r\nFROM            Showings\r\nWHERE        (FilmId = @film_id) AND Active = @" +
+                "active";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@film_id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "FilmId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@active", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "INSERT INTO Showings\r\n                         (ScreenId, FilmId, StartTime, EndT" +
                 "ime, CostPerSeat)\r\nVALUES        (@ScreenId,@FilmId,@StartTime,@EndTime,@CostPer" +
                 "Seat)";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScreenId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "ScreenId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilmId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "FilmId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CostPerSeat", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CostPerSeat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ScreenId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "ScreenId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FilmId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "FilmId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndTime", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CostPerSeat", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CostPerSeat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17190,8 +17204,20 @@ WHERE        (Showings.FilmId = @film_id) AND (Showings.Active = @active) AND (C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DataSet.ShowingsDataTable GetShowingsByCinemaId(long Cinema_Id, long active) {
+        public virtual DataSet.ShowingsDataTable GetShowingById(long showing_id) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((long)(showing_id));
+            DataSet.ShowingsDataTable dataTable = new DataSet.ShowingsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet.ShowingsDataTable GetShowingsByCinemaId(long Cinema_Id, long active) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((long)(Cinema_Id));
             this.Adapter.SelectCommand.Parameters[1].Value = ((long)(active));
             DataSet.ShowingsDataTable dataTable = new DataSet.ShowingsDataTable();
@@ -17204,7 +17230,7 @@ WHERE        (Showings.FilmId = @film_id) AND (Showings.Active = @active) AND (C
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSet.ShowingsDataTable GetShowingsByCinemaIdFilmId(long film_id, bool active, long cinema_id) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((long)(film_id));
             this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(active));
             this.Adapter.SelectCommand.Parameters[2].Value = ((long)(cinema_id));
@@ -17218,7 +17244,7 @@ WHERE        (Showings.FilmId = @film_id) AND (Showings.Active = @active) AND (C
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSet.ShowingsDataTable GetShowingsByFilmId(long film_id, bool active) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((long)(film_id));
             this.Adapter.SelectCommand.Parameters[1].Value = ((bool)(active));
             DataSet.ShowingsDataTable dataTable = new DataSet.ShowingsDataTable();
@@ -17339,7 +17365,7 @@ WHERE        (Showings.FilmId = @film_id) AND (Showings.Active = @active) AND (C
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertShowing(long ScreenId, long FilmId, System.DateTime StartTime, System.DateTime EndTime, decimal CostPerSeat) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             command.Parameters[0].Value = ((long)(ScreenId));
             command.Parameters[1].Value = ((long)(FilmId));
             command.Parameters[2].Value = ((System.DateTime)(StartTime));
@@ -18925,6 +18951,198 @@ VALUES        (@ClassificationId,@Title,@Description,@Duration,@Language,@ImdbId
                 command.Parameters[8].Value = ((string)(ImgLarge));
             }
             command.Parameters[9].Value = ((System.DateTime)(ReleaseDate));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.IDbCommand[] _commandCollection;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.IDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.IDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["QACinemasDBConnectionString"].ConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = @"INSERT INTO Addresses
+                         (Line1, Line2, City, Region, Country, Postcode, CoordX, CoordY, Active)
+VALUES        (@addr_line1,@addr_line2,@addr_city,@addr_region,@addr_county,@addr_postcode,@addr_coord_X,@addr_coord_Y,@addr_active);
+
+INSERT INTO Users
+                         (AddressID, Username, PasswordHash, PasswordSalt, EmailAddress, PhoneNumber, FirstName, LastName, Active)
+VALUES
+((SELECT SCOPE_IDENTITY()), @user_username, @user_passhash, @user_passsalt, @user_emailaddr, @user_phoneno, @user_firstname, @user_lastname, @user_active)
+";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.Text;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_line1", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Line1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_line2", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Line2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_city", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_region", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Region", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_county", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_postcode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Postcode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_coord_X", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CoordX", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_coord_Y", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CoordY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_active", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_username", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_passhash", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "PasswordHash", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_passsalt", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "PasswordSalt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_emailaddr", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_phoneno", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_firstname", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_lastname", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_active", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int RegisterUser(
+                    string addr_line1, 
+                    string addr_line2, 
+                    string addr_city, 
+                    string addr_region, 
+                    string addr_county, 
+                    string addr_postcode, 
+                    string addr_coord_X, 
+                    string addr_coord_Y, 
+                    bool addr_active, 
+                    string user_username, 
+                    string user_passhash, 
+                    string user_passsalt, 
+                    string user_emailaddr, 
+                    string user_phoneno, 
+                    string user_firstname, 
+                    string user_lastname, 
+                    bool user_active) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+            if ((addr_line1 == null)) {
+                throw new global::System.ArgumentNullException("addr_line1");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(addr_line1));
+            }
+            if ((addr_line2 == null)) {
+                throw new global::System.ArgumentNullException("addr_line2");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(addr_line2));
+            }
+            if ((addr_city == null)) {
+                throw new global::System.ArgumentNullException("addr_city");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(addr_city));
+            }
+            if ((addr_region == null)) {
+                throw new global::System.ArgumentNullException("addr_region");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(addr_region));
+            }
+            if ((addr_county == null)) {
+                throw new global::System.ArgumentNullException("addr_county");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(addr_county));
+            }
+            if ((addr_postcode == null)) {
+                throw new global::System.ArgumentNullException("addr_postcode");
+            }
+            else {
+                command.Parameters[5].Value = ((string)(addr_postcode));
+            }
+            if ((addr_coord_X == null)) {
+                throw new global::System.ArgumentNullException("addr_coord_X");
+            }
+            else {
+                command.Parameters[6].Value = ((string)(addr_coord_X));
+            }
+            if ((addr_coord_Y == null)) {
+                throw new global::System.ArgumentNullException("addr_coord_Y");
+            }
+            else {
+                command.Parameters[7].Value = ((string)(addr_coord_Y));
+            }
+            command.Parameters[8].Value = ((bool)(addr_active));
+            if ((user_username == null)) {
+                throw new global::System.ArgumentNullException("user_username");
+            }
+            else {
+                command.Parameters[9].Value = ((string)(user_username));
+            }
+            if ((user_passhash == null)) {
+                throw new global::System.ArgumentNullException("user_passhash");
+            }
+            else {
+                command.Parameters[10].Value = ((string)(user_passhash));
+            }
+            if ((user_passsalt == null)) {
+                throw new global::System.ArgumentNullException("user_passsalt");
+            }
+            else {
+                command.Parameters[11].Value = ((string)(user_passsalt));
+            }
+            if ((user_emailaddr == null)) {
+                throw new global::System.ArgumentNullException("user_emailaddr");
+            }
+            else {
+                command.Parameters[12].Value = ((string)(user_emailaddr));
+            }
+            if ((user_phoneno == null)) {
+                throw new global::System.ArgumentNullException("user_phoneno");
+            }
+            else {
+                command.Parameters[13].Value = ((string)(user_phoneno));
+            }
+            if ((user_firstname == null)) {
+                throw new global::System.ArgumentNullException("user_firstname");
+            }
+            else {
+                command.Parameters[14].Value = ((string)(user_firstname));
+            }
+            if ((user_lastname == null)) {
+                throw new global::System.ArgumentNullException("user_lastname");
+            }
+            else {
+                command.Parameters[15].Value = ((string)(user_lastname));
+            }
+            command.Parameters[16].Value = ((bool)(user_active));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

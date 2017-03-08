@@ -12,8 +12,8 @@ namespace QACinemasWebsite.App_Code
     {
         public class AuthData
         {
-            string Hash;
-            string Salt;
+            public string Hash;
+            public string Salt;
 
             public AuthData(string hash = null, string salt = null)
             {
@@ -27,7 +27,7 @@ namespace QACinemasWebsite.App_Code
         /// </summary>
         /// <param name="size">size of salt in bits. Defaults to 128-bit salt</param>
         /// <returns>byte[] of salt</returns>
-        private static byte[] GenerateSalt(int size = 128)
+        private static string GenerateSalt(int size = 128)
         {
             // generate a salt using a secure PRNG
             byte[] salt = new byte[size / 8];
@@ -35,7 +35,7 @@ namespace QACinemasWebsite.App_Code
             {
                 rng.GetBytes(salt);
             }
-            return salt;
+            return Convert.ToBase64String(salt);
         }
 
         /// <summary>
@@ -66,15 +66,15 @@ namespace QACinemasWebsite.App_Code
             if (data != null && data.Count!=0)                                                                                       //check if user exists
             {
                 DataSet.UsersRow user = data[0];                                                                    //get the userrow from the dataset              
-                string input_hash = HashSaltPassword(password, user.PasswordSalt.ToString());                //input password gets hashed using the known salt
-                if (input_hash == user.PasswordHash.ToString().Trim()) return true;                                 //if existing hash and generated hash match, user is verified!
+                string input_hash = HashSaltPassword(password, user.PasswordSalt);                //input password gets hashed using the known salt
+                if (input_hash == user.PasswordHash) return true;                                 //if existing hash and generated hash match, user is verified!
             }
             return false;                                                                                           //for all other cases verification fails
         }
 
         public static AuthData PasswordToHashSalt(string password)
         {
-            string salt = Convert.ToBase64String(GenerateSalt());
+            string salt = GenerateSalt();
             string hash = HashSaltPassword(password, salt);
 
             return new AuthData(hash, salt);
