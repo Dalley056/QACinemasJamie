@@ -13,58 +13,58 @@ namespace QACinemasWebsite {
     public partial class register {
         
         /// <summary>
-        /// textBox1 control.
+        /// textBoxFirstN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBox1;
+        protected global::System.Web.UI.WebControls.TextBox textBoxFirstN;
         
         /// <summary>
-        /// textBox2 control.
+        /// textBoxLastN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBox2;
+        protected global::System.Web.UI.WebControls.TextBox textBoxLastN;
         
         /// <summary>
-        /// textBox3 control.
+        /// textBoxEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBox3;
+        protected global::System.Web.UI.WebControls.TextBox textBoxEmail;
         
         /// <summary>
-        /// textBox4 control.
+        /// textBoxUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBox4;
+        protected global::System.Web.UI.WebControls.TextBox textBoxUsername;
         
         /// <summary>
-        /// textBox5 control.
+        /// textBoxPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBox5;
+        protected global::System.Web.UI.WebControls.TextBox textBoxPassword;
         
         /// <summary>
-        /// textBox6 control.
+        /// textBoxPhonNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBox6;
+        protected global::System.Web.UI.WebControls.TextBox textBoxPhonNo;
         
         /// <summary>
         /// textBoxAPost control.
