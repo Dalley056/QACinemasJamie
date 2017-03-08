@@ -18944,6 +18944,196 @@ VALUES        (@ClassificationId,@Title,@Description,@Duration,@Language,@ImdbId
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.IDbCommand[] _commandCollection;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.IDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.IDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["QACinemasDBConnectionString"].ConnectionString);
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = @"INSERT INTO Addresses
+                         (Line1, Line2, City, Region, Country, Postcode, CoordX, CoordY, Active)
+VALUES        (@addr_line1, @addr_line2, @addr_city, @addr_region, @addr_country, @addr_postcode, @addr_coordx, @addr_coordy, @addr_active);
+
+INSERT INTO Users
+                         (AddressId, Username, PasswordHash, PasswordSalt, EmailAddress, PhoneNumber, FirstName, LastName, Active)
+VALUES        ((SELECT SCOPE_IDENTITY()), @user_username, @user_passwordhash, @user_passwordsalt, @user_email, @user_phoneno, @user_firstname, @user_lastname, @user_active)";
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.Text;
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_line1", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Line1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_line2", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Line2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_city", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_region", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Region", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_country", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_postcode", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "Postcode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_coordx", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CoordX", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_coordy", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "CoordY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@addr_active", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_username", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_passwordhash", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "PasswordHash", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_passwordsalt", global::System.Data.SqlDbType.NVarChar, 128, global::System.Data.ParameterDirection.Input, 0, 0, "PasswordSalt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_email", global::System.Data.SqlDbType.NVarChar, 256, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_phoneno", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_firstname", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_lastname", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_active", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int RegisterUser(
+                    string addr_line1, 
+                    string addr_line2, 
+                    string addr_city, 
+                    string addr_region, 
+                    string addr_country, 
+                    string addr_postcode, 
+                    string addr_coordx, 
+                    string addr_coordy, 
+                    bool addr_active, 
+                    string user_username, 
+                    string user_passwordhash, 
+                    string user_passwordsalt, 
+                    string user_email, 
+                    string user_phoneno, 
+                    string user_firstname, 
+                    string user_lastname, 
+                    bool user_active) {
+            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+            if ((addr_line1 == null)) {
+                throw new global::System.ArgumentNullException("addr_line1");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(addr_line1));
+            }
+            if ((addr_line2 == null)) {
+                throw new global::System.ArgumentNullException("addr_line2");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(addr_line2));
+            }
+            if ((addr_city == null)) {
+                throw new global::System.ArgumentNullException("addr_city");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(addr_city));
+            }
+            if ((addr_region == null)) {
+                throw new global::System.ArgumentNullException("addr_region");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(addr_region));
+            }
+            if ((addr_country == null)) {
+                throw new global::System.ArgumentNullException("addr_country");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(addr_country));
+            }
+            if ((addr_postcode == null)) {
+                throw new global::System.ArgumentNullException("addr_postcode");
+            }
+            else {
+                command.Parameters[5].Value = ((string)(addr_postcode));
+            }
+            if ((addr_coordx == null)) {
+                throw new global::System.ArgumentNullException("addr_coordx");
+            }
+            else {
+                command.Parameters[6].Value = ((string)(addr_coordx));
+            }
+            if ((addr_coordy == null)) {
+                throw new global::System.ArgumentNullException("addr_coordy");
+            }
+            else {
+                command.Parameters[7].Value = ((string)(addr_coordy));
+            }
+            command.Parameters[8].Value = ((bool)(addr_active));
+            if ((user_username == null)) {
+                throw new global::System.ArgumentNullException("user_username");
+            }
+            else {
+                command.Parameters[9].Value = ((string)(user_username));
+            }
+            if ((user_passwordhash == null)) {
+                throw new global::System.ArgumentNullException("user_passwordhash");
+            }
+            else {
+                command.Parameters[10].Value = ((string)(user_passwordhash));
+            }
+            if ((user_passwordsalt == null)) {
+                throw new global::System.ArgumentNullException("user_passwordsalt");
+            }
+            else {
+                command.Parameters[11].Value = ((string)(user_passwordsalt));
+            }
+            if ((user_email == null)) {
+                throw new global::System.ArgumentNullException("user_email");
+            }
+            else {
+                command.Parameters[12].Value = ((string)(user_email));
+            }
+            if ((user_phoneno == null)) {
+                throw new global::System.ArgumentNullException("user_phoneno");
+            }
+            else {
+                command.Parameters[13].Value = ((string)(user_phoneno));
+            }
+            if ((user_firstname == null)) {
+                throw new global::System.ArgumentNullException("user_firstname");
+            }
+            else {
+                command.Parameters[14].Value = ((string)(user_firstname));
+            }
+            if ((user_lastname == null)) {
+                throw new global::System.ArgumentNullException("user_lastname");
+            }
+            else {
+                command.Parameters[15].Value = ((string)(user_lastname));
+            }
+            command.Parameters[16].Value = ((bool)(user_active));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
