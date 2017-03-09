@@ -1,2 +1,2 @@
 language: csharp
-solution: QAcinemas.sln
+solution: QAcinemas.sln --path QAcinemas
