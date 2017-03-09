@@ -3,10 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form class="form-horizontal">
+    <form runat="server" class="form-horizontal">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="text-center">Rest password for <%=email %>
+                <h3 runat="server" class="text-center">Rest password for <%=email %>
                 </h3>
                 <br />
             </div>

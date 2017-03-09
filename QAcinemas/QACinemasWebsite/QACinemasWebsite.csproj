@@ -17,7 +17,8 @@
     <AssemblyName>QACinemasWebsite</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -144,6 +145,8 @@
     <Content Include="Bin\roslyn\VBCSCompiler.exe" />
     <Content Include="Bin\System.Runtime.InteropServices.RuntimeInformation.dll" />
     <Content Include="Classification.aspx" />
+    <Content Include="Booking\SelectScreening.aspx" />
+    <Content Include="Booking\SelectSeats.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -184,6 +187,8 @@
     </Content>
     <Content Include="Error\404.aspx" />
     <Content Include="GettingThere.aspx" />
+    <Content Include="Booking\PaymentConfirmation.aspx" />
+    <Content Include="Booking\PaypalPlaceholder.aspx" />
     <Content Include="SelectSeats.aspx" />
     <Content Include="PaymentSystem.aspx" />
     <Content Include="BookingTicket.aspx" />
@@ -194,6 +199,7 @@
     <Content Include="Bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="Bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="AboutUs.aspx" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="DataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -231,6 +237,20 @@
     </Compile>
     <Compile Include="Classification.aspx.designer.cs">
       <DependentUpon>Classification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\SelectScreening.aspx.cs">
+      <DependentUpon>SelectScreening.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking\SelectScreening.aspx.designer.cs">
+      <DependentUpon>SelectScreening.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\SelectSeats.aspx.cs">
+      <DependentUpon>SelectSeats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking\SelectSeats.aspx.designer.cs">
+      <DependentUpon>SelectSeats.aspx</DependentUpon>
     </Compile>
     <Compile Include="ContactUs.aspx.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
@@ -302,6 +322,20 @@
     </Compile>
     <Compile Include="Members.Master.designer.cs">
       <DependentUpon>Members.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\PaymentConfirmation.aspx.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking\PaymentConfirmation.aspx.designer.cs">
+      <DependentUpon>PaymentConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\PaypalPlaceholder.aspx.cs">
+      <DependentUpon>PaypalPlaceholder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking\PaypalPlaceholder.aspx.designer.cs">
+      <DependentUpon>PaypalPlaceholder.aspx</DependentUpon>
     </Compile>
     <Compile Include="PlacesToGo.aspx.cs">
       <DependentUpon>PlacesToGo.aspx</DependentUpon>
