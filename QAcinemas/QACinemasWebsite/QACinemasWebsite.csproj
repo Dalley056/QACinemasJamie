@@ -232,6 +232,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Auth.cs" />
+    <Content Include="App_Code\Booking.cs" />
     <Compile Include="Classification.aspx.cs">
       <DependentUpon>Classification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
