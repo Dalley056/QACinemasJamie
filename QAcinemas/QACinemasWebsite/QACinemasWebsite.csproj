@@ -184,6 +184,7 @@
     <Content Include="Members.Master" />
     <Content Include="DataSet.xsc">
       <DependentUpon>DataSet.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Error\404.aspx" />
     <Content Include="GettingThere.aspx" />
