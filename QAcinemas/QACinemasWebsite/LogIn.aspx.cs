@@ -33,12 +33,25 @@ namespace QACinemasWebsite
                 Session["LoggedIn"] = true;
                 Session["UserInfo"] = usertableadapter.GetDataByUsernameIgnoreActive(username)[0];
                 System.Diagnostics.Debug.WriteLine("Login passed");
+
+                if (Request["redirect"] != null)
+                {
+                    Response.Redirect(Request["redirect"].ToString());
+                }
+                else
+                {
+                    Response.Redirect("/");
+                }
             }
             else
             {
                 //VERIFICATION FALSE CASE
                 System.Diagnostics.Debug.WriteLine("Login failed");
-                Response.Redirect("/LogIn.aspx?alert=2");
+                if (Request["redirect"] != null)
+                {
+                    Response.Redirect("/LogIn.aspx?alert=2&redirect="+ Request["redirect"].ToString());
+                }
+                    Response.Redirect("/LogIn.aspx?alert=2");
 
             }
         }
