@@ -13,6 +13,33 @@ namespace QACinemasWebsite {
     public partial class register {
         
         /// <summary>
+        /// alertcomponent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertcomponent;
+        
+        /// <summary>
+        /// alertheader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertheader;
+        
+        /// <summary>
+        /// alertbody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertbody;
+        
+        /// <summary>
         /// textBoxFirstN control.
         /// </summary>
         /// <remarks>

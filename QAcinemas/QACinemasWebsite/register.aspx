@@ -27,6 +27,12 @@
         <h3>Register New Account</h3>
     </div>
 
+    <div id="alertcomponent" class="alert" runat="server" visible="false">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4><span id="alertheader" runat="server">generic_header</span></h4>
+        <span id="alertbody" runat="server">generic_body</span>
+    </div>
+
     <form class="form-horizontal" onsubmit="return ValidateEmail()" data-toggle="validator" role="form" runat="server">
         <div class="container">
             <div class="row">
@@ -55,7 +61,7 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="textBoxEmail">Email</label>
                                     <div class="col-md-7">
-                                        <asp:TextBox ID="textBoxEmail" name="textBoxEmail" placeholder="Email address" class="form-control input-md" required="" runat="server" OnTextChanged="textBoxEmail_TextChanged" />
+                                        <asp:TextBox ID="textBoxEmail" name="textBoxEmail" placeholder="" class="form-control input-md" required="" runat="server" OnTextChanged="textBoxEmail_TextChanged" />
                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -65,7 +71,7 @@
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="textBoxUsername">Username</label>
                                     <div class="col-md-7">
-                                        <asp:TextBox ID="textBoxUsername" name="textBoxUsername" placeholder="username" class="form-control input-md" required="" runat="server" OnTextChanged="textBoxUsername_TextChanged"></asp:TextBox>
+                                        <asp:TextBox ID="textBoxUsername" name="textBoxUsername" placeholder="" class="form-control input-md" required="" runat="server" OnTextChanged="textBoxUsername_TextChanged"></asp:TextBox>
                                     </div>
                                 </div>
 

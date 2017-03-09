@@ -15,6 +15,10 @@ namespace QACinemasWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             Alert_Composer();
+            if(Request["username"] != null)
+            {
+                TextBoxUserName.Value = Request["username"].ToString();
+            }
         }
 
         protected void SignIn_Click(object sender, EventArgs e)
@@ -62,6 +66,11 @@ namespace QACinemasWebsite
                         alertcomponent.Attributes["class"] += " alert-info";
                         alertheader.InnerHtml = "Logged out!";
                         alertbody.InnerHtml = "User logged out successfully.";
+                        break;
+                    case "4": //Registration Successful
+                        alertcomponent.Attributes["class"] += " alert-success";
+                        alertheader.InnerHtml = "Registration Complete!";
+                        alertbody.InnerHtml = "Please log in to use your account.";
                         break;
                     default:
                         return;
