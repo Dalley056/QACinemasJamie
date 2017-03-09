@@ -67,7 +67,7 @@ namespace QACinemasWebsite
             string username, string password, string email, string phoneno, string firstname, string lastname)
         {
             //STEP 1: Get Hash/Salt for password
-            Auth.AuthData authdata = Auth.PasswordToHashSalt(password);
+            Auth.AuthData authdata = Auth.StringToHashSalt(password);
 
             //STEP 2: (Optional) Attempt to get coords for address
             string coordsX = "0";
