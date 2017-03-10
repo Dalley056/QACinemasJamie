@@ -8,13 +8,24 @@ using System.Text;
 
 namespace QACinemasWebsite.App_Code
 {
+    /// <summary>
+    /// QACinemasWebsite authentication operations class
+    /// </summary>
     public static class Auth
     {
+        /// <summary>
+        /// Authentication data storage object
+        /// </summary>
         public class AuthData
         {
             public string Hash;
             public string Salt;
 
+            /// <summary>
+            /// Object to store a generated hash and salt string
+            /// </summary>
+            /// <param name="hash">hash string</param>
+            /// <param name="salt">salt string</param>
             public AuthData(string hash = null, string salt = null)
             {
                 Hash = hash;
@@ -78,6 +89,7 @@ namespace QACinemasWebsite.App_Code
             return false;                                                                                    //for all other cases verification fails
         }
 
+
         /// <summary>
         /// Generates a hash and salt for an input string using HMACSHA256
         /// </summary>
@@ -89,6 +101,17 @@ namespace QACinemasWebsite.App_Code
             string hash = HashSaltPassword(input, salt);
 
             return new AuthData(hash, salt);
+        }
+
+
+        /// <summary>
+        /// Generates a random string of characters using a cryptographic random number generator
+        /// </summary>
+        /// <param name="length">Length of string to be returned</param>
+        /// <returns>Random string</returns>
+        public static string GenerateRandomString(int length = 10)
+        {
+            return Convert.ToBase64String(GenerateSalt(length * 8)); //GenerateSalt already uses a relatively secure RNG, so use that
         }
     }
 }
