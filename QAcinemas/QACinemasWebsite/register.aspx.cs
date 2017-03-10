@@ -13,18 +13,7 @@ namespace QACinemasWebsite
 {
     public partial class register : System.Web.UI.Page
     {
-        int MINLENGTH_FIRSTNAME = 1;
-        int MINLENGTH_LASTNAME = 2;
-        int MINLENGTH_EMAIL = 6;
-        int MINLENGTH_USERNAME = 3;
-        int MINLENGTH_PASSWORD = 6;
-        int MINLENGTH_PHONE = 6;
-        int MINLENGTH_PCODE = 3;
-        int MINLENGTH_LINE1 = 1;
-        int MINLENGTH_LINE2 = 0;
-        int MINLENGTH_REGION = 1;
-        int MINLENGTH_COUNTRY = 2;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             Alert_Composer();
@@ -53,6 +42,31 @@ namespace QACinemasWebsite
             string LASTNAME = textBoxLastN.Text;
 
             //Validate
+
+            int MINLENGTH_FIRSTNAME = 2;
+            int MINLENGTH_LASTNAME = 2;
+            int MINLENGTH_EMAIL = 6;
+            int MINLENGTH_USERNAME = 3;
+            int MINLENGTH_PASSWORD = 6;
+            int MINLENGTH_PHONE = 6;
+            int MINLENGTH_PCODE = 3;
+            int MINLENGTH_LINE1 = 1;
+            int MINLENGTH_LINE2 = 0;
+            int MINLENGTH_REGION = 3;
+            int MINLENGTH_COUNTRY = 4;
+
+            if (MINLENGTH_FIRSTNAME <= 2 ||
+            MINLENGTH_LASTNAME <= 2 ||
+            MINLENGTH_EMAIL <= 6 ||
+            MINLENGTH_USERNAME <= 3 ||
+            MINLENGTH_PASSWORD <= 6 ||
+            MINLENGTH_PHONE <= 6 ||
+            MINLENGTH_PCODE <= 3 ||
+            MINLENGTH_LINE1 <= 1 ||
+            MINLENGTH_LINE2 <= 0 ||
+            MINLENGTH_REGION <= 3 ||
+            MINLENGTH_COUNTRY <= 4) valadetErr(6); 
+
             checkMail(EMAIL);
             checkPass(PASSWORD, PASSWORD2);
 
@@ -152,16 +166,19 @@ namespace QACinemasWebsite
                         Alert_Composer("alert-danger", "Could not register account", "Please try again.");
                         break;
                     case "2": //Email address not in correct format
-                        Alert_Composer("alert-danger", "Email Address must be a valid format e.g. usernam@domain.com ", "Please try again.");
+                        Alert_Composer("alert-warning", "Email Address must be a valid format e.g. usernam@domain.com ", "Please try again.");
                         break;
                     case "3": //Password is not valid
-                        Alert_Composer("alert-danger", "Password must be over 6 characters, under 20 and must contain at least one number", "Please try again.");
+                        Alert_Composer("alert-warning", "Password must be over 6 characters, under 20 and must contain at least one number", "Please try again.");
                         break;
                     case "4": //Password does not match
-                        Alert_Composer("alert-danger", "Password and repeat password do not match", "Please try again.");
+                        Alert_Composer("alert-warning", "Password and repeat password do not match", "Please try again.");
                         break;
                     case "5": //Log in to continue
-                        Alert_Composer("alert-danger", "Phone Number length must be between 8-15 characters", "Please try again.");
+                        Alert_Composer("alert-warning", "Phone Number length must be between 8-15 characters", "Please try again.");
+                        break;
+                    case "6": //Log in to continue
+                        Alert_Composer("alert-warning", "Please make sure you have entered the form correctly and check that everything is valid", "Please try again.");
                         break;
                     default:
                         return;
