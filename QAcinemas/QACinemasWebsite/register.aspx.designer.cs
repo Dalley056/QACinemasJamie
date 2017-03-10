@@ -85,6 +85,15 @@ namespace QACinemasWebsite {
         protected global::System.Web.UI.WebControls.TextBox textBoxPassword;
         
         /// <summary>
+        /// inputPasswordConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputPasswordConfirm;
+        
+        /// <summary>
         /// textBoxPhonNo control.
         /// </summary>
         /// <remarks>
