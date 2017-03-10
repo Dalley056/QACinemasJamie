@@ -43,6 +43,8 @@ namespace QACinemasWebsite
 
             //Validate
 
+
+            //is the username taken
             int MINLENGTH_FIRSTNAME = 2;
             int MINLENGTH_LASTNAME = 2;
             int MINLENGTH_EMAIL = 6;
@@ -50,27 +52,33 @@ namespace QACinemasWebsite
             int MINLENGTH_PASSWORD = 6;
             int MINLENGTH_PHONE = 6;
             int MINLENGTH_PCODE = 3;
-            int MINLENGTH_LINE1 = 1;
+            int MINLENGTH_LINE1 = 2;
             int MINLENGTH_LINE2 = 0;
             int MINLENGTH_REGION = 3;
             int MINLENGTH_COUNTRY = 4;
 
-            if (MINLENGTH_FIRSTNAME <= 2 ||
-            MINLENGTH_LASTNAME <= 2 ||
-            MINLENGTH_EMAIL <= 6 ||
-            MINLENGTH_USERNAME <= 3 ||
-            MINLENGTH_PASSWORD <= 6 ||
-            MINLENGTH_PHONE <= 6 ||
-            MINLENGTH_PCODE <= 3 ||
-            MINLENGTH_LINE1 <= 1 ||
-            MINLENGTH_LINE2 <= 0 ||
-            MINLENGTH_REGION <= 3 ||
-            MINLENGTH_COUNTRY <= 4) valadetErr(6); 
+            if (FIRSTNAME.Length < MINLENGTH_FIRSTNAME  ||
+            LASTNAME.Length < MINLENGTH_LASTNAME ||
+            EMAIL.Length < MINLENGTH_EMAIL ||
+            USERNAME.Length < MINLENGTH_USERNAME ||
+            PASSWORD.Length < MINLENGTH_PASSWORD ||
+            PHONENO.Length < MINLENGTH_PHONE ||
+            POSTCODE.Length < MINLENGTH_PCODE ||
+            ADDR1.Length < MINLENGTH_LINE1 ||
+            ADDR2.Length < MINLENGTH_LINE2 ||
+            REGION.Length < MINLENGTH_REGION ||
+            COUNTRY.Length < MINLENGTH_COUNTRY) validateError(6);
 
+            DataSetTableAdapters.UsersTableAdapter usertableadapter = new DataSetTableAdapters.UsersTableAdapter();
+            DataSet.UsersDataTable data = usertableadapter.GetUserByUsernameIgnoreActive(USERNAME);
+            if (data.Count == 0)
+            {
+                validateError(7);
+            }
             checkMail(EMAIL);
             checkPass(PASSWORD, PASSWORD2);
 
-            if (PHONENO.Length < 8 || PHONENO.Length > 15) valadetErr(5);
+            if (PHONENO.Length < 8 || PHONENO.Length > 15) validateError(5);
             //Register
             Register_User(ADDR1, ADDR2, CITY, REGION, COUNTRY, POSTCODE, USERNAME, PASSWORD, EMAIL, PHONENO, FIRSTNAME, LASTNAME);
         }
@@ -83,7 +91,7 @@ namespace QACinemasWebsite
 
             if (!isValid)
             {
-                valadetErr(2);
+                validateError(2);
             }
 
         }
@@ -106,11 +114,11 @@ namespace QACinemasWebsite
             if (!isValid)
             //send error message
             {
-                valadetErr(error);
+                validateError(error);
             }
         }
 
-        private void valadetErr(int err)
+        private void validateError(int err)
         {
             Response.Redirect("/register.aspx?alert=" + err);
         }
@@ -179,6 +187,9 @@ namespace QACinemasWebsite
                         break;
                     case "6": //Log in to continue
                         Alert_Composer("alert-warning", "Please make sure you have entered the form correctly and check that everything is valid", "Please try again.");
+                        break;
+                    case "7": //Log in to continue
+                        Alert_Composer("alert-warning", "Username already taken, please enter a different username", "Please try again.");
                         break;
                     default:
                         return;
