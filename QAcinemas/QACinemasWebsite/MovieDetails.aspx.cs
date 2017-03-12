@@ -15,7 +15,7 @@ namespace QACinemasWebsite
 
             DataSet.FilmsDataTable data = filmtableadapter.GetFilmById(1);
 
-            if(data != null && data.Count == 1)
+            if (data != null && data.Count == 1)
             {
                 DataSet.FilmsRow film = data[0];
                 //classificationdata.InnerHtml = film.ClassificationId
@@ -24,7 +24,7 @@ namespace QACinemasWebsite
 
                 descriptiondata.InnerHtml = film.Description;
 
-                //releasedatedata.InnerHtml = film.DateAdded.ToString();
+                releasedatedata.InnerHtml = film.ReleaseDate.ToShortDateString();
 
                 durationdata.InnerHtml = film.Duration.ToString() + " hrs";
 

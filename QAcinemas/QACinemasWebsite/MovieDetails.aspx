@@ -62,7 +62,7 @@
                 <%--Need to pull the movie info from the database--%>
                 <div class="container" id="descriptiondata" runat="server"></div>
                 <br />
-                Need to pull the movie's actors and director from database
+                Need to pull the movie's actors and director from database using inner joins with contributors table!!
                 <br />
                 <%--Need to pull the movie's release date from database--%>
                 <div class="container" id="releasedatedata" runat="server"></div>
