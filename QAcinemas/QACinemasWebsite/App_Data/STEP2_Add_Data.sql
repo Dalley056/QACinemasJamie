@@ -9,7 +9,7 @@ GO
 INSERT INTO [dbo].[Addresses] ([Line1], [Line2], [City], [Region], [Country], [Postcode], [CoordX], [CoordY]) 
 	VALUES ('123 Admin Road', 'Admin Complex', 'Adminton', 'Adminishire', 'Administan', 'AD12MIN', -2.290126399999963, 53.48752349999999);
 INSERT INTO [dbo].[Users] ([AddressId], [Username], [PasswordHash], [PasswordSalt], [EmailAddress], [PhoneNumber], [FirstName], [LastName]) 
-	VALUES ((SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]), 'admin', 'lKVSYJt99OupgVMJmK03Vi2/0yeP3vuBJWBAxa63LY4=', 'admin', 'admin@admin.com', '+441234567890', 'Adminfirstname', 'adminlastname');
+	VALUES ((SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]), 'admin', '4yMwjoQGrGzAIg7YaNOD4VGABX8VFX+w2QbC/ZxZTss=', 'nCz5A/FPkSY+RCT4CxePCw==', 'admin@admin.com', '+441234567890', 'Adminfirstname', 'adminlastname');
 
 
 
@@ -233,20 +233,42 @@ INSERT INTO [dbo].[LocalVenues] ([CinemaId], [AddressId], [Name], [Description],
 --GO
 PRINT N'Adding Classifications';
 --GO
-INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES ('18', '18 Rating', '/Images/Classifications/18_small.png', '/Images/Classifications/18large.png');
+INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES (
+	'18', 
+	'Suitable only for people aged 18 or older, which means adults only. No one younger than 18 may see an 18 film in a cinema. It is illegal to supply a video work with an 18 certificate to anyone under that age.<br/>Films under this category do not have limitation on the foul language that is used. Hard drugs are generally allowed, and explicit sex references along with detailed sexual activity are also allowed. Scenes of strong real sex may be permitted if justified by the context (Sex works cannot be placed at "18"). Very strong, gory, and/or sadistic violence is usually permitted. Strong sexual violence is permitted unless it is eroticized or excessively graphic, in which a work will require compulsory cuts where possible.', 
+	'/Images/Classifications/18small.png', 
+	'/Images/Classifications/18large.png');
 DECLARE @CLASSIFICATION_1_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
-INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES ('15', '15 Rating', '/Images/Classifications/15_small.png', '/Images/Classifications/15large.png');
+INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES (
+	'15', 
+	'Suitable only for people aged 15 and older. No one younger than 15 may see a 15 film in a cinema. It is illegal to supply a video work with a 15 certificate to anyone under that age.<br/>Films under this category can contain adult themes, hard drugs, (frequent) strong language, strong violence and strong sex references, and nudity without graphic detail. Sexual activity may be portrayed but without any strong detail. Sexual violence may be shown if discreet and justified by context. Use of very strong language may be permitted based on frequency and how they are used, as well as contextual justification.', 
+	'/Images/Classifications/15small.png', 
+	'/Images/Classifications/15large.png');
 DECLARE @CLASSIFICATION_2_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
-INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES ('12', '12 Rating', '/Images/Classifications/12_small.png', '/Images/Classifications/12large.png');
+INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES (
+	'12', 
+	'This category applies to cinema releases from August 1989 to 2002, and home media since 1994. Suitable for people aged 12 and older. It is illegal to supply a video work with a 12 certificate to anyone under that age. <br/>12A-rated films are usually given a 12 certificate for the VHS/DVD version unless extra material has been added that requires a higher rating. The content guidelines are identical to those used for the 12A certificate.', 
+	'/Images/Classifications/12small.png', 
+	'/Images/Classifications/12large.png');
 DECLARE @CLASSIFICATION_3_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
-INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES ('12A', '12A Rating', '/Images/Classifications/12A_small.png', '/Images/Classifications/12Alarge.png');
+INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES (
+	'12A', 
+	'This category applies to cinema only releases since 2002. Films under this category are considered to be unsuitable for young children. Cinemas in the United Kingdom are only permitted to supply tickets to see a 12A film to children under the age of 12 if they are accompanied by an adult aged 18 or over. However, it is unlikely to be suitable for children under the age of 12. <br/>Films under this category can contain mature themes, discrimination, soft drugs, moderate language, moderate violence, sex references and nudity. Sexual activity may be briefly and discreetly portrayed. Use of strong language may be permitted based on frequency and how they are used, as well as contextual justification. Sexual violence may be implied or briefly indicated.', 
+	'/Images/Classifications/12Asmall.png', 
+	'/Images/Classifications/12Alarge.png');
 DECLARE @CLASSIFICATION_4_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
-INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES ('PG', 'PG Rating', '/Images/Classifications/PG_small.png', '/Images/Classifications/PGlarge.png');
+INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES (
+	'PG - Parental Guidance', 
+	'All ages admitted, but some certain scenes can be unsuitable for young children. They should not disturb children aged 8 or older. May contain mild language (frequent/aggressive use may result in the work being passed at a higher category) or sex/drug references. May contain moderate violence if justified by context (e.g. fantasy). A parent may wish to check the content before they let their children watch or play it.', 
+	'/Images/Classifications/PGsmall.png', 
+	'/Images/Classifications/PGlarge.png');
 DECLARE @CLASSIFICATION_5_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
-INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES ('U', 'U Rating', '/Images/Classifications/U_small.png', '/Images/Classifications/Ularge.png');
+INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES (
+	'U - Universal', 
+	'All ages admitted. There is almost nothing unsuitable for children aged 4 years and over.', 
+	'/Images/Classifications/Usmall.png', 
+	'/Images/Classifications/Ularge.png');
 DECLARE @CLASSIFICATION_6_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
-INSERT INTO [dbo].[Classifications] ([Title], [Description], [ImgSmall], [ImgLarge]) VALUES ('E', 'E Rating', '/Images/Classifications/E_small.png', '/Images/Classifications/Elarge.png');
-DECLARE @CLASSIFICATION_7_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
 
 
 --GO

@@ -1,58 +1,48 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Classification.aspx.cs" Inherits="QACinemasWebsite.Classifications" %>
+﻿<%@ Page Title="Classifications - QACinemas" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Classification.aspx.cs" Inherits="QACinemasWebsite.Classifications" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        /*Removes border from images*/
+        .img-thumbnail {
+            border: 0 none;
+            box-shadow: none;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <img src ="Classification\pg.png" style=" width:304px; height:228px"; />
-        </div>
-        <div class="col-md-8">
-            
-            <h1>PG</h1>
-            
-            <p>some parents may find the film unsuitable for their children.</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4"><img src ="Classification\u.png" style=" width:304px; height:228px"; />
-        </div>
-        <div class="col-md-8"> 
-            
-            <h1>U Universal – Suitable for all</h1>
-
-            <p>U film should be suitable for audiences aged four years and over, although it is impossible to predict what might upset any particular child.</p>
-
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4"><img src ="Classification\12.png" style=" width:304px; height:228px"; />
-        </div>
-        <div class="col-md-8">
-            <h1>12A/12 – Suitable for 12 years and over</h1>
-
-            <p>Films classified 12A and video works classified 12 contain material that is not generally suitable for 
-    children aged under 12. No one younger than 12 may see a 12A film in a cinema unless accompanied by an 
-    adult. Adults planning to take a child under 12 to view a 12A film should consider whether the film is 
-    suitable for that child. To help them decide, we recommend that they check the BBFCinsight for that film in advance.
-     No one younger than 12 may rent or buy a 12 rated video work</p></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-4"><img src ="Classification\15.png" style=" width:304px; height:228px"; /></div>
-        <div class="col-md-8">
-            
-            <h1>15</h1>
-            
-            <p>No one younger than 15 may see a 15 film in a cinema. No one younger than 15 may rent or buy a 15 rated video work.</p></div>
-    </div>
+        <h1>Classifications</h1>
         <div class="row">
-        <div class="col-sm-4"><img src ="Classification\18.png" style=" width:304px; height:228px"; />
+            <%
+                QACinemasWebsite.DataSetTableAdapters.ClassificationsTableAdapter cta = new QACinemasWebsite.DataSetTableAdapters.ClassificationsTableAdapter();
+                QACinemasWebsite.DataSet.ClassificationsDataTable data = cta.GetData();
+                if (data.Count == 0) //If no classifications found, display error
+                {
+            %>
+            <p>No classificaition data could be found. If this keeps occuring please report this issue to the site administrator</p>
+            <%
+                }
+                foreach (QACinemasWebsite.DataSet.ClassificationsRow row in data) //Assemble classification panels
+                {
+            %>
+            <div class="col-xs-12">
+                <div class="panel panel-default" id="<%=row.Title %>">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-2 col-xs-2">
+                                <img src="<%=row.ImgLarge %>" class="img-thumbnail" title="<%=row.Title %> Classification" />
+                            </div>
+                            <div class="col-sm-10 col-xs-10">
+                                <h3><%=row.Title %></h3>
+                                <hr />
+                                <p><%=row.Description %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%}; %>
         </div>
-        <div class="col-md-8">
-            
-            <h1>18</h1>
-            
-            <p>No one younger than 18 may see a 15 film in a cinema. No one younger than 15 may rent or buy a 15 rated video work.</p></div>
-        </div>
-        </div>
+    </div>
 </asp:Content>
