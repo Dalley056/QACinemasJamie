@@ -157,6 +157,10 @@ namespace QACinemasWebsite
                 return;
             }
 
+
+            //STEP 4: Send a confirmation email
+            Common.Email.SendEmail(textBoxEmail.Text, "Thank you for joining QACinemas", String.Format("{0} {1}, {2} registered.", textBoxFirstN.Text, textBoxLastN.Text, textBoxUsername.Text));
+
             Response.Redirect("/Login.aspx?alert=4&username=" + textBoxUsername.Text);
 
 
