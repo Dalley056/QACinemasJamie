@@ -26,7 +26,7 @@
 
 	    <div class="row">
 		    <div class="col-md-4">
-			    <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" class="img-rounded" />
+			    <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/" class="img-thumbnail" />
 		    </div>
 		    <div class="col-md-8">
 			    <div class="panel panel-info">
