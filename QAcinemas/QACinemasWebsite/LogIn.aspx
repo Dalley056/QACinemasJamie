@@ -20,16 +20,15 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="TextBoxUserName">Username</label>
                 <div class="col-md-4">
-                    <input id="TextBoxUserName" name="TextBoxUserName" type="text" placeholder="Enter Your username" class="form-control input-md" required="" runat="server" />
-                    <span class="help-block">Enter Username or Email Address</span>
+                    <input id="TextBoxUserName" name="TextBoxUserName" type="text" placeholder="" class="form-control input-md" required="" runat="server" />
                 </div>
             </div>
-
+            <br />
             <!-- Password input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="textBoxPassword">Password</label>
                 <div class="col-md-4">
-                    <input id="TextBoxPassword" name="textBoxPassword" type="password" placeholder="Password" class="form-control input-md" required="" runat="server"/>
+                    <input id="TextBoxPassword" name="textBoxPassword" type="password" placeholder="" class="form-control input-md" required="" runat="server"/>
                     <br />
                     <a href="forgotPass.aspx">Forgot Password</a>
                 </div>

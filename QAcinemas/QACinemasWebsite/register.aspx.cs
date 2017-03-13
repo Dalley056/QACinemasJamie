@@ -71,16 +71,19 @@ namespace QACinemasWebsite
 
             DataSetTableAdapters.UsersTableAdapter usertableadapter = new DataSetTableAdapters.UsersTableAdapter();
             DataSet.UsersDataTable data = usertableadapter.GetUserByUsernameIgnoreActive(USERNAME);
-            if (data.Count == 0)
+            if (data.Count != 0)
             {
                 validateError(7);
             }
-            checkMail(EMAIL);
-            checkPass(PASSWORD, PASSWORD2);
+            else
+            {
+                checkMail(EMAIL);
+                checkPass(PASSWORD, PASSWORD2);
 
-            if (PHONENO.Length < 8 || PHONENO.Length > 15) validateError(5);
-            //Register
-            Register_User(ADDR1, ADDR2, CITY, REGION, COUNTRY, POSTCODE, USERNAME, PASSWORD, EMAIL, PHONENO, FIRSTNAME, LASTNAME);
+                if (PHONENO.Length < 8 || PHONENO.Length > 15) validateError(5);
+                //Register
+                Register_User(ADDR1, ADDR2, CITY, REGION, COUNTRY, POSTCODE, USERNAME, PASSWORD, EMAIL, PHONENO, FIRSTNAME, LASTNAME);
+            }
         }
         //validation methods
         private void checkMail(string email)
@@ -122,7 +125,6 @@ namespace QACinemasWebsite
         {
             Response.Redirect("/register.aspx?alert=" + err);
         }
-
 
         // end of validation method
         protected void textBoxUsername_TextChanged(object sender, EventArgs e)
