@@ -18,6 +18,7 @@
         <asp:Label ID="lblMessage" runat="server" Text="Message:"></asp:Label>
         <br />
         <asp:TextBox ID="txtMessage" runat="server" Height="164px" Width="289px"></asp:TextBox>
+          
         </span>
         <span style="position: absolute; right: 300px;">
             Email
@@ -30,5 +31,6 @@
             <br />
 
         </span>
+        <asp:Button ID="ButtonSend" runat="server" OnClick="ButtonSend_Click" Text="Send" />
     </form>
 </asp:Content>
