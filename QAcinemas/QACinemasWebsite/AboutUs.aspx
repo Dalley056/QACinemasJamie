@@ -12,17 +12,23 @@
 			    </h1>
 		    </div>
 		    <div class="col-md-2">
-			     <a href="#" class="btn btn-lg" type="button">Contact Us</a>
+			     <a href="ContactUs.aspx" class="btn btn-lg" type="button">Contact Us</a>
 		    </div>
 	    </div>
 
+
+
         <div class="row">
-		    <div class="col-md-12">
+		    <div class="col-md-6">
 			    <h2 class="text-center">
-				    TEAM "A"
+				    Team "A"
 			    </h2>
 		    </div>
+            <div class="col-md-6">
+		    </div>
 	    </div>
+
+        <br />
 
 	    <div class="row">
 		    <div class="col-md-4">
@@ -36,12 +42,12 @@
 					    </h3>
 				    </div>
 				    <div class="panel-body">
-					    Being the Product Owner, he had the vision of what he wished to build and conveyed that vision to the scrum team. He had the responsibility to create the product backlog and prioritise it during the Sprint Planning meetings. He also led the Sprint Review meetings and was part of the development team whereby he implemented the QA Cinema's database and the credential pages.
+					    Being the <b>Product Owner</b>, he had the vision of what he wished to build and conveyed that vision to the scrum team. He had the responsibility to create the product backlog and prioritise it during the Sprint Planning meetings. He also led the Sprint Review meetings and was part of the development team whereby he implemented the QA Cinema's database, credential and classification pages as well as the discussion board.
 				    </div>
 				    <div class="panel-footer">
-					    Ian.Owen@email.com 
-                        @Ian.Owen
-                        IanOwen.Blog
+					    <i>Ian.Owen@email.com </i>
+                        <i>@Ian.Owen </i>
+                        <i>IanOwen.Blog</i>
 				    </div>
 			    </div>
 		    </div>
@@ -59,10 +65,12 @@
 					    </h3>
 				    </div>
 				    <div class="panel-body">
-					    Panel content
+					    Ex <b>Product Owner</b> of the team. He had the vision of what he wished to build and conveyed that vision to the scrum team. He had the responsibility to create the product backlog and prioritise it during the Sprint Planning meetings. He also led the Sprint Review meetings and was part of the development team whereby he designed the site map and implemented the master page for the website.
 				    </div>
 				    <div class="panel-footer">
-					    Panel footer
+					    <i>Tony.Jackson@email.com </i>
+                        <i>@Tony.Jackson </i>
+                        <i>TonyJackson.Blog</i>
 				    </div>
 			    </div>
 		    </div>
@@ -80,12 +88,12 @@
 					    </h3>
 				    </div>
 				    <div class="panel-body">
-					    As the Scrum Master, he acted as the facilitator and managed the process of how information was exchanged. He faciliated the Scrum Planning and Retrospective meetings as well as leading the Daily Scrum meetings. He was also part of the development team whereby he created dummy data into the database and implemented the About and Movie's Detail pages. 
+					    As the <b>Scrum Master</b>, he acted as the facilitator and managed the process of how information was exchanged. He faciliated the Scrum Planning and Retrospective meetings as well as leading the Daily Scrum meetings. He was also part of the development team whereby he created dummy data into the database and implemented the About and Movie's Detail pages. 
 				    </div>
 				    <div class="panel-footer">
-					    Prash.Gajendra@email.com 
-                        @Prash.Gajendra 
-                        PrashGajendra.Blog
+					    <i>Prash.Gajendra@email.com </i>
+                        <i>@Prash.Gajendra </i>
+                        <i>PrashGajendra.Blog</i>
 				    </div>
 			    </div>
 		    </div>
@@ -103,12 +111,12 @@
 					    </h3>
 				    </div>
 				    <div class="panel-body">
-					    He was part of the development team whereby he implemented the Screen and Ticket Booking pages. He also designed and normalised the database structure as well as implementing the site navigation toolbar. 
+					    He was part of the <b>Development Team</b> whereby he implemented the Screen and Ticket Booking pages. He also designed and normalised the database structure as well as implementing the site navigation toolbar. 
 				    </div>
 				    <div class="panel-footer">
-					    Jamie.Dalley@email.com 
-                        @Jamie.Dalley
-                        JamieDalley.Blog
+					    <i>Jamie.Dalley@email.com </i>
+                        <i>@Jamie.Dalley </i>
+                        <i>JamieDalley.Blog</i>
 				    </div>
 			    </div>
 		    </div>
@@ -126,10 +134,12 @@
 					    </h3>
 				    </div>
 				    <div class="panel-body">
-					    Panel content
+					    As part of the <b>Development Team</b>, he designed the templates for each page, implemented the Getting There and Registration pages as well as designing the QA Cinema's database as an Entity Relationship diagram. 
 				    </div>
 				    <div class="panel-footer">
-					    Panel footer
+					    <i>Abel.Germa@email.com </i>
+                        <i>@Abel.Germa </i>
+                        <i>AbelGerma.Blog</i>
 				    </div>
 			    </div>
 		    </div>
@@ -147,10 +157,12 @@
 					    </h3>
 				    </div>
 				    <div class="panel-body">
-					    Panel content
+					    In the <b>Development Team</b>, he designed the site map of the website, implemented the Currently Showing Films and New Release Films webpages as well as the Opening Times webpage. 
 				    </div>
 				    <div class="panel-footer">
-					    Panel footer
+					    <i>Mohin.Akhtar@email.com </i>
+                        <i>@Mohin.Akhtar </i>
+                        <i>MohinAkhtar.Blog</i>
 				    </div>
 			    </div>
 		    </div>
@@ -168,10 +180,12 @@
 					    </h3>
 				    </div>
 				    <div class="panel-body">
-					    Panel content
+					    As part of the <b> Development Team</b>, he designed the templates for each page of the website as well as implementing the Contact Us page.
 				    </div>
 				    <div class="panel-footer">
-					    Panel footer
+					    <i>Daryoush.Hosseinzadeh@email.com </i>
+                        <i>@Daryoush.Hosseinzadeh </i>
+                        <i>DaryoushHosseinzadeh.Blog</i>
 				    </div>
 			    </div>
 		    </div>
@@ -189,10 +203,12 @@
 					    </h3>
 				    </div>
 				    <div class="panel-body">
-					    Panel content
+					    During the redundancy era, Daniella left disbranded Team B to join Team A as part of the <b>Development Team</b>. She designed the Screen and Ticket Booking pages as well as implementing them. 
 				    </div>
 				    <div class="panel-footer">
-					    Panel footer
+					    <i>Daniella.Lee@email.com </i>
+                        <i>@Daniella.Lee </i>
+                        <i>DaniellaLee.Blog</i>
 				    </div>
 			    </div>
 		    </div>
@@ -210,10 +226,12 @@
 					    </h3>
 				    </div>
 				    <div class="panel-body">
-					    Panel content
+					    During the redundancy era, Mak left disbranded Team B to join Team A as part of the <b>Development Team</b>. He implemented the Places To Go page. 
 				    </div>
 				    <div class="panel-footer">
-					    Panel footer
+					    <i>Mohammed.Kadir@email.com </i>
+                        <i>@Mak </i>
+                        <i>Mak.Blog</i>
 				    </div>
 			    </div>
 		    </div>
