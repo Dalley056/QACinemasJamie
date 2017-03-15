@@ -76,24 +76,6 @@ namespace QACinemasWebsite.Booking {
         protected global::System.Web.UI.WebControls.DropDownList dlstScreenType;
         
         /// <summary>
-        /// lblTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTime;
-        
-        /// <summary>
-        /// dlstTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlstTime;
-        
-        /// <summary>
         /// imgSelectedMovie control.
         /// </summary>
         /// <remarks>
@@ -112,21 +94,75 @@ namespace QACinemasWebsite.Booking {
         protected global::System.Web.UI.WebControls.Label lblMovieDescription;
         
         /// <summary>
-        /// GridView1 control.
+        /// pnlDay1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.Panel pnlDay1;
         
         /// <summary>
-        /// odsFillingTimes control.
+        /// pnlDay2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsFillingTimes;
+        protected global::System.Web.UI.WebControls.Panel pnlDay2;
+        
+        /// <summary>
+        /// d1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl d1;
+        
+        /// <summary>
+        /// pnlDay3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDay3;
+        
+        /// <summary>
+        /// pnlDay4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDay4;
+        
+        /// <summary>
+        /// pnlDay5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDay5;
+        
+        /// <summary>
+        /// pnlDay6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDay6;
+        
+        /// <summary>
+        /// pnlDay7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDay7;
     }
 }

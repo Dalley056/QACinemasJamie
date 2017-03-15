@@ -105,7 +105,7 @@ namespace QACinemasWebsite
             int error = 3;
 
             //check if password is valid
-            if (pass1.Length < 6 || pass1.Length > 20 || pass1.Any(char.IsDigit)) isValid = false;
+            if (pass1.Length < 6 || pass1.Length > 20 || !pass1.Any(char.IsDigit)) isValid = false;
 
             if (pass1 != pass2)
             //check if password match
