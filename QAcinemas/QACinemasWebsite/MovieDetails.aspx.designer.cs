@@ -13,6 +13,15 @@ namespace QACinemasWebsite {
     public partial class MovieDetails {
         
         /// <summary>
+        /// imagelargedata control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imagelargedata;
+        
+        /// <summary>
         /// titledata control.
         /// </summary>
         /// <remarks>
@@ -40,21 +49,12 @@ namespace QACinemasWebsite {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl descriptiondata;
         
         /// <summary>
-        /// releasedatedata control.
+        /// moviespecificinformation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl releasedatedata;
-        
-        /// <summary>
-        /// durationdata control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl durationdata;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl moviespecificinformation;
     }
 }
