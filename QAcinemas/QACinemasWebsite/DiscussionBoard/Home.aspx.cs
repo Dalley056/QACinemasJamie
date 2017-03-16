@@ -14,12 +14,14 @@ namespace QACinemasWebsite.DiscussionBoard
         {
             public DataSet.FilmsRow Film;
             public DataSet.PostsRow LastPost;
+            public int PostCount;
             public string URL;
 
-            public DiscussionPanel(DataSet.FilmsRow film, DataSet.PostsRow lastpost, string url)
+            public DiscussionPanel(DataSet.FilmsRow film, DataSet.PostsRow lastpost, int postcount, string url)
             {
                 Film = film;
                 LastPost = lastpost;
+                PostCount = postcount;
                 URL = url;
             }
         }
@@ -48,7 +50,7 @@ namespace QACinemasWebsite.DiscussionBoard
 
                 string url = "/DiscussionBoard/discussion.aspx?id=" + film.Id.ToString();
 
-                DiscussionPanel panel = new DiscussionPanel(film, lastpost, url);
+                DiscussionPanel panel = new DiscussionPanel(film, lastpost, posts.Count, url);
                 panels.Add(panel);
             }
 

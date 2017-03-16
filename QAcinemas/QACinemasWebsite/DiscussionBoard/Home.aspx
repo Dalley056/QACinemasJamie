@@ -19,6 +19,9 @@
             <%
                 List<DiscussionPanel> panels = Get_Threads();
 
+
+
+
                 foreach (DiscussionPanel panel in panels)
                 { %>
             <a href="<%=panel.URL %>" class="list-group-item">
@@ -29,6 +32,14 @@
                             <img class="img-thumbnail" src="<%=panel.Film.ImgLarge %>">
                         </div>
                         <div class="col-xs-10">
+                            <%
+                                if (panel.LastPost != null)
+                                {
+                            %>
+                            <p><strong>Last Post: <%= panel.LastPost.DateAdded %></strong></p>
+
+                            <%};%>
+                            <p><strong>Posts: <%=panel.PostCount %></strong></p>
                             <p><%=panel.Film.Description %></p>
                         </div>
                     </div>
