@@ -156,6 +156,7 @@
     <Content Include="Error\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ForgotPass.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="Images\Classifications\12Alarge.png" />
     <Content Include="Images\Classifications\12large.png" />
     <Content Include="Images\Classifications\15large.png" />
@@ -277,6 +278,13 @@
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="MovieListingGallarey.aspx.cs">
       <DependentUpon>MovieListingGallarey.aspx</DependentUpon>
