@@ -39,7 +39,7 @@
                             <p><strong>Last Post: <%= panel.LastPost.DateAdded %></strong></p>
 
                             <%};%>
-                            <p><    strong>Posts: <%=panel.PostCount %></strong></p>
+                            <p><strong>Posts: <%=panel.PostCount %></strong></p>
                             <p><%=panel.Film.Description %></p>
                         </div>
                     </div>
