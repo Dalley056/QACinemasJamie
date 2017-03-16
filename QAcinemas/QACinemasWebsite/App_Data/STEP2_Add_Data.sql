@@ -351,21 +351,118 @@ DECLARE @CONTRIBUTOR_8_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
 INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
 	VALUES ( 'Chris', 'McKay', 'Desc of C.McKay');
 DECLARE @CONTRIBUTOR_9_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
-	
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'Dev', 'Patel', 'Desc of D.Patel');
+DECLARE @CONTRIBUTOR_10_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'Sunny', 'Pawar', 'Desc of S.Pawar');
+DECLARE @CONTRIBUTOR_11_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'Nicole', 'Kidman', 'Desc of N.Kidman');
+DECLARE @CONTRIBUTOR_12_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'Vin', 'Diesel', 'Desc of V.Diesel');
+DECLARE @CONTRIBUTOR_13_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'Tyrese', 'Gibson', 'Desc of T.Gibson');
+DECLARE @CONTRIBUTOR_14_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'Dwayne', 'Johnson', 'Desc of D.Johnson');
+DECLARE @CONTRIBUTOR_15_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'Dan', 'Stevens', 'Desc of D.Stevens');
+DECLARE @CONTRIBUTOR_16_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'Emma', 'Watson', 'Desc of E.Watson');
+DECLARE @CONTRIBUTOR_17_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'Luke', 'Evans', 'Desc of L.Evans');
+DECLARE @CONTRIBUTOR_18_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'Garth', 'Davis', 'Desc of G.Davis');
+DECLARE @CONTRIBUTOR_19_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'F.Gary', 'Gray', 'Desc of F.G.Gray');
+DECLARE @CONTRIBUTOR_20_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Contributors] ([FirstName], [LastName], [Description]) 
+	VALUES ( 'Bill', 'Condon', 'Desc of B.Condon');
+DECLARE @CONTRIBUTOR_21_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+
 	
 
 --GO
 PRINT N'Adding Generic Film';
 --GO
-INSERT INTO [dbo].[Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ImgLarge]) 
-	VALUES ( @CLASSIFICATION_2_ID, 'Logan', '<p>Logan (Hugh Jackman) is aging. His rapid healing powers are failing, and the once powerful force of nature is becoming weaker. Where before he could fight harder and more brutally than anyone else, Wolverine has become ravaged with battle scars, and he knows that his mutation is slowly fading.</p><p>Laura (Dafne Keen), has incredibly similar powers and abilities to Logan. In order to protect her from evil forces tracking her down, Logan, Professor Xavier (Patrick Stewart) and other members of the X-Men must protect and guard her from those who would do her harm.</p><p>Unfortunately for all the mutant superheroes, Professor Xavier isn’t the powerful leader he once was. He finds himself losing control of his powers, and even finds himself forgetting his friends and allies, leaving the entirety of the mutant race in jeopardy.</p>', 135, 'English', 'ID34567', 0, '/Images/Films/Logansmall1.jpg,/Images/Films/Logansmall2.jpg,/Images/Films/Logansmall3.jpg,/Images/Films/Logansmall4.jpg', '/Images/Films/Loganlarge.jpg');
+INSERT INTO [dbo].[Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ImgLarge], [ReleaseDate]) VALUES ( 
+	@CLASSIFICATION_2_ID, 
+	'Logan', 
+	'<p>Logan (Hugh Jackman) is aging. His rapid healing powers are failing, and the once powerful force of nature is becoming weaker. Where before he could fight harder and more brutally than anyone else, Wolverine has become ravaged with battle scars, and he knows that his mutation is slowly fading.</p><p>Laura (Dafne Keen), has incredibly similar powers and abilities to Logan. In order to protect her from evil forces tracking her down, Logan, Professor Xavier (Patrick Stewart) and other members of the X-Men must protect and guard her from those who would do her harm.</p><p>Unfortunately for all the mutant superheroes, Professor Xavier isn’t the powerful leader he once was. He finds himself losing control of his powers, and even finds himself forgetting his friends and allies, leaving the entirety of the mutant race in jeopardy.</p>', 
+	135, 
+	'English', 
+	'ID34567', 
+	0, 
+	'/Images/Films/Logansmall1.jpg,/Images/Films/Logansmall2.jpg,/Images/Films/Logansmall3.jpg,/Images/Films/Logansmall4.jpg', 
+	'/Images/Films/Loganlarge.jpg', 
+	'20170102');
 DECLARE @FILM_1_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
-INSERT INTO [dbo].[Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ImgLarge]) 
-	VALUES ( @CLASSIFICATION_2_ID, 'Moonlight', '<p>Chiron is a small, quiet child. As a result, he is relentlessly bullied by his peers. Finding comfort only in the mentorship of drug dealer Juan (Mahershala Ali) and another young boy named Kevin, Chiron’s childhood is cold and confusing.</p><p>Fast-forward to Chiron’s teenage years, and he is similarly isolated. Events conspire that follow him into adulthood, and shape his existence.</p><p>Moonlight follows the life of Chiron from child to adult, and explores how small events can ripple into later life, for better or worse.</p>', 111, 'English', 'ID45678', 0, '/Images/Films/Moonlightsmall1.jpg,/Images/Films/Moonlightsmall2.jpg,/Images/Films/Moonlightsmall3.jpg,/Images/Films/Moonlightsmall4.jpg', '/Images/Films/Moonlightlarge.png');
+INSERT INTO [dbo].[Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ImgLarge], [ReleaseDate]) VALUES ( 
+	@CLASSIFICATION_2_ID, 
+	'Moonlight', 
+	'<p>Chiron is a small, quiet child. As a result, he is relentlessly bullied by his peers. Finding comfort only in the mentorship of drug dealer Juan (Mahershala Ali) and another young boy named Kevin, Chiron’s childhood is cold and confusing.</p><p>Fast-forward to Chiron’s teenage years, and he is similarly isolated. Events conspire that follow him into adulthood, and shape his existence.</p><p>Moonlight follows the life of Chiron from child to adult, and explores how small events can ripple into later life, for better or worse.</p>', 
+	111, 
+	'English', 
+	'ID45678', 
+	0, 
+	'/Images/Films/Moonlightsmall1.jpg,/Images/Films/Moonlightsmall2.jpg,/Images/Films/Moonlightsmall3.jpg,/Images/Films/Moonlightsmall4.jpg', 
+	'/Images/Films/Moonlightlarge.png', 
+	'20170123');
 DECLARE @FILM_2_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
-INSERT INTO [dbo].[Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ImgLarge]) 
-	VALUES ( @CLASSIFICATION_6_ID, 'The Lego Batman Movie', '<p>Spending most of his free time completely alone, his faithful butler Alfred (Ralph Fiennes) declares that Batman must learn to lighten up a little… and take care of the orphaned child he once adopted, Robin (Michael Cera).</p><p>The enthusiastic youngster is thrilled to discover his absent-adoptive father is actually Gotham’s Caped Crusader, but Batman struggles to handle his hyper tendances. Can the two work together to become an ultra-crime fighting duo?</p><p>Meanwhile, Gotham has a new villain on the loose; The Joker (Zach Galifianakis). Along with Harley Quinn (Jenny Slate), the two are reaping havoc across Gotham City, and only Batman and Robin can stop them.</p>', 90, 'English', 'ID32323', 0, '/Images/Films/LegoBatmansmall1.jpg,/Images/Films/LegoBatmansmall2.jpg,/Images/Films/LegoBatmansmall3.jpg,/Images/Films/LegoBatmansmall4.jpg', '/Images/Films/LegoBatmanlarge.jpg');
+INSERT INTO [dbo].[Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ImgLarge], [ReleaseDate]) VALUES ( 
+	@CLASSIFICATION_6_ID, 
+	'The Lego Batman Movie', '<p>Spending most of his free time completely alone, his faithful butler Alfred (Ralph Fiennes) declares that Batman must learn to lighten up a little… and take care of the orphaned child he once adopted, Robin (Michael Cera).</p><p>The enthusiastic youngster is thrilled to discover his absent-adoptive father is actually Gotham’s Caped Crusader, but Batman struggles to handle his hyper tendances. Can the two work together to become an ultra-crime fighting duo?</p><p>Meanwhile, Gotham has a new villain on the loose; The Joker (Zach Galifianakis). Along with Harley Quinn (Jenny Slate), the two are reaping havoc across Gotham City, and only Batman and Robin can stop them.</p>', 
+	90, 
+	'English', 
+	'ID32323', 
+	0, 
+	'/Images/Films/LegoBatmansmall1.jpg,/Images/Films/LegoBatmansmall2.jpg,/Images/Films/LegoBatmansmall3.jpg,/Images/Films/LegoBatmansmall4.jpg', 
+	'/Images/Films/LegoBatmanlarge.jpg', 
+	'20170202');
 DECLARE @FILM_3_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ImgLarge], [ReleaseDate]) VALUES ( 
+	@CLASSIFICATION_5_ID, 
+	'Lion', 
+	'<p>Haunted by flashbacks and reoccurring dreams, 30-year-old Saroo Brierley (Dev Patel) has an otherwise blessed life. Living in Australian with his adoptive mother Sue (Nicole Kidman), and father John (David Wenham), he has a loving relationship with his girlfriend, Lucy (Rooney Mara), but something is missing.</p><p>As a five-year-old, Saroo sought shelter on a train while waiting for his family member. Awoken suddenly, Saroo realised he was trapped on the train, and it was transporting him across India by thousands of miles – leaving his life and family behind.</p><p>Determined to reunite with the family who so unwillingly lost him, Saroo sets out to explore India and find closure. Understanding that searching India’s extensive rail network is an impossible task, he uses a variety of tools to try and find his mother and brothers.</p>', 
+	118, 
+	'English', 
+	'ID13579', 
+	0, 
+	'/Images/Films/Lionsmall1.jpg,/Images/Films/Lionsmall2.jpg,/Images/Films/Lionsmall3.jpg,/Images/Films/Lionsmall4.jpg', 
+	'/Images/Films/Lionlarge.jpg', 
+	'20170117');
+DECLARE @FILM_4_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ImgLarge], [ReleaseDate]) VALUES ( 
+	@CLASSIFICATION_4_ID, 
+	'Fast & Furious 8', '<p>Following on from the events in Furious 7, the gang of professional street racers are taking to equally as exotic locations, rivalling the likes of Rio de Janeiro and Dubai from previous films in the franchise.</p><p>This time around, Dominic Toretto and his crew will be tearing up the streets of Cuba in Fast 8, although the film will also see the guys and gals nipping in between traffic in New York.</p><p>With a whole host of famous Fast and Furious faces returning to the roads, fans can expect to see the likes of Tyrese Gibson (2 Fast 2 Furious) as Roman Pearce, Lucas Black (The Fast and the Furious: Tokyo Drift) as Sean Boswell, and Dwayne Johnson (Fast Five) as DSS Agent Luke Hobbs.</p>', 
+	134, 
+	'English', 
+	'ID67890', 
+	0, 
+	'/Images/Films/Fast8small1.jpg,/Images/Films/Fast8small2.jpg,/Images/Films/Fast8small3.jpg,/Images/Films/Fast8small4.jpg', 
+	'/Images/Films/Fast8large.jpg', 
+	'20170414');
+DECLARE @FILM_5_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
+INSERT INTO [dbo].[Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ImgLarge], [ReleaseDate]) VALUES ( 
+	@CLASSIFICATION_5_ID, 
+	'Beauty and the Beast', 
+	'<p>Belle soon finds her father imprisoned within the castle’s dungeons. Gravely ill, she desperately wants to rescue him from this freezing hole, when the terrifying beast (Dan Stevens) emerges from the shadows.</p><p>The only way to rescue her father? Take his place as the beast’s prisoner, and accept a lifetime spent in this remote, desolate castle.</p><p>As Belle’s time in the castle progresses, she learns of the curse placed upon the entire castle, transforming the servants into furniture, and the prince into the monstrous beast.</p>', 
+	129, 
+	'English', 
+	'ID78901', 
+	0, 
+	'/Images/Films/BeautyNBeastsmall1.jpg,/Images/Films/BeautyNBeastsmall2.jpg,/Images/Films/BeautyNBeastsmall3.jpg,/Images/Films/BeautyNBeastsmall4.jpg', 
+	'/Images/Films/BeautyNBeastlarge.jpg', 
+	'20170317');
+DECLARE @FILM_6_ID INT = (SELECT SCOPE_IDENTITY() AS [SCOPE_IDENTITY]);
 
 
 --GO
@@ -389,6 +486,30 @@ INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role])
 	VALUES ( @FILM_2_ID, @CONTRIBUTOR_8_ID, 'Director');
 INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
 	VALUES ( @FILM_3_ID, @CONTRIBUTOR_9_ID, 'Director');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_4_ID, @CONTRIBUTOR_10_ID, 'Actor');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_4_ID, @CONTRIBUTOR_11_ID, 'Actor');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_4_ID, @CONTRIBUTOR_12_ID, 'Actor');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_5_ID, @CONTRIBUTOR_13_ID, 'Actor');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_5_ID, @CONTRIBUTOR_14_ID, 'Actor');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_5_ID, @CONTRIBUTOR_15_ID, 'Actor');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_6_ID, @CONTRIBUTOR_16_ID, 'Actor');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_6_ID, @CONTRIBUTOR_17_ID, 'Actor');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_6_ID, @CONTRIBUTOR_18_ID, 'Actor');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_4_ID, @CONTRIBUTOR_19_ID, 'Director');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_5_ID, @CONTRIBUTOR_20_ID, 'Director');
+INSERT INTO [dbo].[FilmsContributors] ([FilmId], [ContributorId], [Role]) 
+	VALUES ( @FILM_6_ID, @CONTRIBUTOR_21_ID, 'Director');
 
 
 --GO
@@ -404,6 +525,16 @@ INSERT INTO [dbo].[FilmsGenres] ([FilmId], [GenreId])
 	VALUES ( @FILM_3_ID, @GENRE_3_ID);
 INSERT INTO [dbo].[FilmsGenres] ([FilmId], [GenreId]) 
 	VALUES ( @FILM_3_ID, @GENRE_5_ID);
+INSERT INTO [dbo].[FilmsGenres] ([FilmId], [GenreId]) 
+	VALUES ( @FILM_4_ID, @GENRE_8_ID);
+INSERT INTO [dbo].[FilmsGenres] ([FilmId], [GenreId]) 
+	VALUES ( @FILM_5_ID, @GENRE_6_ID);
+INSERT INTO [dbo].[FilmsGenres] ([FilmId], [GenreId]) 
+	VALUES ( @FILM_5_ID, @GENRE_20_ID);
+INSERT INTO [dbo].[FilmsGenres] ([FilmId], [GenreId]) 
+	VALUES ( @FILM_6_ID, @GENRE_10_ID);
+INSERT INTO [dbo].[FilmsGenres] ([FilmId], [GenreId]) 
+	VALUES ( @FILM_6_ID, @GENRE_17_ID);
 
 
 
@@ -435,6 +566,24 @@ INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [Cos
 	VALUES ( @CINEMA_1_SCREEN_2_ID, @FILM_3_ID, '20170320 03:45:00 PM', '20170320 05:55:00 PM', 9.4);
 INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
 	VALUES ( @CINEMA_1_SCREEN_3_ID, @FILM_3_ID, '20170320 01:55:00 PM', '20170320 04:05:00 PM', 8.25);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_1_SCREEN_1_ID, @FILM_4_ID, '20170320 11:45:00 AM', '20170320 01:55:00 PM', 9.7);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_1_SCREEN_2_ID, @FILM_4_ID, '20170320 12:45:00 PM', '20170320 02:55:00 PM', 9.4);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_1_SCREEN_3_ID, @FILM_4_ID, '20170320 10:55:00 AM', '20170320 01:05:00 PM', 8.25);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_1_SCREEN_1_ID, @FILM_5_ID, '20170321 09:35:00 PM', '20170321 11:55:00 PM', 9.7);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_1_SCREEN_2_ID, @FILM_5_ID, '20170320 09:45:00 AM', '20170320 11:55:00 AM', 9.4);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_1_SCREEN_3_ID, @FILM_5_ID, '20170321 09:25:00 PM', '20170321 11:45:00 PM', 8.25);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_1_SCREEN_1_ID, @FILM_6_ID, '20170321 06:35:00 PM', '20170321 08:55:00 PM', 9.7);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_1_SCREEN_2_ID, @FILM_6_ID, '20170321 09:15:00 PM', '20170321 11:35:00 PM', 9.4);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_1_SCREEN_3_ID, @FILM_6_ID, '20170321 06:25:00 PM', '20170321 08:45:00 PM', 8.25);
 
 
 --CINEMA TWO SHOWINGS----
@@ -459,6 +608,24 @@ INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [Cos
 	VALUES ( @CINEMA_2_SCREEN_2_ID, @FILM_1_ID, '20170320 03:35:00 PM', '20170320 05:25:00 PM', 12.05);
 INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
 	VALUES ( @CINEMA_2_SCREEN_3_ID, @FILM_1_ID, '20170320 01:50:00 PM', '20170320 04:00:00 PM', 9.55);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_2_SCREEN_1_ID, @FILM_6_ID, '20170320 11:35:00 AM', '20170320 01:25:00 PM', 11.05);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_2_SCREEN_2_ID, @FILM_6_ID, '20170320 12:35:00 PM', '20170320 02:45:00 PM', 12.05);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_2_SCREEN_3_ID, @FILM_6_ID, '20170320 10:50:00 AM', '20170320 01:00:00 PM', 9.55);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_2_SCREEN_1_ID, @FILM_5_ID, '20170321 09:10:00 PM', '20170321 11:30:00 PM', 11.05);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_2_SCREEN_2_ID, @FILM_5_ID, '20170320 09:35:00 AM', '20170320 11:25:00 AM', 12.05);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_2_SCREEN_3_ID, @FILM_5_ID, '20170321 09:05:00 PM', '20170321 11:25:00 PM', 9.55);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_2_SCREEN_1_ID, @FILM_4_ID, '20170321 06:10:00 PM', '20170321 08:30:00 PM', 11.05);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_2_SCREEN_2_ID, @FILM_4_ID, '20170321 09:35:00 PM', '20170321 11:55:00 PM', 12.05);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_2_SCREEN_3_ID, @FILM_4_ID, '20170321 06:05:00 PM', '20170321 08:25:00 PM', 9.55);
 
 
 --CINEMA THREE SHOWINGS----
@@ -483,6 +650,24 @@ INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [Cos
 	VALUES ( @CINEMA_3_SCREEN_2_ID, @FILM_1_ID, '20170320 03:25:00 PM', '20170320 05:35:00 PM', 9.65);
 INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
 	VALUES ( @CINEMA_3_SCREEN_3_ID, @FILM_1_ID, '20170320 01:45:00 PM', '20170320 03:55:00 PM', 10.80);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_3_SCREEN_1_ID, @FILM_5_ID, '20170320 11:25:00 AM', '20170320 01:35:00 PM', 8.45);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_3_SCREEN_2_ID, @FILM_5_ID, '20170320 12:25:00 PM', '20170320 02:35:00 PM', 9.65);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_3_SCREEN_3_ID, @FILM_5_ID, '20170320 10:45:00 AM', '20170320 12:55:00 PM', 10.80);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_3_SCREEN_1_ID, @FILM_6_ID, '20170321 09:20:00 PM', '20170321 11:40:00 PM', 8.45);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_3_SCREEN_2_ID, @FILM_6_ID, '20170320 09:25:00 AM', '20170320 11:35:00 AM', 9.65);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_3_SCREEN_3_ID, @FILM_6_ID, '20170321 09:05:00 PM', '20170321 11:25:00 PM', 10.80);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_3_SCREEN_1_ID, @FILM_4_ID, '20170321 06:20:00 PM', '20170321 08:40:00 PM', 8.45);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_3_SCREEN_2_ID, @FILM_4_ID, '20170321 09:30:00 PM', '20170321 11:55:00 PM', 9.65);
+INSERT INTO [dbo].[Showings] ([ScreenId], [FilmId], [StartTime], [EndTime], [CostPerSeat]) 
+	VALUES ( @CINEMA_3_SCREEN_3_ID, @FILM_4_ID, '20170321 06:05:00 PM', '20170321 08:25:00 PM', 10.80);
 
 
 

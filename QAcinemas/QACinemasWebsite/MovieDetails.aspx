@@ -8,7 +8,7 @@
     <div class="container-fluid">
 	    <div class="row">
 		    <div class="col-md-12">
-			    <div class="carousel slide" id="carousel-FilmSmallImg">
+			    <div class="carousel slide" id="carousel-FilmSmallImg" data-ride="carousel">
 
 				    <ol class="carousel-indicators">
 					    <li class="active" data-slide-to="0" data-target="#carousel-FilmSmallImg"></li>
@@ -19,7 +19,7 @@
 
 				    <div class="carousel-inner" style="height:250px">
           <%
-              long retrievedFilmId = 2; //**    need to be dynamic -- pulled as a request variable      **//
+              long retrievedFilmId = 1; //**    need to be dynamic -- pulled as a request variable      **//
 
               List<String> FilmSmallImages = ListOfFilmSmallImages(retrievedFilmId);
 

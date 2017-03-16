@@ -11,7 +11,7 @@ namespace QACinemasWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            long retrievedFilmId = 2; //**    need to be dynamic -- pulled as a request variable      **//
+            long retrievedFilmId = 1; //**    need to be dynamic -- pulled as a request variable      **//
 
             //retrievedFilmId = long.Parse(Request["FilmId"].ToString());
 
