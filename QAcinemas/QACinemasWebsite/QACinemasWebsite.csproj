@@ -153,16 +153,41 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Content.css" />
+    <Content Include="DiscussionBoard\Discussion.aspx" />
+    <Content Include="DiscussionBoard\Home.aspx" />
     <Content Include="Error\404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ForgotPass.aspx" />
-    <Content Include="Home.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="Images\Classifications\12Alarge.png" />
     <Content Include="Images\Classifications\12large.png" />
     <Content Include="Images\Classifications\15large.png" />
     <Content Include="Images\Classifications\18large.png" />
     <Content Include="Images\Classifications\PGlarge.png" />
     <Content Include="Images\Classifications\Ularge.png" />
+    <Content Include="Images\Films\HP.jpg" />
+    <Content Include="Images\Films\LegoBatmanlarge.jpg" />
+    <Content Include="Images\Films\LegoBatmansmall1.jpg" />
+    <Content Include="Images\Films\LegoBatmansmall2.jpg" />
+    <Content Include="Images\Films\LegoBatmansmall3.jpg" />
+    <Content Include="Images\Films\LegoBatmansmall4.jpg" />
+    <Content Include="Images\Films\Loganlarge.jpg" />
+    <Content Include="Images\Films\Logansmall1.jpg" />
+    <Content Include="Images\Films\Logansmall2.jpg" />
+    <Content Include="Images\Films\Logansmall3.jpg" />
+    <Content Include="Images\Films\Logansmall4.jpg" />
+    <Content Include="Images\Films\Moonlightlarge.png" />
+    <Content Include="Images\Films\Moonlightsmall1.jpg" />
+    <Content Include="Images\Films\Moonlightsmall2.jpg" />
+    <Content Include="Images\Films\Moonlightsmall3.jpg" />
+    <Content Include="Images\Films\Moonlightsmall4.jpg" />
+    <Content Include="Images\Logo\sloth.1024x1024.png" />
+    <Content Include="Images\Logo\sloth.128x128.png" />
+    <Content Include="Images\Logo\sloth.256x256.png" />
+    <Content Include="Images\Logo\sloth.32x32.png" />
+    <Content Include="Images\Logo\sloth.5096x5096.png" />
+    <Content Include="Images\Logo\sloth.64x64.png" />
+    <Content Include="Images\Logo\sloth.svg" />
     <Content Include="LogIn.aspx" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -279,12 +304,26 @@
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
+    <Compile Include="DiscussionBoard\Discussion.aspx.cs">
+      <DependentUpon>Discussion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DiscussionBoard\Discussion.aspx.designer.cs">
+      <DependentUpon>Discussion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DiscussionBoard\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
+    <Compile Include="DiscussionBoard\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="MovieListingGallarey.aspx.cs">
       <DependentUpon>MovieListingGallarey.aspx</DependentUpon>
