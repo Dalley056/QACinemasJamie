@@ -15,7 +15,8 @@ namespace QACinemasWebsite
             // get name? user id? adddress?
             Session["Cinema"] = "Salford";
             Session["Movie"] = "Logan";
-            Session["ShowingDateTime"] = "2007-05-08 12:35:29.123";
+            Session["ShowingDateTime2"] = "2007-05-08 12:35:29.123";
+                                          //21 / 06 / 2016 09:00:00
             Session["BookingID"] = "3";
             //Session["ShowingID"] = ;
             //Session["SeatPrice"] = ;
@@ -25,12 +26,28 @@ namespace QACinemasWebsite
             //Session 
             // costs?
 
-            Response.Write(Session["Cinema"].ToString() + Session["Movie"].ToString() + Session["ShowingDateTime"].ToString() + Session["BookingID"].ToString());
-            Response.Write(Session["SelectedCinemaID"].ToString() + Session["SelectedMovieID"].ToString() + Session["ScreenType"].ToString() );
+            Response.Write(Session["Cinema"].ToString() + Session["Movie"].ToString() + "time " + Session["ShowingDateTime2"].ToString() + "booking id " + Session["BookingID"].ToString());
+            Response.Write("</br>");
 
-            int year = Int32.Parse(Session["ShowingDateTime"].ToString().Substring(2, 2));
+
+            //Response.Write(Session["SelectedCinemaID"].ToString() + Session["SelectedMovieID"].ToString() + Session["ShowingDateTime2"].ToString() + Session["ScreenType"].ToString() + Session["ShowingID"].ToString() + Session["SeatPrice"].ToString() + Session["NoSeats"].ToString());
+
+            //Response.Write(Session["ShowingDateTime"].ToString() + Session["ScreenType"].ToString() + Session["ShowingID"].ToString());
+            Response.Write(Session["SeatPrice"].ToString());
+            //Response.Write(Session["NoSeats"].ToString());
+            string[] seat2 = Session["Seats"] as string[];
+            Response.Write("</br>");
+            Response.Write(seat2[0]);
+
+
+            //int year = Int32.Parse(Session["ShowingDateTime2"].ToString().Substring(2, 2));
+            //int month = Int32.Parse(Session["ShowingDateTime2"].ToString().Substring(5, 2));
+            //int day = Int32.Parse(Session["ShowingDateTime2"].ToString().Substring(8, 2));
+
+            int year = Int32.Parse(Session["ShowingDateTime"].ToString().Substring(12, 2));
             int month = Int32.Parse(Session["ShowingDateTime"].ToString().Substring(5, 2));
-            int day = Int32.Parse(Session["ShowingDateTime"].ToString().Substring(8, 2));
+            int day = Int32.Parse(Session["ShowingDateTime"].ToString().Substring(0, 2));
+
             //Response.Write("Year is  " + year);
             //Response.Write("<br/>");
             //Response.Write("Month is  " + month);
@@ -57,10 +74,12 @@ namespace QACinemasWebsite
 
             //TextArea1.Value = "\nShowing of: " + Session["Movie"] + " at " + Session["Cinema"] + 
             TextArea1.Value = "\nShowing of: " + movieData[0].Title + " at " + cinemaData[0].Name +
-                " Cinema \n \n" + "on " + day + "/"+month + "/" + year + " at: " + Session["ShowingDateTime"].ToString().Substring(11, 5) + 
+                //" Cinema \n \n" + "on " + day + "/"+month + "/" + year + " at: " + Session["ShowingDateTime2"].ToString().Substring(11, 5) + 
+                " Cinema \n \n" + "on " + day + "/" + month + "/" + year + " at: " + Session["ShowingDateTime"].ToString().Substring(15, 5) +
                 "\n \nYour seats are \nseat1 \nseat2 \nseat3" + 
-                "\n \nYour confirmation ID is :" + cinemaData[0].Name.ToString().Substring(0, 2).ToUpper() + 
-                Session["ShowingDateTime"].ToString().Substring(2, 2) + movieData[0].Title.ToString().Substring(0, 2).ToUpper() +  
+                "\n \nYour confirmation ID is :" + cinemaData[0].Name.ToString().Substring(0, 2).ToUpper() +
+                //Session["ShowingDateTime2"].ToString().Substring(2, 2) + movieData[0].Title.ToString().Substring(0, 2).ToUpper() +  
+                Session["ShowingDateTime"].ToString().Substring(12, 2) + movieData[0].Title.ToString().Substring(0, 2).ToUpper() +
                 Session["BookingID"] + " \n \nYour total is:  ";
             // Replace with session objects
 

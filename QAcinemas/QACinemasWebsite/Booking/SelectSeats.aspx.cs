@@ -11,10 +11,11 @@ namespace QACinemasWebsite.Booking
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Then use the cinema id and film id retrieved to display that info too
-            Session["ShowingID"] = Request["sID"];
-            //Session["SeatPrice"] = string.Format("{0:C}", Convert.ToDecimal(Request["price"]));
-            Session["SeatPrice"] = Request["price"];
+            //if ()
+            //{
+                Session["ShowingID"] = Request["sID"];
+                Session["SeatPrice"] = Request["price"];
+            //}
 
             DataSetTableAdapters.ShowingsTableAdapter showingsAdapter = new DataSetTableAdapters.ShowingsTableAdapter();
             //DataSet.ShowingsDataTable showingsData = showingsAdapter.GetShowingsByCinemaId(Session["ShowingID"].ToString());
@@ -39,7 +40,7 @@ namespace QACinemasWebsite.Booking
 
             Session["ShowingDateTime"] = showingsData[0].StartTime;
             lblFilmStuff.Text = "Booking for the " + showingsData[0].StartTime.ToString("H:mm") + " showing of " + fData[0].Title + " in a " + Session["ScreenType"] + " screen on " + showingsData[0].StartTime.ToString("yyyy'-'MM'-'dd");
-            lblFilmStuff.Text += " " + Session["SeatPrice"];
+            //lblFilmStuff.Text = Session["ShowingDateTime"].ToString();
         }
 
         protected void dlstNoSeats_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,7 +58,8 @@ namespace QACinemasWebsite.Booking
             }
             Session["Seats"] = seats;
             //string[] seat2 = Session["Seats"] as string[];
-            Response.Redirect("PaypalPlaceholder.aspx");
+            Session["SeatPrice"] = Request["price"];
+            Response.Redirect("PaymentConfirmation.aspx");
         }
     }
 }

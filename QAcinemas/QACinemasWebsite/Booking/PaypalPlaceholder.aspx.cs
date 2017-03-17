@@ -11,7 +11,7 @@ namespace QACinemasWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Write(Session["SeatPrice"].ToString());
         }
 
         protected void Confirm_Click(object sender, EventArgs e)
