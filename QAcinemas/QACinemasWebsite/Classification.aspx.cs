@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace QACinemasWebsite
 {
-    public partial class Classification : System.Web.UI.Page
+    public partial class Classifications : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

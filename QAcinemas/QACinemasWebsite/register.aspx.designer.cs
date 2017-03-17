@@ -13,6 +13,33 @@ namespace QACinemasWebsite {
     public partial class register {
         
         /// <summary>
+        /// alertcomponent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertcomponent;
+        
+        /// <summary>
+        /// alertheader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertheader;
+        
+        /// <summary>
+        /// alertbody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertbody;
+        
+        /// <summary>
         /// textBoxFirstN control.
         /// </summary>
         /// <remarks>
@@ -58,13 +85,13 @@ namespace QACinemasWebsite {
         protected global::System.Web.UI.WebControls.TextBox textBoxPassword;
         
         /// <summary>
-        /// textBoxRePassword control.
+        /// inputPasswordConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBoxRePassword;
+        protected global::System.Web.UI.WebControls.TextBox inputPasswordConfirm;
         
         /// <summary>
         /// textBoxPhonNo control.
@@ -103,6 +130,15 @@ namespace QACinemasWebsite {
         protected global::System.Web.UI.WebControls.TextBox textBoxALine2;
         
         /// <summary>
+        /// textBoxACity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textBoxACity;
+        
+        /// <summary>
         /// textBoxARegion control.
         /// </summary>
         /// <remarks>
@@ -119,15 +155,6 @@ namespace QACinemasWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textBoxACountry;
-        
-        /// <summary>
-        /// DropDownCountry control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownCountry;
         
         /// <summary>
         /// textBoxRegister control.

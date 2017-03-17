@@ -1,6 +1,5 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Members.master.cs" Inherits="QACinemasWebsite.Members" %>
 
-<!--MEMBERS ONLY MASTER-->
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <asp:ContentPlaceHolder ID="membershead" runat="server">
     </asp:ContentPlaceHolder>

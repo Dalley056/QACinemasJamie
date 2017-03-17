@@ -1,6 +1,2 @@
 language: csharp
-solution: QACinemas.sln
-script:
-  - ./build.sh
-  - ./test.sh
-  - grep "Test Results" build.log
+solution: QAcinemas/QAcinemas.sln

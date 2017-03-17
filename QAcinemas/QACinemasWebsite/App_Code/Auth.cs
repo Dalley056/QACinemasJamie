@@ -8,13 +8,24 @@ using System.Text;
 
 namespace QACinemasWebsite.App_Code
 {
+    /// <summary>
+    /// QACinemasWebsite authentication operations class
+    /// </summary>
     public static class Auth
     {
+        /// <summary>
+        /// Authentication data storage object
+        /// </summary>
         public class AuthData
         {
-            string Hash;
-            string Salt;
+            public string Hash;
+            public string Salt;
 
+            /// <summary>
+            /// Object to store a generated hash and salt string
+            /// </summary>
+            /// <param name="hash">hash string</param>
+            /// <param name="salt">salt string</param>
             public AuthData(string hash = null, string salt = null)
             {
                 Hash = hash;
@@ -58,26 +69,49 @@ namespace QACinemasWebsite.App_Code
             return hash;
         }
 
+        /// <summary>
+        /// Verifies if a username and password are valid users
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>boolean result</returns>
         public static Boolean VerifyUsernamePassword(string username, string password)
         {
             DataSetTableAdapters.UsersTableAdapter usertableadapter = new DataSetTableAdapters.UsersTableAdapter();     
-            DataSet.UsersDataTable data = usertableadapter.GetUserByUsername(username, true);                       //Get user with matching username
+            DataSet.UsersDataTable data = usertableadapter.GetUserByUsername(username, true);                //Get user with matching username
 
-            if (data != null && data.Count!=0)                                                                                       //check if user exists
+            if (data != null && data.Count!=0)                                                               //check if user exists
             {
-                DataSet.UsersRow user = data[0];                                                                    //get the userrow from the dataset              
+                DataSet.UsersRow user = data[0];                                                             //get the userrow from the dataset              
                 string input_hash = HashSaltPassword(password, user.PasswordSalt.ToString());                //input password gets hashed using the known salt
-                if (input_hash == user.PasswordHash.ToString().Trim()) return true;                                 //if existing hash and generated hash match, user is verified!
+                if (input_hash == user.PasswordHash.ToString().Trim()) return true;                          //if existing hash and generated hash match, user is verified!
             }
-            return false;                                                                                           //for all other cases verification fails
+            return false;                                                                                    //for all other cases verification fails
         }
 
-        public static AuthData PasswordToHashSalt(string password)
+
+        /// <summary>
+        /// Generates a hash and salt for an input string using HMACSHA256
+        /// </summary>
+        /// <param name="input">input string to be converted</param>
+        /// <returns>AuthData object containing hash and salt string</returns>
+        public static AuthData StringToHashSalt(string input)
         {
             string salt = Convert.ToBase64String(GenerateSalt());
-            string hash = HashSaltPassword(password, salt);
+            string hash = HashSaltPassword(input, salt);
 
             return new AuthData(hash, salt);
+        }
+
+
+        /// <summary>
+        /// Generates a random string of characters using a cryptographic random number generator
+        /// </summary>
+        /// <param name="length">Length of string to be returned</param>
+        /// <returns>Random string</returns>
+        public static string GenerateRandomString(int length = 10)
+        {
+            return Convert.ToBase64String(GenerateSalt(length * 8)); //GenerateSalt already uses a relatively secure RNG, so use that
         }
     }
 }
