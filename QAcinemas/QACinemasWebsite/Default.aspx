@@ -28,6 +28,7 @@ new(function(){});var d={Ic:function(a){return a},Rd:function(a){return-a*(a-2)}
 <img data-u="image" src="Images/slider/003.jpg" />
 <div style="position:absolute;top:14px;left:118px;width:400px;height:30px;z-index:0;font-size:20px;color:#000000;line-height:30px;text-align:center;">flying and stuff - coming soon</div>
 </div>
+    <% sliderFill(); %>
 <div>
 <img data-u="image" src="Images/slider/004.jpg" />
 </div>
