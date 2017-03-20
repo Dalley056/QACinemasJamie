@@ -20,7 +20,7 @@ new(function(){});var d={Ic:function(a){return a},Rd:function(a){return-a*(a-2)}
 <div style="position:absolute;display:block;background:url('Images/slider/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
 </div>
 <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1000px;height:300px;overflow:hidden;">
-<img data-u="add" title="Jssor Slider" style="display:block;position:absolute;top:0;right:0;width:16px;height:16px;z-index:1000;" src="Images/slider/icon-16.png" />
+<img data-u="add" title="Jssor Slider" style="display:block;position:absolute;top:0;right:0;width:32px;height:32px;z-index:1000;" src="Images/Logo/sloth.32x32.png" />
 <div data-p="180.0">
 <img data-u="image" src="Images/slider/002.jpg" />
 </div>
@@ -28,13 +28,13 @@ new(function(){});var d={Ic:function(a){return a},Rd:function(a){return-a*(a-2)}
 <img data-u="image" src="Images/slider/003.jpg" />
 <div style="position:absolute;top:14px;left:118px;width:400px;height:30px;z-index:0;font-size:20px;color:#000000;line-height:30px;text-align:center;">flying and stuff - coming soon</div>
 </div>
-<a data-u="any" href="http://www.jssor.com/abelgg/first/cheesy.slider" style="display:none">Latest movies</a>
 <div>
 <img data-u="image" src="Images/slider/004.jpg" />
 </div>
 <div>
 <img data-u="image" src="Images/slider/005.jpg" />
-<div style="position:absolute;top:163px;left:-4px;width:300px;height:30px;z-index:0;font-size:20px;color:#fbfbfb;line-height:30px;text-align:center;">Marlin: "So, Mr. Turtle?"
+<div style="position:absolute;top:163px;left:-4px;width:600px;height:30px;z-index:0;font-size:20px;color:#fbfbfb;line-height:30px;text-align:center;">
+Marlin: "So, Mr. Turtle?" <br />
 Crush: "Whoa, dude. Mister Turtle is my father. The name's Crush." <br />
 Marlin: "Crush, really?"
 </div>

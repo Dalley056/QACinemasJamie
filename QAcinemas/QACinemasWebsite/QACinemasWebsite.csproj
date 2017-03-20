@@ -188,6 +188,16 @@
     <Content Include="Images\Logo\sloth.5096x5096.png" />
     <Content Include="Images\Logo\sloth.64x64.png" />
     <Content Include="Images\Logo\sloth.svg" />
+    <Content Include="Images\slider\002.jpg" />
+    <Content Include="Images\slider\003.jpg" />
+    <Content Include="Images\slider\004.jpg" />
+    <Content Include="Images\slider\005.jpg" />
+    <Content Include="Images\slider\006.jpg" />
+    <Content Include="Images\slider\007.jpg" />
+    <Content Include="Images\slider\008.jpg" />
+    <Content Include="Images\slider\009.jpg" />
+    <Content Include="Images\slider\a13.png" />
+    <Content Include="Images\slider\loading.gif" />
     <Content Include="LogIn.aspx" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
