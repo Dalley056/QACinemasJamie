@@ -7595,13 +7595,19 @@ namespace QACinemasWebsite {
             
             private global::System.Data.DataColumn columnImgSmall;
             
-            private global::System.Data.DataColumn columnImgLarge;
-            
             private global::System.Data.DataColumn columnReleaseDate;
             
             private global::System.Data.DataColumn columnActive;
             
             private global::System.Data.DataColumn columnDateAdded;
+            
+            private global::System.Data.DataColumn columnImgLarge1;
+            
+            private global::System.Data.DataColumn columnImgLarge2;
+            
+            private global::System.Data.DataColumn columnImgLarge3;
+            
+            private global::System.Data.DataColumn columnImgLarge4;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -7710,14 +7716,6 @@ namespace QACinemasWebsite {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ImgLargeColumn {
-                get {
-                    return this.columnImgLarge;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn ReleaseDateColumn {
                 get {
                     return this.columnReleaseDate;
@@ -7737,6 +7735,38 @@ namespace QACinemasWebsite {
             public global::System.Data.DataColumn DateAddedColumn {
                 get {
                     return this.columnDateAdded;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImgLarge1Column {
+                get {
+                    return this.columnImgLarge1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImgLarge2Column {
+                get {
+                    return this.columnImgLarge2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImgLarge3Column {
+                get {
+                    return this.columnImgLarge3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImgLarge4Column {
+                get {
+                    return this.columnImgLarge4;
                 }
             }
             
@@ -7777,7 +7807,7 @@ namespace QACinemasWebsite {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FilmsRow AddFilmsRow(ClassificationsRow parentClassificationsRowByFK_Films_Classifications, string Title, string Description, int Duration, string Language, string ImdbId, bool Featured, string ImgSmall, string ImgLarge, System.DateTime ReleaseDate, bool Active, System.DateTime DateAdded) {
+            public FilmsRow AddFilmsRow(ClassificationsRow parentClassificationsRowByFK_Films_Classifications, string Title, string Description, int Duration, string Language, string ImdbId, bool Featured, string ImgSmall, System.DateTime ReleaseDate, bool Active, System.DateTime DateAdded, string ImgLarge1, string ImgLarge2, string ImgLarge3, string ImgLarge4) {
                 FilmsRow rowFilmsRow = ((FilmsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7789,10 +7819,13 @@ namespace QACinemasWebsite {
                         ImdbId,
                         Featured,
                         ImgSmall,
-                        ImgLarge,
                         ReleaseDate,
                         Active,
-                        DateAdded};
+                        DateAdded,
+                        ImgLarge1,
+                        ImgLarge2,
+                        ImgLarge3,
+                        ImgLarge4};
                 if ((parentClassificationsRowByFK_Films_Classifications != null)) {
                     columnValuesArray[1] = parentClassificationsRowByFK_Films_Classifications[0];
                 }
@@ -7834,10 +7867,13 @@ namespace QACinemasWebsite {
                 this.columnImdbId = base.Columns["ImdbId"];
                 this.columnFeatured = base.Columns["Featured"];
                 this.columnImgSmall = base.Columns["ImgSmall"];
-                this.columnImgLarge = base.Columns["ImgLarge"];
                 this.columnReleaseDate = base.Columns["ReleaseDate"];
                 this.columnActive = base.Columns["Active"];
                 this.columnDateAdded = base.Columns["DateAdded"];
+                this.columnImgLarge1 = base.Columns["ImgLarge1"];
+                this.columnImgLarge2 = base.Columns["ImgLarge2"];
+                this.columnImgLarge3 = base.Columns["ImgLarge3"];
+                this.columnImgLarge4 = base.Columns["ImgLarge4"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7861,14 +7897,20 @@ namespace QACinemasWebsite {
                 base.Columns.Add(this.columnFeatured);
                 this.columnImgSmall = new global::System.Data.DataColumn("ImgSmall", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImgSmall);
-                this.columnImgLarge = new global::System.Data.DataColumn("ImgLarge", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnImgLarge);
                 this.columnReleaseDate = new global::System.Data.DataColumn("ReleaseDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReleaseDate);
                 this.columnActive = new global::System.Data.DataColumn("Active", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnActive);
                 this.columnDateAdded = new global::System.Data.DataColumn("DateAdded", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDateAdded);
+                this.columnImgLarge1 = new global::System.Data.DataColumn("ImgLarge1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImgLarge1);
+                this.columnImgLarge2 = new global::System.Data.DataColumn("ImgLarge2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImgLarge2);
+                this.columnImgLarge3 = new global::System.Data.DataColumn("ImgLarge3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImgLarge3);
+                this.columnImgLarge4 = new global::System.Data.DataColumn("ImgLarge4", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImgLarge4);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -7890,11 +7932,13 @@ namespace QACinemasWebsite {
                 this.columnFeatured.AllowDBNull = false;
                 this.columnImgSmall.AllowDBNull = false;
                 this.columnImgSmall.MaxLength = 2147483647;
-                this.columnImgLarge.AllowDBNull = false;
-                this.columnImgLarge.MaxLength = 2147483647;
                 this.columnReleaseDate.AllowDBNull = false;
                 this.columnActive.AllowDBNull = false;
                 this.columnDateAdded.AllowDBNull = false;
+                this.columnImgLarge1.MaxLength = 2147483647;
+                this.columnImgLarge2.MaxLength = 2147483647;
+                this.columnImgLarge3.MaxLength = 2147483647;
+                this.columnImgLarge4.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10298,17 +10342,6 @@ namespace QACinemasWebsite {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ImgLarge {
-                get {
-                    return ((string)(this[this.tableFilms.ImgLargeColumn]));
-                }
-                set {
-                    this[this.tableFilms.ImgLargeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime ReleaseDate {
                 get {
                     return ((global::System.DateTime)(this[this.tableFilms.ReleaseDateColumn]));
@@ -10342,6 +10375,70 @@ namespace QACinemasWebsite {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ImgLarge1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableFilms.ImgLarge1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImgLarge1\' in table \'Films\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFilms.ImgLarge1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ImgLarge2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableFilms.ImgLarge2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImgLarge2\' in table \'Films\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFilms.ImgLarge2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ImgLarge3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableFilms.ImgLarge3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImgLarge3\' in table \'Films\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFilms.ImgLarge3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ImgLarge4 {
+                get {
+                    try {
+                        return ((string)(this[this.tableFilms.ImgLarge4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImgLarge4\' in table \'Films\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFilms.ImgLarge4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClassificationsRow ClassificationsRow {
                 get {
                     return ((ClassificationsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Films_Classifications"])));
@@ -10349,6 +10446,54 @@ namespace QACinemasWebsite {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Films_Classifications"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImgLarge1Null() {
+                return this.IsNull(this.tableFilms.ImgLarge1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImgLarge1Null() {
+                this[this.tableFilms.ImgLarge1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImgLarge2Null() {
+                return this.IsNull(this.tableFilms.ImgLarge2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImgLarge2Null() {
+                this[this.tableFilms.ImgLarge2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImgLarge3Null() {
+                return this.IsNull(this.tableFilms.ImgLarge3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImgLarge3Null() {
+                this[this.tableFilms.ImgLarge3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImgLarge4Null() {
+                return this.IsNull(this.tableFilms.ImgLarge4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImgLarge4Null() {
+                this[this.tableFilms.ImgLarge4Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18734,48 +18879,57 @@ WHERE        (Cinemas.Id = @cinema_id) AND (Cinemas.Active = @Active)";
             tableMapping.ColumnMappings.Add("ImdbId", "ImdbId");
             tableMapping.ColumnMappings.Add("Featured", "Featured");
             tableMapping.ColumnMappings.Add("ImgSmall", "ImgSmall");
-            tableMapping.ColumnMappings.Add("ImgLarge", "ImgLarge");
             tableMapping.ColumnMappings.Add("ReleaseDate", "ReleaseDate");
             tableMapping.ColumnMappings.Add("Active", "Active");
             tableMapping.ColumnMappings.Add("DateAdded", "DateAdded");
+            tableMapping.ColumnMappings.Add("ImgLarge1", "ImgLarge1");
+            tableMapping.ColumnMappings.Add("ImgLarge2", "ImgLarge2");
+            tableMapping.ColumnMappings.Add("ImgLarge3", "ImgLarge3");
+            tableMapping.ColumnMappings.Add("ImgLarge4", "ImgLarge4");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Films] WHERE (([Id] = @Original_Id))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Films] WHERE (([Id] = @Original_Id))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ImgLarge], [ReleaseDate], [Active], [DateAdded]) VALUES (@ClassificationId, @Title, @Description, @Duration, @Language, @ImdbId, @Featured, @ImgSmall, @ImgLarge, @ReleaseDate, @Active, @DateAdded)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Films] ([ClassificationId], [Title], [Description], [Duration], [Language], [ImdbId], [Featured], [ImgSmall], [ReleaseDate], [Active], [DateAdded], [ImgLarge1], [ImgLarge2], [ImgLarge3], [ImgLarge4]) VALUES (@ClassificationId, @Title, @Description, @Duration, @Language, @ImdbId, @Featured, @ImgSmall, @ReleaseDate, @Active, @DateAdded, @ImgLarge1, @ImgLarge2, @ImgLarge3, @ImgLarge4)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClassificationId", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClassificationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Duration", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Duration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Language", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Language", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImdbId", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImdbId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImdbId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImdbId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Featured", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Featured", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgSmall", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgSmall", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgLarge", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgLarge", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReleaseDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReleaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateAdded", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateAdded", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgLarge1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgLarge1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgLarge2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgLarge2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgLarge3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgLarge3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgLarge4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgLarge4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Films] SET [ClassificationId] = @ClassificationId, [Title] = @Title, [Description] = @Description, [Duration] = @Duration, [Language] = @Language, [ImdbId] = @ImdbId, [Featured] = @Featured, [ImgSmall] = @ImgSmall, [ImgLarge] = @ImgLarge, [ReleaseDate] = @ReleaseDate, [Active] = @Active, [DateAdded] = @DateAdded WHERE (([Id] = @Original_Id))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Films] SET [ClassificationId] = @ClassificationId, [Title] = @Title, [Description] = @Description, [Duration] = @Duration, [Language] = @Language, [ImdbId] = @ImdbId, [Featured] = @Featured, [ImgSmall] = @ImgSmall, [ReleaseDate] = @ReleaseDate, [Active] = @Active, [DateAdded] = @DateAdded, [ImgLarge1] = @ImgLarge1, [ImgLarge2] = @ImgLarge2, [ImgLarge3] = @ImgLarge3, [ImgLarge4] = @ImgLarge4 WHERE (([Id] = @Original_Id))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClassificationId", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ClassificationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Duration", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Duration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Language", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Language", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImdbId", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImdbId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImdbId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImdbId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Featured", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Featured", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgSmall", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgSmall", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgLarge", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgLarge", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReleaseDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReleaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Active", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Active", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateAdded", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateAdded", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgLarge1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgLarge1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgLarge2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgLarge2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgLarge3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgLarge3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ImgLarge4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ImgLarge4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -18792,48 +18946,48 @@ WHERE        (Cinemas.Id = @cinema_id) AND (Cinemas.Active = @Active)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, ClassificationId, Title, Description, Duration, Language, ImdbId, Feat" +
-                "ured, ImgSmall, ImgLarge, ReleaseDate, Active, DateAdded FROM dbo.Films";
+            this._commandCollection[0].CommandText = "SELECT        Id, ClassificationId, Title, Description, Duration, Language, ImdbI" +
+                "d, Featured, ImgSmall, ReleaseDate, Active, DateAdded, ImgLarge1, ImgLarge2, Img" +
+                "Large3, \r\n                         ImgLarge4\r\nFROM            Films";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        Id, ClassificationId, Title, Description, Duration, Language, ImdbI" +
-                "d, Featured, ImgSmall, ImgLarge, ReleaseDate, Active, DateAdded\r\nFROM           " +
-                " Films\r\nWHERE        (Active = 1)\r\nORDER BY Title";
+            this._commandCollection[1].CommandText = @"SELECT        Active, ClassificationId, DateAdded, Description, Duration, Featured, Id, ImdbId, ImgLarge1, ImgLarge2, ImgLarge3, ImgLarge4, ImgSmall, Language, ReleaseDate, 
+                         Title
+FROM            Films
+WHERE        (Active = 1)
+ORDER BY Title";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        Id, ClassificationId, Title, Description, Duration, Language, ImdbI" +
-                "d, Featured, ImgSmall, ImgLarge, ReleaseDate, Active, DateAdded\r\nFROM           " +
-                " Films\r\nWHERE        (Featured = 1) AND (Active = 1)";
+            this._commandCollection[2].CommandText = @"SELECT        Active, ClassificationId, DateAdded, Description, Duration, Featured, Id, ImdbId, ImgLarge1, ImgLarge2, ImgLarge3, ImgLarge4, ImgSmall, Language, ReleaseDate, 
+                         Title
+FROM            Films
+WHERE        (Featured = 1) AND (Active = 1)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT        Id, ClassificationId, Title, Description, Duration, Language, ImdbI" +
-                "d, Featured, ImgSmall, ImgLarge, ReleaseDate, Active, DateAdded\r\nFROM           " +
-                " Films\r\nWHERE        (Id = @film_id)";
+            this._commandCollection[3].CommandText = "SELECT Active, ClassificationId, DateAdded, Description, Duration, Featured, Id, " +
+                "ImdbId, ImgLarge1, ImgLarge2, ImgLarge3, ImgLarge4, ImgSmall, Language, ReleaseD" +
+                "ate, Title FROM Films WHERE (Id = @film_id)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@film_id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT Films.Id, Films.ClassificationId, Films.Title, Films.Description, Films.Duration, Films.Language, Films.ImdbId, Films.Featured, Films.ImgSmall, Films.ImgLarge, Films.ReleaseDate, Films.Active, Films.DateAdded
-FROM     Films INNER JOIN
-                  FilmsGenres ON Films.Id = FilmsGenres.FilmId INNER JOIN
-                  Genres ON FilmsGenres.GenreId = Genres.Id
-WHERE  (Genres.Id = @genreID)";
+            this._commandCollection[4].CommandText = @"SELECT Films.Active, Films.ClassificationId, Films.DateAdded, Films.Description, Films.Duration, Films.Featured, Films.Id, Films.ImdbId, Films.ImgLarge1, Films.ImgLarge2, Films.ImgLarge3, Films.ImgLarge4, Films.ImgSmall, Films.Language, Films.ReleaseDate, Films.Title FROM Films INNER JOIN FilmsGenres ON Films.Id = FilmsGenres.FilmId INNER JOIN Genres ON FilmsGenres.GenreId = Genres.Id WHERE (Genres.Id = @genreID)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@genreID", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT        Id, ClassificationId, Title, Description, Duration, Language, ImdbI" +
-                "d, Featured, ImgSmall, ImgLarge, ReleaseDate, Active, DateAdded\r\nFROM           " +
-                " Films\r\nWHERE        (ReleaseDate < GETDATE()) AND (Active = 1)";
+            this._commandCollection[5].CommandText = "SELECT Active, ClassificationId, DateAdded, Description, Duration, Featured, Id, " +
+                "ImdbId, ImgLarge1, ImgLarge2, ImgLarge3, ImgLarge4, ImgSmall, Language, ReleaseD" +
+                "ate, Title FROM Films WHERE (ReleaseDate < GETDATE()) AND (Active = 1)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT        Id, ClassificationId, Title, Description, Duration, Language, ImdbI" +
-                "d, Featured, ImgSmall, ImgLarge, ReleaseDate, Active, DateAdded\r\nFROM           " +
-                " Films\r\nWHERE        (ReleaseDate > GETDATE()) AND (Active = 1)";
+            this._commandCollection[6].CommandText = "SELECT Active, ClassificationId, DateAdded, Description, Duration, Featured, Id, " +
+                "ImdbId, ImgLarge1, ImgLarge2, ImgLarge3, ImgLarge4, ImgSmall, Language, ReleaseD" +
+                "ate, Title FROM Films WHERE (ReleaseDate > GETDATE()) AND (Active = 1)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
@@ -19000,7 +19154,7 @@ VALUES        (@ClassificationId,@Title,@Description,@Duration,@Language,@ImdbId
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(long ClassificationId, string Title, string Description, int Duration, string Language, string ImdbId, bool Featured, string ImgSmall, string ImgLarge, System.DateTime ReleaseDate, bool Active, System.DateTime DateAdded) {
+        public virtual int Insert(long ClassificationId, string Title, string Description, int Duration, string Language, string ImdbId, bool Featured, string ImgSmall, System.DateTime ReleaseDate, bool Active, System.DateTime DateAdded, string ImgLarge1, string ImgLarge2, string ImgLarge3, string ImgLarge4) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((long)(ClassificationId));
             if ((Title == null)) {
                 throw new global::System.ArgumentNullException("Title");
@@ -19034,15 +19188,33 @@ VALUES        (@ClassificationId,@Title,@Description,@Duration,@Language,@ImdbId
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((string)(ImgSmall));
             }
-            if ((ImgLarge == null)) {
-                throw new global::System.ArgumentNullException("ImgLarge");
+            this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(ReleaseDate));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((bool)(Active));
+            this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(DateAdded));
+            if ((ImgLarge1 == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(ImgLarge));
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(ImgLarge1));
             }
-            this.Adapter.InsertCommand.Parameters[9].Value = ((System.DateTime)(ReleaseDate));
-            this.Adapter.InsertCommand.Parameters[10].Value = ((bool)(Active));
-            this.Adapter.InsertCommand.Parameters[11].Value = ((System.DateTime)(DateAdded));
+            if ((ImgLarge2 == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(ImgLarge2));
+            }
+            if ((ImgLarge3 == null)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(ImgLarge3));
+            }
+            if ((ImgLarge4 == null)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(ImgLarge4));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -19063,7 +19235,23 @@ VALUES        (@ClassificationId,@Title,@Description,@Duration,@Language,@ImdbId
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(long ClassificationId, string Title, string Description, int Duration, string Language, string ImdbId, bool Featured, string ImgSmall, string ImgLarge, System.DateTime ReleaseDate, bool Active, System.DateTime DateAdded, long Original_Id) {
+        public virtual int Update(
+                    long ClassificationId, 
+                    string Title, 
+                    string Description, 
+                    int Duration, 
+                    string Language, 
+                    string ImdbId, 
+                    bool Featured, 
+                    string ImgSmall, 
+                    System.DateTime ReleaseDate, 
+                    bool Active, 
+                    System.DateTime DateAdded, 
+                    string ImgLarge1, 
+                    string ImgLarge2, 
+                    string ImgLarge3, 
+                    string ImgLarge4, 
+                    long Original_Id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(ClassificationId));
             if ((Title == null)) {
                 throw new global::System.ArgumentNullException("Title");
@@ -19097,16 +19285,34 @@ VALUES        (@ClassificationId,@Title,@Description,@Duration,@Language,@ImdbId
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(ImgSmall));
             }
-            if ((ImgLarge == null)) {
-                throw new global::System.ArgumentNullException("ImgLarge");
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(ReleaseDate));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(Active));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(DateAdded));
+            if ((ImgLarge1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(ImgLarge));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(ImgLarge1));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(ReleaseDate));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((bool)(Active));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(DateAdded));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((long)(Original_Id));
+            if ((ImgLarge2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(ImgLarge2));
+            }
+            if ((ImgLarge3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(ImgLarge3));
+            }
+            if ((ImgLarge4 == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(ImgLarge4));
+            }
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((long)(Original_Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
